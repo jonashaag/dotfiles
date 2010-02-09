@@ -1,0 +1,11 @@
+#alsa mute toggle
+#/home/jonas/dev/scripts/soundregler 
+#   XF86AudioMute
+
+#alsa volume up
+"/home/jonas/dev/scripts/soundregler +"
+   XF86AudioRaiseVolume
+
+#alsa volume down
+"/home/jonas/dev/scripts/soundregler -"
+   XF86AudioLowerVolume

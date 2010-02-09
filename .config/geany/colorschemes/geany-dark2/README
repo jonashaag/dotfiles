@@ -1,0 +1,67 @@
+A Dark Theme for "Geany - A fast and lightweight IDE"
+-----------------------------------------------------
+
+
+About
+-----
+Geany is a small and lightweight integrated development environment.
+It was developed to provide a small and fast IDE, which has only a
+few dependencies from other packages. Another goal was to be as independent
+as possible from a special Desktop Environment like KDE or GNOME. So it
+is using only the GTK2 toolkit and therefore you need only the
+GTK2 runtime libraries to run Geany.
+
+This extention adds a dark color theme for the following file types:
+- c: C files
+- conf: Configuration files (.conf)
+- cpp: C++ files
+- css: Cascading Style Sheet files
+- html: HTML files
+- java: Java files
+- javascript: JavaScript files
+- latex: LaTeX files
+- makefile: Make files
+- php: PHP files
+- python: Python files
+- xml: XML files
+- common: All other files
+
+Requirements
+------------
+You need to have Geany installed.
+
+Installation
+------------
+Just copy the content of the tar file to Geany's directory inside your
+home path at: /home/YourUserName/.geany/filedefs/ .
+
+Note
+-----
+Note that the filetypes.common included in this package, will have an
+effect on how other file types which are not supported by this package
+will be rendered. If this is annoying for your work, simply delete or
+rename it to something else to regain the original look of Geany for
+other files.
+
+License
+-------
+The license is the same as Geany's (GPL).
+
+Geany is distributed under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2 of the
+License, or (at your option) any later version.  A copy of this license
+can be found in the file COPYING included with the source code of this
+program.
+The included Scintilla library (found in the subdirectory scintilla/)
+has its own license, which can be found in the file scintilla/License.txt
+included with the source code of this program.
+
+
+Ideas, questions, patches and bug reports
+-----------------------------------------
+Visit http://www.eyecandycenter.com/ and drop your comments or ideas there.
+
+--
+2008 by Amir Saffari
+www.eyecandycenter.com
+admin@eyecandycenter.com

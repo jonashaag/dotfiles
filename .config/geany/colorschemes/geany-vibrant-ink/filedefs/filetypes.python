@@ -1,0 +1,63 @@
+# For complete documentation of this file, please see Geany's main documentation
+
+[styling]
+# foreground;background;bold;italic
+default=0xffffff;0x000000;false;false
+commentline=0x9933cc;0x000000;false;false
+number=0x99cc99;0x000000;false;false
+string=0x66ff00;0x000000;false;false
+character=0x66ff00;0x000000;false;false
+word=0xff6600;0x000000;true;false
+triple=0xff8000;0x000000;false;false
+tripledouble=0xffffff;0x000000;false;false
+classname=0xffffff;0x000000;false;false
+defname=0xff00ff;0x000000;false;false
+operator=0xffcc00;0x000000;false;false
+identifier=0xffffff;0x000000;false;false
+commentblock=0x9933cc;0x000000;false;false
+stringeol=0xffff00;0x000000;false;false
+word2=0xffffff;0x000000;true;false
+decorator=0x808000;0x000000;false;false
+
+[keywords]
+# all items must be in one line
+primary=and as assert break class continue def del elif else except exec finally for from global if import in is lambda not or pass print raise return try while with yield False None True
+# additional keywords, will be highlighted with style "word2"
+
+
+[settings]
+# default extension used when saving files
+#extension=py
+
+# the following characters are these which a "word" can contains, see documentation
+#wordchars=_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+
+# if only single comment char is supported like # in this file, leave comment_close blank
+comment_open=#
+comment_close=
+
+# set to false if a comment character/string should start at column 0 of a line, true uses any
+# indentation of the line, e.g. setting to true causes the following on pressing CTRL+d
+    #command_example();
+# setting to false would generate this
+#   command_example();
+# This setting works only for single line comments
+comment_use_indent=true
+
+# context action command (please see Geany's main documentation for details)
+context_action_cmd=
+
+[build_settings]
+# %f will be replaced by the complete filename
+# %e will be replaced by the filename without extension
+# (use only one of it at one time)
+compiler=python -c "import py_compile; py_compile.compile('%f')"
+run_cmd=python "%f"
+
+[build-menu]
+EX_00_LB=_Run with Python 2.6
+EX_00_CM=python "%f"
+EX_00_WD=
+EX_01_LB=_Run with Python 3
+EX_01_CM=python3 "%f"
+EX_01_WD=

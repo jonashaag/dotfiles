@@ -1,0 +1,43 @@
+README
+
+Thank you for downloading the Vibrant Ink theme for Geany. Here is some
+information about the archive file you've downloaded. If you have any
+questions/suggestions, please feel free to post them on the contribute
+wiki page at:
+
+http://code.google.com/p/geany-vibrant-ink-theme/wiki/Contribute
+
+Instructions for Installing Vibrant Ink Theme for Geany
+
+How to Install the Vibrant Ink Theme
+Note: I don't own a Mac, so feel free to contribute instructions if you'd like!
+
+Download & Extract Archive
+
+Linux: (Ubuntu)
+tar -zxvf vibrant_ink_geany.tar.gz OR unzip vibrant_ink_geany.zip
+
+Windows: (XP)
+Extract the files to vibrank_ink_geany using Extraction Wizard
+
+Mac:
+
+Installation
+
+Linux: (Ubuntu)
+Local User:
+mv vibrant_ink_geany/* ~/.config/geany/filedefs
+
+System Wide: BE SURE TO BACK UP THE EXISTING FILEDEFS IF YOU DON'T WANT TO LOSE THEM!
+sudo mv vibrant_ink_geany/* /usr/share/geany
+
+Windows: (XP)
+Copy Extracted files to...
+
+Local User:
+C:\Documents and Settings\YOURUSERNAME\Application Data\geany\filedefs
+
+System Wide: BE SURE TO BACK UP THE EXISTING FILEDEFS IF YOU DON'T WANT TO LOSE THEM!
+C:\Program Files\Geany\data
+
+Mac:
