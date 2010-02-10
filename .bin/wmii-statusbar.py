@@ -19,9 +19,11 @@ def clock():
 @register
 def memusg():
     try:
-        return 'mem: ' + re.split('\s+', get_output('free -m').split('\n')[1])[2] + 'MB'
-    except IndexError:
-        return 'no memusg'
+        table = get_output('vmstat -S M').strip('\n').split('\n')[-1]
+        free, buf, cache = map(int, re.split('\s+', table.strip(' '))[3:6])
+        return 'mem: %sM' % (free+buf+cache)
+    except (ValueError, IndexError):
+        return 'no mem usg'
 
 @register
 def cpuload():
@@ -47,19 +49,30 @@ def mocp_state():
 @register
 def battery_state():
     try:
-        return 'BAT0: ' + get_output('acpitool -b').split(':')[1].strip()
+        batstate = get_output('acpitool -b').split(':')[1].strip()
+        if 'discharging' in batstate:
+            try:
+                if float(batstate.split(' ')[1][:-1]) < 15:
+                    return 'WARNING: %s' % batstate
+            except (IndexError, ValueError, TypeError):
+                pass
+        return batstate
     except IndexError:
         return 'BAT0: not present'
 
 
 def main():
     from time import sleep
+    print "[wmii statusbar] Sleeping %s seconds..." % sys.argv[1]
     sleep(int(sys.argv[1]))
     sleeptime = int(sys.argv[2])
 
     os.system('wmiir remove /rbar/status')
 
+    print "[wmii statusbar] files:",FILES
+
     while True:
+        print "[wmii statusbar] loop."
         for index, (file, callback) in enumerate(FILES):
             os.system('echo -n "%(content)s" | wmiir create /rbar/%(i)s%(file)s' % {
                 'i' : index,
