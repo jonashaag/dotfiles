@@ -72,7 +72,6 @@ def main():
     print "[wmii statusbar] files:",FILES
 
     while True:
-        print "[wmii statusbar] loop."
         for index, (file, callback) in enumerate(FILES):
             os.system('echo -n "%(content)s" | wmiir create /rbar/%(i)s%(file)s' % {
                 'i' : index,
