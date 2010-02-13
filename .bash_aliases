@@ -10,6 +10,10 @@ alias 'i'='ipython'
 alias 'django'='python manage.py'
 alias 'clean'='find -name "*.pyc" -exec rm {} \;'
 
+# vim
+alias 'vimrc'='vim ~/.vimrc'
+
+# Commands
 alias 'untargz'='tar zxvf'
 alias 'untar'='tar xvf'
 

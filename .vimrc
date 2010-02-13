@@ -1,6 +1,9 @@
 " ----------------------------
 "       MAIN SETTINGS
 " ----------------------------
+" Deactivate vi compatibility mode
+set nocompatible
+
 " utf-8 default encoding
 set enc=utf-8
 
@@ -46,9 +49,6 @@ set pastetoggle=<F2>
 " Set backspace key behaviour
 set backspace=indent,eol,start
 
-" Deactivate vi compatibility mode
-set nocompatible
-
 " Activate syntax syncing from start
 autocmd BufEnter * :syntax sync fromstart
 
@@ -71,15 +71,13 @@ inoremap # X#
 set noerrorbells
 set vb t_vb=
 
-" Copy to Lodgeit on ^d
-map <C-d> :Lodgeit<CR>
-
 
 
 " ----------------------------
 "       LANGUAGE SUPPORT
 " ----------------------------
 " Python!
+let g:pydiction_location = '~/.vim/ftplugin/pydiction/complete-dict'
 autocmd FileType python setlocal
 \   formatoptions+=croq " c+r+o+q
 \   cinwords=if,elif,else,for,while,try,except,finally,def,class,with
@@ -123,3 +121,54 @@ let html_no_rendering=1 " disable wysiwyg rendering
 let g:closetag_default_xml=1
 autocmd FileType html,htmldjango,htmljinja,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/scripts/closetag.vim
+
+
+" ----------------------
+"       Easy vim
+" ----------------------
+" Adds some well-known shortcuts to vim. Part-wise based on mswin by
+" Bram Moolenaar <Bram@vim.org>
+
+" backspace in Visual mode deletes selection
+vnoremap <BS> d
+
+" Use CTRL-S for saving, also in Insert mode
+"     CTRL-Q for quitting
+noremap <C-S>		:w<CR>
+vnoremap <C-S>		<C-C>:w<CR>
+inoremap <C-S>		<C-O>:w<CR>
+noremap <C-Q>       :q<CR>
+vnoremap <C-Q>      <C-C>:q<CR>
+inoremap <C-Q>      <C-O>:q<CR>
+
+" CTRL-D for dd
+noremap <C-D>       dd
+inoremap <C-D>      <C-C>ddi
+" jump back to insert mode
+
+" CTRL-F for 'delete everything before the cursor in current line
+" and append everything after the cursor to the end of previous line
+
+" CTRL-Z in insert mode for undo
+inoremap <C-Z> <C-O>u
+
+" CTRL-Y in insert mode for redo
+inoremap <C-Y> <C-O><C-R>
+
+" CTRL-Tab is next tab
+noremap <C-Tab> :tabn<CR>
+inoremap <C-Tab> <C-O>:tabn<CR>
+cnoremap <C-Tab> <C-C>:tabn<CR>
+onoremap <C-Tab> <C-C>:tabn<CR>
+
+" CTRL-Tab is prev tab
+noremap <C-Tab> <C-W>:tabp<CR>
+inoremap <C-Tab> <C-O>:tabp<CR>
+cnoremap <C-Tab> <C-C>:tabp<CR>
+onoremap <C-Tab> <C-C>:tabp<CR>
+
+" CTRL-T is new tab
+noremap <C-T> :tabnew<CR>
+inoremap <C-T> <C-O>:tabnew<CR>
+cnoremap <C-T> <C-C>:tabnew<CR>
+onoremap <C-T> <C-C>:tabnew<CR>

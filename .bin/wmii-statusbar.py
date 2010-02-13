@@ -63,13 +63,7 @@ def battery_state():
 
 def main():
     from time import sleep
-    print "[wmii statusbar] Sleeping %s seconds..." % sys.argv[1]
-    sleep(int(sys.argv[1]))
-    sleeptime = int(sys.argv[2])
-
-    os.system('wmiir remove /rbar/status')
-
-    print "[wmii statusbar] files:",FILES
+    sleeptime = int(sys.argv[1])
 
     while True:
         for index, (file, callback) in enumerate(FILES):
