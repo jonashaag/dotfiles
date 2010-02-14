@@ -1,1 +1,1 @@
-ooc.vim/ooc.vim
+../from_repos/ooc.vim/ooc.vim

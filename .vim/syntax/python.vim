@@ -89,8 +89,10 @@ syn keyword pythonStatement	pass print raise
 syn keyword pythonStatement	global assert
 syn keyword pythonStatement	lambda yield
 syn keyword pythonStatement	with
-syn keyword pythonStatement	def class nextgroup=pythonFunction skipwhite
-syn match   pythonFunction	"[a-zA-Z_][a-zA-Z0-9_]*" display contained
+syn keyword pythonStatement	def nextgroup=pythonFunction skipwhite
+syn keyword pythonStatement	class nextgroup=pythonClass skipwhite
+syn match   pythonFunction  "[a-zA-Z_][a-zA-Z0-9_]*" display contained
+syn match   pythonClass     "[a-zA-Z_][a-zA-Z0-9_]*" display contained
 syn keyword pythonRepeat	for while
 syn keyword pythonConditional	if elif else
 syn keyword pythonImport	import from as
@@ -99,6 +101,8 @@ syn keyword pythonOperator	and in is not or
 
 " Decorators (new in Python 2.4)
 syn match   pythonDecorator	"@" display nextgroup=pythonFunction skipwhite
+syn match   pythonDecorator	"@" display nextgroup=pythonClass skipwhite
+" class decorators are allowed since Python 2.6
 
 " Comments
 syn match   pythonComment	"#.*$" display contains=pythonTodo,@Spell
@@ -126,8 +130,8 @@ endif
 " Strings
 syn region pythonString		start=+'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonEscape,pythonEscapeError,@Spell
 syn region pythonString		start=+"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonEscape,pythonEscapeError,@Spell
-syn region pythonString		start=+"""+ end=+"""+ keepend contains=pythonEscape,pythonEscapeError,pythonDocTest2,pythonSpaceError,@Spell
-syn region pythonString		start=+'''+ end=+'''+ keepend contains=pythonEscape,pythonEscapeError,pythonDocTest,pythonSpaceError,@Spell
+syn region pythonDocString  start=+"""+ end=+"""+ keepend contains=pythonEscape,pythonEscapeError,pythonDocTest2,pythonSpaceError,@Spell
+syn region pythonDocString  start=+'''+ end=+'''+ keepend contains=pythonEscape,pythonEscapeError,pythonDocTest,pythonSpaceError,@Spell
 
 syn match  pythonEscape		+\\[abfnrtv'"\\]+ display contained
 syn match  pythonEscape		"\\\o\o\=\o\=" display contained
@@ -137,10 +141,10 @@ syn match  pythonEscapeError	"\\x\x\=\X" display contained
 syn match  pythonEscape		"\\$"
 
 " Unicode strings
-syn region pythonUniString	start=+[uU]'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonEscape,pythonUniEscape,pythonEscapeError,pythonUniEscapeError,@Spell
-syn region pythonUniString	start=+[uU]"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonEscape,pythonUniEscape,pythonEscapeError,pythonUniEscapeError,@Spell
-syn region pythonUniString	start=+[uU]"""+ end=+"""+ keepend contains=pythonEscape,pythonUniEscape,pythonEscapeError,pythonUniEscapeError,pythonDocTest2,pythonSpaceError,@Spell
-syn region pythonUniString	start=+[uU]'''+ end=+'''+ keepend contains=pythonEscape,pythonUniEscape,pythonEscapeError,pythonUniEscapeError,pythonDocTest,pythonSpaceError,@Spell
+syn region pythonUniString	    start=+[uU]'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonEscape,pythonUniEscape,pythonEscapeError,pythonUniEscapeError,@Spell
+syn region pythonUniString	    start=+[uU]"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonEscape,pythonUniEscape,pythonEscapeError,pythonUniEscapeError,@Spell
+syn region pythonUniDocString	start=+[uU]"""+ end=+"""+ keepend contains=pythonEscape,pythonUniEscape,pythonEscapeError,pythonUniEscapeError,pythonDocTest2,pythonSpaceError,@Spell
+syn region pythonUniDocString	start=+[uU]'''+ end=+'''+ keepend contains=pythonEscape,pythonUniEscape,pythonEscapeError,pythonUniEscapeError,pythonDocTest,pythonSpaceError,@Spell
 
 syn match  pythonUniEscape	"\\u\x\{4}" display contained
 syn match  pythonUniEscapeError	"\\u\x\{,3}\X" display contained
@@ -150,18 +154,18 @@ syn match  pythonUniEscape	"\\N{[A-Z ]\+}" display contained
 syn match  pythonUniEscapeError	"\\N{[^A-Z ]\+}" display contained
 
 " Raw strings
-syn region pythonRawString	start=+[rR]'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonRawEscape,@Spell
-syn region pythonRawString	start=+[rR]"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonRawEscape,@Spell
-syn region pythonRawString	start=+[rR]"""+ end=+"""+ keepend contains=pythonDocTest2,pythonSpaceError,@Spell
-syn region pythonRawString	start=+[rR]'''+ end=+'''+ keepend contains=pythonDocTest,pythonSpaceError,@Spell
+syn region pythonRawString	    start=+[rR]'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonRawEscape,@Spell
+syn region pythonRawString	    start=+[rR]"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonRawEscape,@Spell
+syn region pythonRawDocString	start=+[rR]"""+ end=+"""+ keepend contains=pythonDocTest2,pythonSpaceError,@Spell
+syn region pythonRawDocString	start=+[rR]'''+ end=+'''+ keepend contains=pythonDocTest,pythonSpaceError,@Spell
 
 syn match pythonRawEscape	+\\['"]+ display transparent contained
 
 " Unicode raw strings
-syn region pythonUniRawString	start=+[uU][rR]'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonRawEscape,pythonUniRawEscape,pythonUniRawEscapeError,@Spell
-syn region pythonUniRawString	start=+[uU][rR]"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonRawEscape,pythonUniRawEscape,pythonUniRawEscapeError,@Spell
-syn region pythonUniRawString	start=+[uU][rR]"""+ end=+"""+ keepend contains=pythonUniRawEscape,pythonUniRawEscapeError,pythonDocTest2,pythonSpaceError,@Spell
-syn region pythonUniRawString	start=+[uU][rR]'''+ end=+'''+ keepend contains=pythonUniRawEscape,pythonUniRawEscapeError,pythonDocTest,pythonSpaceError,@Spell
+syn region pythonUniRawString   	start=+[uU][rR]'+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonRawEscape,pythonUniRawEscape,pythonUniRawEscapeError,@Spell
+syn region pythonUniRawString	    start=+[uU][rR]"+ skip=+\\\\\|\\"\|\\$+ excludenl end=+"+ end=+$+ keepend contains=pythonRawEscape,pythonUniRawEscape,pythonUniRawEscapeError,@Spell
+syn region pythonUniRawDocString	start=+[uU][rR]"""+ end=+"""+ keepend contains=pythonUniRawEscape,pythonUniRawEscapeError,pythonDocTest2,pythonSpaceError,@Spell
+syn region pythonUniRawDocString	start=+[uU][rR]'''+ end=+'''+ keepend contains=pythonUniRawEscape,pythonUniRawEscapeError,pythonDocTest,pythonSpaceError,@Spell
 
 syn match  pythonUniRawEscape		"\([^\\]\(\\\\\)*\)\@<=\\u\x\{4}" display contained
 syn match  pythonUniRawEscapeError	"\([^\\]\(\\\\\)*\)\@<=\\u\x\{,3}\X" display contained
@@ -254,6 +258,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonStatement	Statement
   HiLink pythonImport		Statement
   HiLink pythonFunction		Function
+  HiLink pythonClass        Define
   HiLink pythonConditional	Conditional
   HiLink pythonRepeat		Repeat
   HiLink pythonException	Exception
@@ -274,6 +279,11 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonUniString	String
   HiLink pythonRawString	String
   HiLink pythonUniRawString	String
+
+  HiLink pythonDocString    Comment
+  HiLink pythonUniDocString Comment
+  HiLink pythonRawDocstring Comment
+  HiLink pythonUniRawDocString Comment
 
   HiLink pythonEscape			Special
   HiLink pythonEscapeError		Error
