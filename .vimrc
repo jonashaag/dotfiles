@@ -19,6 +19,7 @@ set smartindent
 
 " Line numbers
 set number
+
 " Ruler (x, y position display)
 set ruler
 
@@ -34,9 +35,10 @@ set smartcase
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Warn at line length > 79
-highlight OverLength ctermbg=darkgrey
+highlight OverLength ctermbg=255
 match OverLength /\%81v.*/
 
+set t_Co=256
 
 
 " ----------------------------
@@ -69,7 +71,7 @@ inoremap # X#
 
 " don't bell or blink
 set noerrorbells
-set vb t_vb=
+set vb t_vb=''
 
 
 
@@ -81,6 +83,8 @@ let g:pydiction_location = '~/.vim/ftplugin/pydiction/complete-dict'
 autocmd FileType python setlocal
 \   formatoptions+=croq " c+r+o+q
 \   cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd FileType python map <F5> :w<CR>:!python "%"<CR>i
+let python_highlight_all = 1
 
 " Ruby
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
