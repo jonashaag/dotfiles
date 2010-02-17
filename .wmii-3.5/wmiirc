@@ -19,6 +19,7 @@ set -- $(echo $WMII_NORMCOLORS $WMII_FOCUSCOLORS)
 WMII_MENU="dmenu -b -fn '$WMII_FONT' -nf '$1' -nb '$2' -sf '$4' -sb '$5'"
 WMII_9MENU="wmii9menu -font '$WMII_FONT' -nf '$1' -nb '$2' -sf '$4' -sb '$5' -br '$6'"
 
+WMII_SLOW_TERM="lilyterm"
 WMII_TERM="xterm"
 WMII_FAST_TERM="SHELL=/bin/sh xterm"
 
@@ -29,12 +30,12 @@ wmiir write /colrules <<!
 
 # Tagging Rules
 wmiir write /tagrules <<!
-/thunderbird.*/ -> 8
-/firefox.*/ -> 1
-/pidgin.*/ -> ~2
+/.*Shredder.*/ -> 8
+/.*Namoroka.*/ -> 1
+/pidgin.*/ -> 3
 /xchat.*/ -> 9
-/.*/ -> ~+sel
-/.*/ -> ~+1
+/.*/ -> sel
+/.*/ -> 1
 !
 
 # Event processing
@@ -99,14 +100,14 @@ eventstuff() {
 			menulast=${do:-"$menulast"}
 		esac
 	# Key Bindings
+    Key F1
+        eval $WMII_FAST_TERM &
 	Key $MODKEY-Return
 		eval $WMII_FAST_TERM &
 	Key $MODKEY-Control-Return
-		eval $WMII_TERM &
+		eval $WMII_SLOW_TERM &
 	Key $MODKEY-Shift-Return
 		eval $WMII_TERM &
-	Key $MODKEY-Control-Shift-Return
-		eval $WMII_FAST_TERM &
 	Key $MODKEY-Control-t
 		case $(wmiir read /keys | wc -l | tr -d ' \t\n') in
 		0|1)

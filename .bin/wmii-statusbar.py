@@ -3,6 +3,9 @@ import os
 import sys
 import re
 
+sys.path.append('/home/jonas/dev/projects/libmoc/')
+import moc
+
 FILES = []
 
 def get_output(cmd):
@@ -36,13 +39,18 @@ def cpuload():
 MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s %(album)s %(currenttime)s"
 @register
 def mocp_state():
-    state = get_output('mocp -i 2>/dev/null')
-    if not state:
-        return 'no moc'
-    state = dict((lambda x, y='': (x.lower(), y))(*line.split(': ')) for line
-                 in state.strip('\n').split('\n'))
+    mocp_info = moc.get_info_dict()
+    if mocp_info is None:
+        # mocp not running
+        return 'no music on the console :('
+    if mocp_info['state'] == moc.STATE_STOPPED:
+        return 'no music on the console :( [stopped]'
+    if mocp_info['state'] == moc.STATE_PAUSED:
+        appendix = ' [paused]'
+    else:
+        appendix = ''
     try:
-        return MOCP_FORMAT_STRING % state
+        return (MOCP_FORMAT_STRING % mocp_info) + appendix
     except KeyError:
         return ''
 
