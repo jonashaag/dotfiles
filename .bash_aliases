@@ -4,6 +4,7 @@
 alias '..'='cd ..'
 alias '...'='cd ../..'
 alias '....'='cd ../../..'
+alias 'l'='ls -l'
 
 # Python stuff
 alias 'i'='ipython'

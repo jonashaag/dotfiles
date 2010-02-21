@@ -25,14 +25,15 @@ WMII_FAST_TERM="SHELL=/bin/sh xterm"
 
 # Column Rules
 wmiir write /colrules <<!
-/.*/ -> 58+42
+/.*/ -> 62+38
 !
 
 # Tagging Rules
 wmiir write /tagrules <<!
 /.*Shredder.*/ -> 8
 /.*Namoroka.*/ -> 1
-/pidgin.*/ -> 3
+/.*pidgin.*/ -> 3
+/mocp/ -> 3
 /xchat.*/ -> 9
 /.*/ -> sel
 /.*/ -> 1

@@ -3,7 +3,7 @@ import os
 import sys
 import re
 
-sys.path.append('/home/jonas/dev/projects/libmoc/')
+sys.path.append('/home/jonas/dev/projects/moc/')
 import moc
 
 FILES = []
@@ -36,7 +36,7 @@ def cpuload():
     except IndexError:
         return 'no cpuload'
 
-MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s %(album)s %(currenttime)s"
+MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s (%(album)s) %(currenttime)s"
 @register
 def mocp_state():
     mocp_info = moc.get_info_dict()

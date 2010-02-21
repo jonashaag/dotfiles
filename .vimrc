@@ -35,7 +35,7 @@ set smartcase
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Warn at line length > 79
-highlight OverLength ctermbg=255
+highlight OverLength ctermbg=240
 match OverLength /\%81v.*/
 
 set t_Co=256

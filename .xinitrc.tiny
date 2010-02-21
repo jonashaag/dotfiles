@@ -1,0 +1,2 @@
+xterm &
+exec .bin/x-session

@@ -11,3 +11,5 @@ PS1='[\u@\h \W]\$ '
 
 . ~/.bash_aliases
 . ~/.bash_functions
+
+export PYTHONPATH=$PYTHONPATH:~/dev/cream/src/libs/
