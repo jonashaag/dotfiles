@@ -1,4 +1,4 @@
-export PATH=$PATH:~/.bin
+export PATH=~/.bin:$PATH
 if [ $TERM == 'xterm' ]; then
     export TERM='xterm-256color'
 fi

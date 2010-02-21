@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -z $1 ]; then
+  XENV='orig'
+else
+  XENV=$1
+fi
+
+rm ~/.xinitrc
+ln -s ~/.xinitrc.$XENV ~/.xinitrc
+startx
