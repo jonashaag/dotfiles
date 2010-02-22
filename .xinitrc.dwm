@@ -10,6 +10,7 @@ eval $(gnome-keyring-daemon)
 export GNOME_KEYRING_PID GNOME_KEYRING_SOCKET SSH_AUTH_SOCK
 
 .bin/dwm &
+.bin/dwm-statusbar.py 1 &
 
 # Network Manager
 stalonetray &

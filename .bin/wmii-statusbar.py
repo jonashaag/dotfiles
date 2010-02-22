@@ -19,32 +19,15 @@ def register(callback):
 def clock():
     return get_output('date')
 
-@register
-def memusg():
-    try:
-        table = get_output('vmstat -S M').strip('\n').split('\n')[-1]
-        free, buf, cache = map(int, re.split('\s+', table.strip(' '))[3:6])
-        return 'mem: %sM' % (free+buf+cache)
-    except (ValueError, IndexError):
-        return 'no mem usg'
-
-@register
-def cpuload():
-    try:
-        return 'cpu: ' + re.findall('all\s+\d+\.\d+', get_output('mpstat'))[0]\
-               .lstrip('all').strip() + '%'
-    except IndexError:
-        return 'no cpuload'
-
 MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s (%(album)s) %(currenttime)s"
 @register
 def mocp_state():
     mocp_info = moc.get_info_dict()
     if mocp_info is None:
         # mocp not running
-        return 'no music on the console :('
+        return 'no moc :('
     if mocp_info['state'] == moc.STATE_STOPPED:
-        return 'no music on the console :( [stopped]'
+        return 'no moc :( [stopped]'
     if mocp_info['state'] == moc.STATE_PAUSED:
         appendix = ' [paused]'
     else:
