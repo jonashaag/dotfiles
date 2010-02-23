@@ -1,0 +1,3 @@
+#!/bin/sh
+export OOO_FORCE_DESKTOP=gnome
+exec soffice -writer

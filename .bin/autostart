@@ -1,0 +1,5 @@
+#!/bin/sh
+export PYTHONPATH=~/.src/lastfmsubmitd/lib:~/dev/projects/moc/:$PYTHONPATH
+
+~/.src/lastfmsubmitd/lastfmsubmitd
+~/.bin/moc-lastfmsubmit
