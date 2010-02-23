@@ -19,7 +19,7 @@ def register(callback):
 def clock():
     return get_output('date')
 
-MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s (%(album)s) %(currenttime)s"
+MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s %(currenttime)s"
 @register
 def mocp_state():
     mocp_info = moc.get_info_dict()

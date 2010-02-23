@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEFAULT_XENV='dwm'
+DEFAULT_XENV='wmii'
 
 if [ -z $1 ]; then
   XENV=$DEFAULT_XENV
@@ -10,4 +10,5 @@ fi
 
 rm ~/.xinitrc
 ln -s ~/.xinitrc.$XENV ~/.xinitrc
-startx
+startx &
+~/.bin/autostart

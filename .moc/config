@@ -1,3 +1,2 @@
 Keymap = keymap
-
-OnSongChange = "/usr/lib/lastfmsubmitd/lastfmsubmit --artist %a --title %t --length %d --album %b"
+OnSongChange = "~/.bin/lastfmsubmit %t %a %b"

@@ -1,4 +1,4 @@
-export PATH=~/.bin:$PATH
+export PATH=~/.bin:~/.bin/openoffice:$PATH
 if [ $TERM == 'xterm' ]; then
     export TERM='xterm-256color'
 fi

@@ -20,3 +20,4 @@ alias 'untar'='tar xvf'
 
 function netuntargz() { wget -O - $1 | untargz -; }
 function netuntar() { wget -O - $1 | untar -; }
+function netview() { wget -O - $1; }
