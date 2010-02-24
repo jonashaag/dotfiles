@@ -20,6 +20,9 @@ set smartindent
 " Line numbers
 set number
 
+" No line wrapping
+set nowrap
+
 " Ruler (x, y position display)
 set ruler
 
