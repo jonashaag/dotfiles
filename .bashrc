@@ -8,6 +8,7 @@ fi
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+export PAGER="most"
 
 . ~/.bash_aliases
 . ~/.bash_functions

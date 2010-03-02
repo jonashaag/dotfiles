@@ -18,6 +18,24 @@ alias 'vimrc'='vim ~/.vimrc'
 alias 'untargz'='tar zxvf'
 alias 'untar'='tar xvf'
 
+
+function search() {
+    if [ -z $2 ]; then
+        DIR='.'
+        REGEXP=$1
+    else
+        DIR=$1
+        REGEXP=$2
+    fi
+    if [ ! -z $3 ]; then
+        GREPOPT=$3
+    else
+        GREPOPT=''
+    fi
+    grep -nHIirE${GREPOPT} -- "$REGEXP" "$DIR"
+}
+
 function netuntargz() { wget -O - $1 | untargz -; }
 function netuntar() { wget -O - $1 | untar -; }
-function netview() { wget -O - $1; }
+function netview() { wget -O - -q $1; }
+function netmd5() { wget -O - $1 | md5sum; }

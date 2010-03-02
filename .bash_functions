@@ -1,7 +1,7 @@
 #!/bin/sh
 cp2() # taken from http://chris-lamb.co.uk/2008/01/24/can-you-get-cp-to-give-a-progress-bar-like-wget/
 {
-   strace -q -ewrite cp -- "${1}" "${2}" 2>&1 \
+   strace -q -ewrite cp -- -r "${1}" "${2}" 2>&1 \
       | awk '{
         count += $NF
             if (count % 10 == 0) {

@@ -19,7 +19,7 @@ set -- $(echo $WMII_NORMCOLORS $WMII_FOCUSCOLORS)
 WMII_MENU="dmenu -b -fn '$WMII_FONT' -nf '$1' -nb '$2' -sf '$4' -sb '$5'"
 WMII_9MENU="wmii9menu -font '$WMII_FONT' -nf '$1' -nb '$2' -sf '$4' -sb '$5' -br '$6'"
 
-WMII_SLOW_TERM="tinyterm"
+WMII_SLOW_TERM="evilvte"
 WMII_TERM="xterm"
 WMII_FAST_TERM="SHELL=/bin/sh xterm"
 

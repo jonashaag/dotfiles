@@ -16,6 +16,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set smartindent
+set cindent
 
 " Line numbers
 set number
@@ -74,8 +75,6 @@ inoremap # X#
 
 " don't bell or blink
 set noerrorbells
-set vb t_vb=''
-
 
 
 " ----------------------------
@@ -139,14 +138,10 @@ autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/sc
 " backspace in Visual mode deletes selection
 vnoremap <BS> d
 
-" Use CTRL-S for saving, also in Insert mode
-"     CTRL-Q for quitting
-noremap <C-S>		:w<CR>
-vnoremap <C-S>		<C-C>:w<CR>
-inoremap <C-S>		<C-O>:w<CR>
-noremap <C-Q>       :q<CR>
-vnoremap <C-Q>      <C-C>:q<CR>
-inoremap <C-Q>      <C-O>:q<CR>
+" Use CTRL-W for saving, also in Insert mode
+noremap <C-W>		:w<CR>
+vnoremap <C-W>		<C-C>:w<CR>
+inoremap <C-W>		<C-O>:w<CR>
 
 " CTRL-D for dd
 noremap <C-D>       dd
@@ -162,20 +157,19 @@ inoremap <C-Z> <C-O>u
 " CTRL-Y in insert mode for redo
 inoremap <C-Y> <C-O><C-R>
 
-" CTRL-Tab is next tab
-noremap <C-Tab> :tabn<CR>
-inoremap <C-Tab> <C-O>:tabn<CR>
-cnoremap <C-Tab> <C-C>:tabn<CR>
-onoremap <C-Tab> <C-C>:tabn<CR>
-
-" CTRL-Tab is prev tab
-noremap <C-Tab> <C-W>:tabp<CR>
-inoremap <C-Tab> <C-O>:tabp<CR>
-cnoremap <C-Tab> <C-C>:tabp<CR>
-onoremap <C-Tab> <C-C>:tabp<CR>
-
 " CTRL-T is new tab
 noremap <C-T> :tabnew<CR>
 inoremap <C-T> <C-O>:tabnew<CR>
 cnoremap <C-T> <C-C>:tabnew<CR>
 onoremap <C-T> <C-C>:tabnew<CR>
+
+nmap <C-S-tab> :tabprevious<cr>
+nmap <C-tab> :tabnext<cr>
+nmap <C-t> :tabnew<cr>
+map <C-t> :tabnew<cr>
+map <C-S-tab> :tabprevious<cr>
+map <C-tab> :tabnext<cr>
+map <C-w> :tabclose<cr>
+imap <C-S-tab> <ESC>:tabprevious<cr>i
+imap <C-tab> <ESC>:tabnext<cr>i
+imap <C-t> <ESC>:tabnew<cr>
