@@ -1,7 +1,7 @@
 export PATH=~/.bin:~/.bin/openoffice:$PATH
-if [ $TERM == 'xterm' ]; then
-    export TERM='xterm-256color'
-fi
+#if [ $TERM == 'xterm' ]; then
+#    export TERM='xterm-256color'
+#fi
 
 # Check for an interactive session
 [ -z "$PS1" ] && return
