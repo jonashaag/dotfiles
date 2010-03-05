@@ -35,7 +35,6 @@ wmiir write /tagrules <<!
 /.*Pidgin.*/ -> 3
 /xchat.*/ -> 9
 /.*/ -> sel
-/.*/ -> 1
 !
 
 # Event processing
