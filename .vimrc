@@ -15,7 +15,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
-set smartindent
 set cindent
 
 " Line numbers
@@ -30,6 +29,7 @@ set ruler
 " Enable filetype plugins and indention
 filetype on
 filetype plugin on
+filetype indent on
 
 " Better Search
 set hlsearch
@@ -81,15 +81,18 @@ set noerrorbells
 "       LANGUAGE SUPPORT
 " ----------------------------
 " Python!
-let g:pydiction_location = '~/.vim/ftplugin/pydiction/complete-dict'
 autocmd FileType python setlocal
 \   formatoptions+=croq " c+r+o+q
 \   cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-autocmd FileType python map <F5> :w<CR>:!python "%"<CR>i
+\   complete+=k~/.vim/syntax/python.vim isk+=.,(
+\   map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 let python_highlight_all = 1
 
+" ReST
+autocmd FileType restructuredtext setlocal shiftwidth=3 tabstop=3 softtabstop=3
+
 " Ruby
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " HTML/XML/...
 fun! s:SelectHTML()
@@ -156,20 +159,3 @@ inoremap <C-Z> <C-O>u
 
 " CTRL-Y in insert mode for redo
 inoremap <C-Y> <C-O><C-R>
-
-" CTRL-T is new tab
-noremap <C-T> :tabnew<CR>
-inoremap <C-T> <C-O>:tabnew<CR>
-cnoremap <C-T> <C-C>:tabnew<CR>
-onoremap <C-T> <C-C>:tabnew<CR>
-
-nmap <C-S-tab> :tabprevious<cr>
-nmap <C-tab> :tabnext<cr>
-nmap <C-t> :tabnew<cr>
-map <C-t> :tabnew<cr>
-map <C-S-tab> :tabprevious<cr>
-map <C-tab> :tabnext<cr>
-map <C-w> :tabclose<cr>
-imap <C-S-tab> <ESC>:tabprevious<cr>i
-imap <C-tab> <ESC>:tabnext<cr>i
-imap <C-t> <ESC>:tabnew<cr>
