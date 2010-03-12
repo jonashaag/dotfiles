@@ -3,6 +3,7 @@
 pkgname=gedit-classbrowser-git
 provides=gedit-classbrowser
 conflicts=('gedit-classbrowser')
+replaces=('gedit-classbrowser')
 pkgver=20100305
 pkgrel=1
 pkgdesc="development version of gedit-classbrowser"
