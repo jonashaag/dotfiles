@@ -16,6 +16,7 @@ alias 'vimrc'='vim ~/.vimrc'
 
 # Commands
 alias 'untargz'='tar zxvf'
+alias 'untarbz'='tar xjvf'
 alias 'untar'='tar xvf'
 alias 'psp'='ps aux | grep $1'
 

@@ -34,6 +34,7 @@ wmiir write /tagrules <<!
 /.*Namoroka.*/ -> 1
 /.*Pidgin.*/ -> 3
 /xchat.*/ -> 9
+/gedit.*/ -> 2
 /.*/ -> sel
 !
 
@@ -86,6 +87,14 @@ eventstuff() {
 		#	sleep 1
 		#done
 	# Key Bindings
+    Key $MODKEY-Control-$LEFT
+            wmiir xwrite /tag/sel/ctl grow sel sel right -1
+    Key $MODKEY-Control-$RIGHT
+            wmiir xwrite /tag/sel/ctl grow sel sel right 1
+    Key $MODKEY-Control-$DOWN
+            wmiir xwrite /tag/sel/ctl grow sel sel down 1
+    Key $MODKEY-Control-$UP
+            wmiir xwrite /tag/sel/ctl grow sel sel down -1
 	Key $MODKEY-Return
 		eval $WMII_FAST_TERM &
 	Key $MODKEY-Control-Return

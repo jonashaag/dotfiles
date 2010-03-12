@@ -13,4 +13,4 @@ export PAGER="most"
 . ~/.bash_aliases
 . ~/.bash_functions
 
-export PYTHONPATH=$PYTHONPATH:~/dev/cream/src/libs/
+export PYTHONPATH=$PYTHONPATH:~/dev/cream/src/libs:~/dev/projects/moc
