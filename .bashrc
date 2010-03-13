@@ -10,6 +10,7 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 export PAGER="most"
 
+. ~/.bash.private
 . ~/.bash_aliases
 . ~/.bash_functions
 
