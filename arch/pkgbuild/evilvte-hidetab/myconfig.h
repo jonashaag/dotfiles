@@ -1,5 +1,5 @@
 /* Font settings */
-#define     FONT                        "Droid Sans Mono 9"
+#define     FONT                        "Monospace 9"
 #define     COLOR_BACKGROUND            "#FAFAFF" /* #D3D7CF */
 #define     COLOR_FOREGROUND            "#2E3436"
 #define     COLOR_STYLE                 TANGO /* Options: VTE_FIXED, LINUX, RXVT, TANGO, XTERM     */
