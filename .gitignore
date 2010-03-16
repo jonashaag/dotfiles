@@ -1,2 +1,3 @@
 .xinitrc
 *.private
+.wmii-hg/history*

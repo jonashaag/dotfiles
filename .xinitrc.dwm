@@ -12,9 +12,5 @@ export GNOME_KEYRING_PID GNOME_KEYRING_SOCKET SSH_AUTH_SOCK
 .bin/dwm &
 .bin/dwm-statusbar.py 1 &
 
-# Network Manager
-stalonetray &
-ck-launch-session nm-applet &
-
 # Dummy IDLE process
 exec .bin/x-session

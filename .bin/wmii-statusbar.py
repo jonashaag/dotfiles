@@ -53,16 +53,26 @@ def battery_state():
 
 
 def main():
+    WMII_UPDATE_CMD = 'echo -n "%s" | wmiir create /rbar/%s%s >/dev/null 2>&1'
+
     from time import sleep
     sleeptime = int(sys.argv[1])
+    retries = 5
+    sleep_after_retry = 5
 
     while True:
         for index, (file, callback) in enumerate(FILES):
-            os.system('echo -n "%(content)s" | wmiir create /rbar/%(i)s%(file)s' % {
-                'i' : index,
-                'file' : file,
-                'content' : callback()
-            })
+            retval = os.system(WMII_UPDATE_CMD % (callback(), index, file))
+            if retval == 256:
+                if not retries:
+                    print "wmii seems unavailable, refusing to work."
+                    exit(1)
+                # wmii is shut down, wait and retry
+                print "Communication error, retry in %d seconds." % sleep_after_retry
+                sleep(sleep_after_retry)
+                retries -= 1
+                break
+
         sleep(sleeptime)
 
 
