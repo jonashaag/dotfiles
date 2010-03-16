@@ -1,0 +1,53 @@
+#!/bin/sh -f
+
+# Configuration Variables
+MODKEY=Mod4
+UP=k
+DOWN=j
+LEFT=h
+RIGHT=l
+
+# Colors tuples: "<text> <background> <border>"
+WMII_NORMCOLORS='#888888 #222222 #333333'
+WMII_FOCUSCOLORS='#ffffff #285577 #4c7899'
+
+WMII_BACKGROUND='#333333'
+WMII_FONT='-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
+
+WMII_SLOW_TERM="evilvte"
+WMII_TERM="xterm"
+WMII_FAST_TERM="SHELL=/bin/sh xterm"
+
+# Column Rules
+wmiir write /colrules <<!
+/.*/ -> 62+38
+!
+
+# Tagging Rules
+wmiir write /tagrules <<!
+/.*Shredder.*/ -> 8
+/.*Namoroka.*/ -> 1
+/.*Pidgin.*/ -> 3
+/xchat.*/ -> 9
+/gedit.*/ -> 2
+/.*/ -> sel
+!
+
+
+local_events() {
+	cat <<'!'
+Action status
+    set +xv
+    if wmiir remove /rbar/status 2>/dev/null; then
+        sleep 2
+    fi
+    ~/.bin/wmii-statusbar.py 1
+
+Key $MODKEY-Return
+    eval $WMII_FAST_TERM &
+Key $MODKEY-Control-Return
+    eval $WMII_SLOW_TERM &
+Key $MODKEY-Shift-Return
+    eval $WMII_TERM &
+!
+}
