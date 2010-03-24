@@ -36,6 +36,8 @@ wmiir write /tagrules <<!
 
 local_events() {
 	cat <<'!'
+
+# Status bar
 Action status
     set +xv
     if wmiir remove /rbar/status 2>/dev/null; then
@@ -43,11 +45,27 @@ Action status
     fi
     ~/.bin/wmii-statusbar.py 1
 
+# Terminals
 Key $MODKEY-Return
     eval $WMII_FAST_TERM &
 Key $MODKEY-Control-Return
     eval $WMII_SLOW_TERM &
 Key $MODKEY-Shift-Return
     eval $WMII_TERM &
+
+# Kill with Q
+Key $MODKEY-Shift-q # Close client
+    wmiir xwrite /client/sel/ctl kill
+
+# Keyboard resize
+Key $MODKEY-Control-$LEFT
+    wmiir xwrite /tag/sel/ctl grow sel sel right -1
+Key $MODKEY-Control-$RIGHT
+    wmiir xwrite /tag/sel/ctl grow sel sel right 1
+Key $MODKEY-Control-$DOWN
+    wmiir xwrite /tag/sel/ctl grow sel sel down 1
+Key $MODKEY-Control-$UP
+    wmiir xwrite /tag/sel/ctl grow sel sel down -1
+
 !
 }

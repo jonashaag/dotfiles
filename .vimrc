@@ -38,6 +38,15 @@ set ignorecase
 set smartcase
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+" Highlight NBSP
+function! HighlightNonBreakingSpace()
+    syn match suckingNonBreakingSpace "?" containedin=ALL
+    hi suckingNonBreakingSpace ctermbg=250    
+        
+
+endfunction
+autocmd BufEnter * :call HighlightNonBreakingSpace()
+
 " Warn at line length > 79
 highlight OverLength ctermbg=255
 match OverLength /\%81v.*/

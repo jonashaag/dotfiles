@@ -1,13 +1,16 @@
 #!/bin/sh
 export PYTHONPATH=~/.src/lastfmsubmitd/lib:~/dev/projects/moc/:$PYTHONPATH
 
-rm ~/.surf/cookies.txt
+rm ~/.surf/cookies.txt 2>/dev/null
 
 # Network Manager
 #stalonetray &
-#ck-launch-session nm-applet &
+#ck-launch-session nm-applet > ~/.logs/nm-applet &
 
-#~/.src/skvm/skvm -d > ~/.skvm-log &
-~/.src/lastfmsubmitd/lastfmsubmitd
-~/.bin/moc-lastfmsubmit &
+#~/.src/skvm/skvm -d > ~/.logs/skvm &
+~/.src/lastfmsubmitd/lastfmsubmitd --debug --no-daemon 2> ~/.logs/lastfmsubmitd &
+~/.bin/moc-lastfmsubmit
+
+set m 3 1
+
 ~/.bin/autostart.private

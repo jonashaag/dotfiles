@@ -2,6 +2,7 @@
 import os
 import sys
 import re
+import datetime
 
 sys.path.append('/home/jonas/dev/projects/moc/')
 import moc
@@ -15,9 +16,16 @@ def register(callback):
     FILES.insert(0, (callback.func_name,  callback))
     return callback
 
+TIME_FORMAT = '%a %b %d %H:%M:%S'
 @register
 def clock():
-    return get_output('date')
+    now = datetime.datetime.now()
+    now_in_australia = now + datetime.timedelta(hours=9, minutes=30)
+
+    return '({australia}) {here}'.format(
+        here=now.strftime(TIME_FORMAT),
+        australia=now_in_australia.strftime(TIME_FORMAT)
+    )
 
 MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s %(currenttime)s"
 @register
@@ -56,7 +64,7 @@ def main():
     WMII_UPDATE_CMD = 'echo -n "%s" | wmiir create /rbar/%s%s >/dev/null 2>&1'
 
     from time import sleep
-    sleeptime = int(sys.argv[1])
+    sleeptime = float(sys.argv[1])
     retries = 5
     sleep_after_retry = 5
 
