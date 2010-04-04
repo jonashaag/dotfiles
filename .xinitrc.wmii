@@ -3,7 +3,7 @@
 # D-Bus
 eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
-xbindkeys &
+xbindkeys
 
 # Keyring
 eval $(gnome-keyring-daemon)

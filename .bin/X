@@ -10,6 +10,6 @@ fi
 
 rm ~/.xinitrc
 ln -s ~/.xinitrc.$XENV ~/.xinitrc
-startx & > ~/.xsession-log 2>&1
+startx > ~/.xsession-log 2>&1 &
 
 ~/.bin/autostart

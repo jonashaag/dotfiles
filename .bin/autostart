@@ -2,14 +2,15 @@
 export PYTHONPATH=~/.src/lastfmsubmitd/lib:~/dev/projects/moc/:$PYTHONPATH
 
 rm ~/.surf/cookies.txt 2>/dev/null
+rmdir ~/Desktop 2>/dev/null
 
 # Network Manager
 #stalonetray &
 #ck-launch-session nm-applet > ~/.logs/nm-applet &
 
-#~/.src/skvm/skvm -d > ~/.logs/skvm &
+~/.src/skvm/skvm -d > ~/.logs/skvm &
 ~/.src/lastfmsubmitd/lastfmsubmitd --debug --no-daemon 2> ~/.logs/lastfmsubmitd &
-~/.bin/moc-lastfmsubmit
+~/.bin/moc-lastfmsubmit > ~/.logs/moc-lastfmsubmit
 
 set m 3 1
 

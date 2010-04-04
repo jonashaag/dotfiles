@@ -9,3 +9,14 @@
 #alsa volume down
 "/home/jonas/dev/scripts/soundregler -"
    XF86AudioLowerVolume
+
+
+# oe
+"xte 'key odiaeresis'"
+    Mod4 + Super_L + semicolon
+# ue
+"xte 'key odiaeresis'"
+    Mod4 + Super_L + bracketleft
+# ae
+"xte 'key odiaeresis'"
+    Mod4 + Super_L + apostrophe

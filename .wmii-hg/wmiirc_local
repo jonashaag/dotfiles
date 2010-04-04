@@ -43,7 +43,7 @@ Action status
     if wmiir remove /rbar/status 2>/dev/null; then
         sleep 2
     fi
-    ~/.bin/wmii-statusbar.py 1
+    ~/.bin/wmii-statusbar.py 1 >> ~/.xsession-log
 
 # Terminals
 Key $MODKEY-Return
@@ -59,13 +59,13 @@ Key $MODKEY-Shift-q # Close client
 
 # Keyboard resize
 Key $MODKEY-Control-$LEFT
-    wmiir xwrite /tag/sel/ctl grow sel sel right -1
+    wmiir xwrite /tag/sel/ctl grow sel sel right -3
 Key $MODKEY-Control-$RIGHT
-    wmiir xwrite /tag/sel/ctl grow sel sel right 1
+    wmiir xwrite /tag/sel/ctl grow sel sel right 3
 Key $MODKEY-Control-$DOWN
-    wmiir xwrite /tag/sel/ctl grow sel sel down 1
+    wmiir xwrite /tag/sel/ctl grow sel sel down 3
 Key $MODKEY-Control-$UP
-    wmiir xwrite /tag/sel/ctl grow sel sel down -1
+    wmiir xwrite /tag/sel/ctl grow sel sel down -3
 
 !
 }
