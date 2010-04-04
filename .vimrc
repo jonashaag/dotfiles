@@ -38,15 +38,6 @@ set ignorecase
 set smartcase
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" Highlight NBSP
-function! HighlightNonBreakingSpace()
-    syn match suckingNonBreakingSpace "?" containedin=ALL
-    hi suckingNonBreakingSpace ctermbg=250    
-        
-
-endfunction
-autocmd BufEnter * :call HighlightNonBreakingSpace()
-
 " Warn at line length > 79
 highlight OverLength ctermbg=255
 match OverLength /\%81v.*/
@@ -97,8 +88,11 @@ autocmd FileType python setlocal
 \   map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 let python_highlight_all = 1
 
+" Java
+autocmd FileType java setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " ReST
-autocmd FileType restructuredtext setlocal shiftwidth=3 tabstop=3 softtabstop=3
+autocmd FileType rst setlocal shiftwidth=3 tabstop=3 softtabstop=3
 
 " Ruby
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
