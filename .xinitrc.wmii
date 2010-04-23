@@ -13,5 +13,10 @@ export GNOME_KEYRING_PID GNOME_KEYRING_SOCKET SSH_AUTH_SOCK
 export WMII_ADDRESS="unix!/tmp/ns.jonas.:0/wmii"
 wmii &
 
+sleep 3
+thunderbird &
+sleep 3
+firefox &
+
 # Dummy IDLE process
 exec .bin/x-session

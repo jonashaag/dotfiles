@@ -12,6 +12,6 @@ rmdir ~/Desktop 2>/dev/null
 ~/.src/lastfmsubmitd/lastfmsubmitd --debug --no-daemon 2> ~/.logs/lastfmsubmitd &
 ~/.bin/moc-lastfmsubmit > ~/.logs/moc-lastfmsubmit
 
-set m 3 1
+syndaemon -i 2 -d -t
 
 ~/.bin/autostart.private
