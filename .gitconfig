@@ -1,0 +1,23 @@
+[core]
+    editor = vim
+
+[user]
+    name = Jonas Haag
+    email = jonas@lophus.org
+
+# $ cheat git
+[color]
+    ui = true
+
+[alias]
+    s = status
+    c = commit
+    d = diff
+    f = pull
+    p = push
+
+    br = branch
+    co = checkout
+
+    s-u = submodule update --init --recursive
+    s-s = submodule status
