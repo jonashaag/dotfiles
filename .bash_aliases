@@ -16,10 +16,8 @@ alias 'clean'='find -name "*.pyc" -exec rm {} \;'
 alias 'vimrc'='vim ~/.vimrc'
 
 # Commands
-alias 'untargz'='tar zxvf'
-alias 'untarbz'='tar xjvf'
-alias 'untar'='tar xvf'
 alias 'psp'='ps aux | grep $1'
+alias 'unpack'='aunpack'
 
 
 function search() {
@@ -38,7 +36,4 @@ function search() {
     grep -nHIirE${GREPOPT} -- "$REGEXP" "$DIR"
 }
 
-function netuntargz() { wget -O - $1 | untargz -; }
-function netuntar() { wget -O - $1 | untar -; }
-function netview() { wget -O - -q $1; }
-function netmd5() { wget -O - $1 | md5sum; }
+function netunpack() { wget -O - $1 | unpack -; }

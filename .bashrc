@@ -8,7 +8,7 @@ export PATH=~/.bin:~/.bin/openoffice:$PATH
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-export PAGER="most"
+PAGER=less
 
 . ~/.bash.private
 . ~/.bash_aliases

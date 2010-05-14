@@ -14,7 +14,7 @@ export WMII_ADDRESS="unix!/tmp/ns.jonas.:0/wmii"
 wmii &
 
 nm-applet &
-xchat &
+#xchat &
 
 # Dummy IDLE process
 exec .bin/x-session

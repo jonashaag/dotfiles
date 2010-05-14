@@ -20,7 +20,7 @@ TIME_FORMAT = '%a %b %d %H:%M:%S'
 @register
 def clock():
     now = datetime.datetime.now()
-    now_in_australia = now + datetime.timedelta(hours=9, minutes=30)
+    now_in_australia = now + datetime.timedelta(hours=7, minutes=30)
 
     return '({australia}) {here}'.format(
         here=now.strftime(TIME_FORMAT),
