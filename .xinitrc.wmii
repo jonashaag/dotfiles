@@ -11,10 +11,7 @@ export GNOME_KEYRING_PID GNOME_KEYRING_SOCKET SSH_AUTH_SOCK
 
 # wmii
 export WMII_ADDRESS="unix!/tmp/ns.jonas.:0/wmii"
-wmii &
+wmii > .logs/wmii &
 
-nm-applet &
+nm-applet > .logs/nm-applet &
 #xchat &
-
-# Dummy IDLE process
-exec .bin/x-session

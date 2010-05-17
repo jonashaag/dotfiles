@@ -11,8 +11,6 @@
 #define     TABBAR_AUTOHIDE             TRUE
 #define     TABBAR_SCROLLABLE           TRUE  
 
-
-
 /* Various settings */
 #define     MOUSE_CURSOR_AUTOHIDE       TRUE
 #define     WINDOW_TITLE_DYNAMIC        TRUE
@@ -24,8 +22,7 @@
 
 /* Menu settings */
 #define     MENU                        TRUE
-#define     MENU_MATCH_STRING_EXEC      "firefox"
-#define     MATCH_STRING_EXEC           "firefox" /* click to open, no menu needed  */
+#define     MATCH_STRING_M              "firefox"
 #define     MATCH_STRING                "((f|F)(t|T)(p|P)|((h|H)(t|T)(t|T)(p|P)(s|S)*))://[-a-zA-Z0-9.?$%&/=_~#.,:;+]*"
 #define     MENU_CUSTOM                 "Copy", "Paste", "Separator", "Select all", "Separator", "Zoom in"
 

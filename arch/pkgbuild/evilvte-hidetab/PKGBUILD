@@ -3,7 +3,7 @@
 
 pkgname=evilvte-hidetab
 _pkgname=evilvte # previous pkgname
-pkgver=0.4.6~pre6
+pkgver=0.4.7~pre1
 pkgrel=1
 pkgdesc='VTE based, highly customizable terminal emulator (configured to auto-hide tab bar)'
 arch=('i686' 'x86_64')
@@ -11,7 +11,7 @@ url='http://www.calno.com/evilvte/'
 license=('GPL2')
 depends=('vte')
 source=("http://www.calno.com/evilvte/${_pkgname}-${pkgver}.tar.gz")
-md5sums=('0bdcf472e3599ca169818bad59f82584')
+md5sums=('5e99cd1421dc8159e2d9d2ac5e2eac0c')
 
 # compatibility
 replaces=('evilvte')

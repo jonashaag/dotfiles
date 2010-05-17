@@ -53,9 +53,15 @@ Key $MODKEY-Control-Return
 Key $MODKEY-Shift-Return
     eval $WMII_TERM &
 
-# Kill with Q
-Key $MODKEY-Shift-q # Close client
-    wmiir xwrite /client/sel/ctl kill
+# moc
+Key $MODKEY-n
+    mocp --next
+Key $MODKEY-b
+    mocp --previous
+Key $MODKEY-9
+    mocp -v -10
+Key $MODKEY-0
+    mocp -v +10
 
 # Keyboard resize
 Key $MODKEY-Control-$LEFT
