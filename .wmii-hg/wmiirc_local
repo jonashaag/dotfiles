@@ -58,10 +58,8 @@ Key $MODKEY-n
     mocp --next
 Key $MODKEY-b
     mocp --previous
-Key $MODKEY-9
-    mocp -v -10
-Key $MODKEY-0
-    mocp -v +10
+Key $MODKEY-v
+    mocp --toggle-pause
 
 # Keyboard resize
 Key $MODKEY-Control-$LEFT

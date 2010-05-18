@@ -1,2 +1,1 @@
 Keymap = keymap
-OnSongChange = "~/.bin/lastfmsubmit %t %a %b"

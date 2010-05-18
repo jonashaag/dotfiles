@@ -15,3 +15,6 @@ wmii > .logs/wmii &
 
 nm-applet > .logs/nm-applet &
 #xchat &
+
+.bin/autostart
+exec .bin/x-session
