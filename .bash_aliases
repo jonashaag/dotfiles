@@ -6,7 +6,6 @@ alias '...'='cd ../..'
 alias '....'='cd ../../..'
 alias 'l'='ls -l'
 alias 'md'='mkdir -p'
-alias 'rm'='del'
 
 # Python stuff
 alias 'i'='ipython'

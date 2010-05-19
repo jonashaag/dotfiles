@@ -13,8 +13,8 @@ export GNOME_KEYRING_PID GNOME_KEYRING_SOCKET SSH_AUTH_SOCK
 export WMII_ADDRESS="unix!/tmp/ns.jonas.:0/wmii"
 wmii > .logs/wmii &
 
-nm-applet > .logs/nm-applet &
+nm-applet > .logs/nm-applet 2>&1 &
 #xchat &
 
 .bin/autostart
-exec .bin/x-session
+.bin/x-session &
