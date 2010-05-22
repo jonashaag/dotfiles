@@ -4,6 +4,4 @@ rmdir ~/Desktop 2>/dev/null
 
 ~/.src/skvm/skvm -d > ~/.logs/skvm &
 
-syndaemon -i 2 -d -t
-
 ~/.bin/autostart.private &

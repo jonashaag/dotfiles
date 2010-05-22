@@ -1,6 +1,9 @@
 [core]
     editor = vim
 
+[merge]
+    tool = gvimdiff
+
 [user]
     name = Jonas Haag
     email = jonas@lophus.org

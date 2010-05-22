@@ -88,6 +88,8 @@ autocmd FileType python setlocal
 \   map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 let python_highlight_all = 1
 
+autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+
 " Java
 autocmd FileType java setlocal shiftwidth=2 tabstop=2 softtabstop=2
 

@@ -16,5 +16,9 @@ wmii > .logs/wmii 2>&1 &
 nm-applet > .logs/nm-applet 2>&1 &
 #xchat &
 
+xset m 4
+synclient HorizTwoFingerScroll=1
+amixer set Front unmute >/dev/null
+
 .bin/autostart
 .bin/x-session
