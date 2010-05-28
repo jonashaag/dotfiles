@@ -1,0 +1,4 @@
+#!/bin/sh
+export OOC_LIBS=~/.src/ooc/sdk/
+export PATH=$PATH:~/.src/ooc/bin/
+java -jar ~/.src/ooc/bin/ooc.jar $@

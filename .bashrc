@@ -14,4 +14,4 @@ PAGER=less
 . ~/.bash_aliases
 . ~/.bash_functions
 
-export PYTHONPATH=$PYTHONPATH:~/.syspath/
+export PYTHONPATH=$PYTHONPATH:~/.pythonpath/
