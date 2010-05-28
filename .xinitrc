@@ -18,7 +18,7 @@ nm-applet > .logs/nm-applet 2>&1 &
 
 xset m 4
 synclient HorizTwoFingerScroll=1
-amixer set Front unmute >/dev/null
+#amixer set Front unmute >/dev/null
 
 .bin/autostart
 .bin/x-session
