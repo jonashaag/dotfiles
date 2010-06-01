@@ -43,7 +43,7 @@ Action status
     if wmiir remove /rbar/status 2>/dev/null; then
         sleep 2
     fi
-    ~/.bin/wmii-statusbar.py 1 >> ~/.xsession-log
+    ~/.bin/wmii-statusbar.py 3 >> ~/.xsession-log
 
 # Terminals
 Key $MODKEY-Return

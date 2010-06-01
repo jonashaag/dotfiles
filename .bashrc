@@ -13,5 +13,3 @@ PAGER=less
 . ~/.bash.private
 . ~/.bash_aliases
 . ~/.bash_functions
-
-export PYTHONPATH=$PYTHONPATH:~/.syspath/

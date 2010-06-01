@@ -3,10 +3,9 @@ import os
 import sys
 import re
 import datetime
-
-sys.path.append('/home/jonas/dev/projects/moc/')
 import moc
 
+WARN_BATSTATE = 5
 FILES = []
 
 def get_output(cmd):
@@ -51,7 +50,7 @@ def battery_state():
         batstate = get_output('acpitool -b').split(':', 1)[1].strip()
         if 'discharging' in batstate:
             try:
-                if float(batstate.split(' ')[1][:-1]) < 15:
+                if float(batstate.split(' ')[1].rstrip(',%')) < WARN_BATSTATE:
                     return 'WARNING: %s' % batstate
             except (IndexError, ValueError, TypeError):
                 pass
