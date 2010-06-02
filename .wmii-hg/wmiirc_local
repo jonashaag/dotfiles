@@ -33,11 +33,11 @@ wmiir write /tagrules <<!
 /.*/ -> sel
 !
 
-increment () {
+incr () {
     echo $(($(cat $1) + 1)) >$1
 }
 
-decrement () {
+decr () {
     echo $(($(cat $1) - 1)) >$1
 }
 
@@ -81,13 +81,13 @@ Key $MODKEY-Control-$UP
 
 # special keys
 Key $MODKEY-F4
-    increment /sys/class/backlight/acpi_video0/brightness
+    decr /sys/class/backlight/acpi_video0/brightness
 Key $MODKEY-F5
-    decrement /sys/class/backlight/acpi_video0/brightness
+    incr /sys/class/backlight/acpi_video0/brightness
 Key $MODKEY-F7
-    amixer set Master 3%-
+    amixer set Master 3%- >/dev/null
 Key $MODKEY-F8
-    amixer set Master 3%+
+    amixer set Master 3%+ >/dev/null
 Key $MODKEY-F9
     amixer set Master toggle
 
