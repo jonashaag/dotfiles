@@ -33,6 +33,14 @@ wmiir write /tagrules <<!
 /.*/ -> sel
 !
 
+incr () {
+    echo $(($(cat $1) + 1)) >$1
+}
+
+decr () {
+    echo $(($(cat $1) - 1)) >$1
+}
+
 
 local_events() {
 	cat <<'!'
@@ -43,7 +51,7 @@ Action status
     if wmiir remove /rbar/status 2>/dev/null; then
         sleep 2
     fi
-    ~/.bin/wmii-statusbar.py 1 >> ~/.xsession-log
+    ~/.bin/wmii-statusbar.py 3 >> ~/.xsession-log
 
 # Terminals
 Key $MODKEY-Return
@@ -70,6 +78,18 @@ Key $MODKEY-Control-$DOWN
     wmiir xwrite /tag/sel/ctl grow sel sel down 3
 Key $MODKEY-Control-$UP
     wmiir xwrite /tag/sel/ctl grow sel sel down -3
+
+# special keys
+Key $MODKEY-F4
+    decr /sys/class/backlight/acpi_video0/brightness
+Key $MODKEY-F5
+    incr /sys/class/backlight/acpi_video0/brightness
+Key $MODKEY-F7
+    amixer set Master 3%- >/dev/null
+Key $MODKEY-F8
+    amixer set Master 3%+ >/dev/null
+Key $MODKEY-F9
+    amixer set Master toggle
 
 !
 }

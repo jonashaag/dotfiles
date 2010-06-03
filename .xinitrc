@@ -3,8 +3,6 @@
 # D-Bus
 eval "$(dbus-launch --sh-syntax --exit-with-session)"
 
-xbindkeys
-
 # Keyring
 eval $(gnome-keyring-daemon)
 export GNOME_KEYRING_PID GNOME_KEYRING_SOCKET SSH_AUTH_SOCK
@@ -18,7 +16,6 @@ nm-applet > .logs/nm-applet 2>&1 &
 
 xset m 5 3
 synclient HorizTwoFingerScroll=1
-amixer set Front unmute >/dev/null
 
 .bin/autostart
 .bin/x-session

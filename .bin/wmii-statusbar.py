@@ -3,10 +3,9 @@ import os
 import sys
 import re
 import datetime
-
-sys.path.append('/home/jonas/dev/projects/moc/')
 import moc
 
+WARN_BATSTATE = 5
 FILES = []
 
 def get_output(cmd):
@@ -51,7 +50,7 @@ def battery_state():
         batstate = get_output('acpitool -b').split(':', 1)[1].strip()
         if 'discharging' in batstate:
             try:
-                if float(batstate.split(' ')[1][:-1]) < 15:
+                if float(batstate.split(' ')[1].rstrip(',%')) < WARN_BATSTATE:
                     return 'WARNING: %s' % batstate
             except (IndexError, ValueError, TypeError):
                 pass
@@ -65,21 +64,14 @@ def main():
 
     from time import sleep
     sleeptime = float(sys.argv[1])
-    retries = 5
     sleep_after_retry = 5
 
     while True:
         for index, (file, callback) in enumerate(FILES):
             retval = os.system(WMII_UPDATE_CMD % (callback(), index, file))
             if retval == 256:
-                if not retries:
-                    print "wmii seems unavailable, refusing to work."
-                    exit(1)
-                # wmii is shut down, wait and retry
-                print "Communication error, retry in %d seconds." % sleep_after_retry
-                sleep(sleep_after_retry)
-                retries -= 1
-                break
+                print "wmii seems unavailable, refusing to work."
+                exit(1)
 
         sleep(sleeptime)
 
