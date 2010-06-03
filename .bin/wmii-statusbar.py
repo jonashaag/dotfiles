@@ -48,7 +48,7 @@ def mocp_state():
 @register
 def battery_state():
     try:
-        batstate = get_output('acpitool -b').split(':')[1].strip()
+        batstate = get_output('acpitool -b').split(':', 1)[1].strip()
         if 'discharging' in batstate:
             try:
                 if float(batstate.split(' ')[1][:-1]) < 15:
