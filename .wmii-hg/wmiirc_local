@@ -84,12 +84,11 @@ Key $MODKEY-F4
     decr /sys/class/backlight/acpi_video0/brightness
 Key $MODKEY-F5
     incr /sys/class/backlight/acpi_video0/brightness
-Key $MODKEY-F7
-    amixer set Master 3%- >/dev/null
-Key $MODKEY-F8
-    amixer set Master 3%+ >/dev/null
-Key $MODKEY-F9
-    amixer set Master toggle
-
+Key XF86AudioVolumeLower
+    amixer -q set PCM 3%-
+Key XF86AudioVolumeUpper
+    amixer -q set PCM 3%+
+Key XF86AudioMute
+    amixer set PCM toggle
 !
 }
