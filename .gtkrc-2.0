@@ -5,4 +5,3 @@ gtk-theme-name="Shiki-Brave"
 gtk-icon-theme-name="gnome-brave"
 gtk-font-name="Sans 10"
 gtk-toolbar-style=2
-include "~/.gtkrc-2.0.mine"
