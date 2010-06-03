@@ -1,4 +1,4 @@
-#!/bin/sh -f
+#!/bin/bash -f
 
 # Configuration Variables
 MODKEY=Mod4

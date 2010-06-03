@@ -6,8 +6,11 @@ export PATH=~/.bin:~/.bin/openoffice:$PATH
 # Check for an interactive session
 [ -z "$PS1" ] && return
 
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+relpwd() {
+    echo -n $(pwd | sed s,$HOME,~,)
+}
+
+PS1='$(whoami)@$(relpwd)$ '
 PAGER=less
 
 . ~/.bash.private
