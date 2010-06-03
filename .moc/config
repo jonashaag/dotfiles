@@ -1,1 +1,7 @@
 Keymap = keymap
+MusicDir = ~/music
+InputBuffer = 2048
+SoundDriver = ALSA
+StartInMusicDir = yes
+#ASCIILines = yes
+SeekTime = 3
