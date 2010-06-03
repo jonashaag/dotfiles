@@ -1,22 +1,5 @@
-#alsa mute toggle
-#/home/jonas/dev/scripts/soundregler 
-#   XF86AudioMute
-
-#alsa volume up
-"/home/jonas/dev/scripts/soundregler +"
+"amixer set PCM 5%+"
    XF86AudioRaiseVolume
 
-#alsa volume down
-"/home/jonas/dev/scripts/soundregler -"
+"amixer set PCM 5%-"
    XF86AudioLowerVolume
-
-
-# oe
-"xte 'key odiaeresis'"
-    Mod4 + Super_L + semicolon
-# ue
-"xte 'key odiaeresis'"
-    Mod4 + Super_L + bracketleft
-# ae
-"xte 'key odiaeresis'"
-    Mod4 + Super_L + apostrophe
