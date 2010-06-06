@@ -1,5 +1,5 @@
 Keymap = keymap
-MusicDir = ~/music
+MusicDir = /home/jonas/music
 InputBuffer = 2048
 SoundDriver = ALSA
 StartInMusicDir = yes
