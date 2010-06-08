@@ -1,4 +1,4 @@
-#!/bin/sh -f
+#!/bin/bash -f
 
 # Configuration Variables
 MODKEY=Mod4
@@ -51,7 +51,7 @@ Action status
     if wmiir remove /rbar/status 2>/dev/null; then
         sleep 2
     fi
-    ~/.bin/wmii-statusbar.py 3 >> ~/.xsession-log
+    PYTHONPATH=~/.syspath ~/.wmii-hg/./statusbar.py 3 >> ~/.logs/wmii
 
 # Terminals
 Key $MODKEY-Return
