@@ -14,7 +14,7 @@ wmii > .logs/wmii 2>&1 &
 nm-applet > .logs/nm-applet 2>&1 &
 #xchat &
 
-xset m 4
+xset m 5 3
 synclient HorizTwoFingerScroll=1
 
 .bin/autostart
