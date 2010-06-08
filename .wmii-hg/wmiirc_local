@@ -85,11 +85,11 @@ Key $MODKEY-F4
 Key $MODKEY-F5
     incr /sys/class/backlight/acpi_video0/brightness
 Key $MODKEY-F7
-    amixer set Master 3%- >/dev/null
+    amixer set -q Master 3%-
 Key $MODKEY-F8
-    amixer set Master 3%+ >/dev/null
+    amixer set -q Master 3%+
 Key $MODKEY-F9
-    amixer set Master toggle
+    amixer set -q Master toggle
 
 !
 }
