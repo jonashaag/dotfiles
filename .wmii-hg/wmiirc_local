@@ -28,8 +28,9 @@ wmiir write /tagrules <<!
 /.*Shredder.*/ -> 8
 /.*Namoroka.*/ -> 1
 /.*Pidgin.*/ -> 3
-/xchat.*/ -> 9
+/xchat.*/ -> 3
 /gedit.*/ -> 2
+/Transmission/ -> 1
 /.*/ -> sel
 !
 

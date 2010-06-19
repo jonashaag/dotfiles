@@ -16,6 +16,7 @@ nm-applet > .logs/nm-applet 2>&1 &
 
 xset m 5 3
 synclient HorizTwoFingerScroll=1
+syndaemon -d -i 1 -t
 
 .bin/autostart
 .bin/x-session
