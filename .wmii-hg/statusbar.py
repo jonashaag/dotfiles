@@ -5,7 +5,7 @@ import re
 import datetime
 import moc
 
-WARN_BATSTATE = 15
+WARN_BATSTATE = 5
 FILES = []
 
 def get_output(cmd):
