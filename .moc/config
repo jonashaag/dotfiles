@@ -1,5 +1,6 @@
 Keymap = keymap
-MusicDir = /home/jonas/music
+AlsaMixer = Master
+MusicDir = /jonas/Musik
 InputBuffer = 2048
 SoundDriver = ALSA
 StartInMusicDir = yes
