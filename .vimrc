@@ -147,9 +147,9 @@ autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/sc
 vnoremap <BS> d
 
 " Use CTRL-W for saving, also in Insert mode
-noremap <C-W>		:w<CR>
-vnoremap <C-W>		<C-C>:w<CR>
-inoremap <C-W>		<C-O>:w<CR>
+"noremap <C-W>		:w<CR>
+"vnoremap <C-W>		<C-C>:w<CR>
+"inoremap <C-W>		<C-O>:w<CR>
 
 " CTRL-D for dd
 noremap <C-D>       dd
