@@ -10,6 +10,7 @@ arch=('i686' 'x86_64')
 url='http://www.calno.com/evilvte/'
 license=('GPL2')
 depends=('vte')
+makedepends=('pkg-config')
 source=("http://www.calno.com/evilvte/${_pkgname}-${pkgver}.tar.gz")
 md5sums=('7a93aa107f20c0db017e00d71762bff2')
 
