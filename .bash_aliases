@@ -19,6 +19,7 @@ alias 'vimrc'='vim ~/.vimrc'
 # Commands
 alias 'psp'='ps aux | grep $1'
 alias 'unpack'='aunpack'
+alias 'fixgit'="sed -i 's/git:\/\/github\.com\//git@github.com:/g' .git/config"
 
 
 function search() {
