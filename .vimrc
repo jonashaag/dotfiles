@@ -136,31 +136,11 @@ let g:closetag_default_xml=1
 autocmd FileType html,htmldjango,htmljinja,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/scripts/closetag.vim
 
-
-" ----------------------
-"       Easy vim
-" ----------------------
-" Adds some well-known shortcuts to vim. Part-wise based on mswin by
-" Bram Moolenaar <Bram@vim.org>
-
-" backspace in Visual mode deletes selection
-vnoremap <BS> d
-
-" Use CTRL-W for saving, also in Insert mode
-"noremap <C-W>		:w<CR>
-"vnoremap <C-W>		<C-C>:w<CR>
-"inoremap <C-W>		<C-O>:w<CR>
-
 " CTRL-D for dd
-noremap <C-D>       dd
-inoremap <C-D>      <C-C>ddi
-" jump back to insert mode
+inoremap <C-D>  <C-C>ddi
 
-" CTRL-F for 'delete everything before the cursor in current line
-" and append everything after the cursor to the end of previous line
-
-" CTRL-Z in insert mode for undo
-inoremap <C-Z> <C-O>u
-
-" CTRL-Y in insert mode for redo
-inoremap <C-Y> <C-O><C-R>
+" switch tabs with Ctrl-{j,k}
+noremap <C-K>   <C-PageDown>
+noremap <C-J>   <C-PageUp>
+inoremap <C-K>  <C-PageDown>
+inoremap <C-J>  <C-PageUp>
