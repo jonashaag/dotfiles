@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 #    Bash aliases
 #
@@ -20,9 +21,14 @@ alias 'vimrc'='vim ~/.vimrc'
 alias 'psp'='ps aux | grep $1'
 alias 'unpack'='aunpack'
 alias 'fixgit'="sed -i 's/git:\/\/github\.com\//git@github.com:/g' .git/config"
+alias 'compl'='. /etc/bash_completion'
+
+getheaders() {
+    wget -O /dev/null -S -v "$1"
+}
 
 
-function search() {
+search() {
     if [ -z $2 ]; then
         DIR='.'
         REGEXP=$1
@@ -38,4 +44,4 @@ function search() {
     grep -nHIirE${GREPOPT} -- "$REGEXP" "$DIR"
 }
 
-function netunpack() { wget -O - $1 | unpack -; }
+netunpack() { wget -O - $1 | unpack -; }
