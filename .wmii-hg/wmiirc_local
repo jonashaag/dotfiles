@@ -16,7 +16,7 @@ WMII_FONT='-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 
 WMII_SLOW_TERM="evilvte"
 WMII_TERM="xterm"
-WMII_FAST_TERM="SHELL=/bin/sh xterm"
+#WMII_FAST_TERM="SHELL=/bin/sh xterm"
 
 # Column Rules
 wmiir write /colrules <<!
@@ -55,11 +55,11 @@ Action status
     PYTHONPATH=~/.syspath ~/.wmii-hg/./statusbar.py 1 >> ~/.logs/wmii
 
 # Terminals
-Key $MODKEY-Return
-    eval $WMII_FAST_TERM &
+#Key $MODKEY-Return
+#    eval $WMII_FAST_TERM &
 Key $MODKEY-Control-Return
     eval $WMII_SLOW_TERM &
-Key $MODKEY-Shift-Return
+Key $MODKEY-Return
     eval $WMII_TERM &
 
 # moc

@@ -1,0 +1,46 @@
+# Contributer: N30N <archlinux@alunamation.com>
+# Contributor: Anthony Martin <ality@pbrane.org>
+
+pkgname="libixp-hg"
+pkgver=123
+pkgrel=1
+pkgdesc="The latest hg pull of libixp, A standalone client/server 9p library"
+url="http://suckless.org/wiki/libs/libixp"
+license="GPL"
+arch=("i686" "x86_64")
+makedepends=("mercurial" "sed")
+conflicts=("libixp")
+provides=("libixp")
+source=()
+md5sums=()
+
+_hgroot="http://code.suckless.org/hg"
+_hgrepo="libixp"
+
+build() {
+	cd ${srcdir}/${_hgrepo}
+
+	_flags=( \
+		"PREFIX=/usr" \
+		"ETC=/etc" \
+		"RUBYINC=-I/usr/lib/ruby/1.8/$(uname -m)-linux/" \
+		"PREFIX=${pkgdir}/usr" \
+        "STATIC=" \
+	)
+
+	# add correct settings to config.mk
+	# sed -e "s|^\(\s*RUBYINC =\).*|\1 -I/usr/lib/ruby/1.8/`uname -m`-linux/|" \
+		# -e "s|^\(\s*PREFIX =\).*|\1 /usr|" \
+		# -e "s|^\(\s*ETC =\).*|\1 /etc|" \
+		# -e "s|^\(\s*CFLAGS +=.*\)|\1 ${CFLAGS}|" \
+		# -e "s|^\(\s*LDFLAGS =.*\)|\1 ${LDFLAGS}|" \
+		# -e "s|^\(\s*STATIC =.*\)|STATIC=|" \
+		# -i config.mk
+
+	msg "Starting build process."
+    echo "make ${_flags[@]}"
+	make ${_flags[@]} || return 1
+	make ${_flags[@]} install || return 1
+}
+
+# vim: set noet ff=unix

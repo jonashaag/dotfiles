@@ -1,8 +1,6 @@
 " ----------------------------
 "       MAIN SETTINGS
 " ----------------------------
-" Deactivate vi compatibility mode
-set nocompatible
 
 " utf-8 default encoding
 set enc=utf-8
@@ -52,9 +50,6 @@ set t_Co=256
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-" Set backspace key behaviour
-set backspace=indent,eol,start
-
 " Activate syntax syncing from start
 autocmd BufEnter * :syntax sync fromstart
 
@@ -80,6 +75,10 @@ set noerrorbells
 " ----------------------------
 "       LANGUAGE SUPPORT
 " ----------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 " Python!
 autocmd FileType python setlocal
 \   formatoptions+=croq " c+r+o+q
