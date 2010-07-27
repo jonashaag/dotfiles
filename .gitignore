@@ -1,3 +1,4 @@
 .xinitrc
 *.private
 .wmii-hg/history*
+.vim/sessions

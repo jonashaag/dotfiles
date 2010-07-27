@@ -23,6 +23,7 @@ alias 'unpack'='aunpack'
 alias 'fixgit'="sed -i 's/git:\/\/github\.com\//git@github.com:/g' .git/config"
 alias 'compl'='. /etc/bash_completion'
 alias 'hget'='wget -O /dev/null -S -v --spider'
+alias 'gvim'='~/.bin/gdb-run gvim -f'
 
 
 search() {
