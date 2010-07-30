@@ -2,6 +2,7 @@
 DATE=`date +%Y-%m-%d-%H-%M-%S`
 
 echo 'run
+bt full
 quit'>~/.gdb_run
 gdb -q -x ~/.gdb_run --args $@ > ~/.logs/gdb/"$1-${DATE}"
 rm ~/.gdb_run

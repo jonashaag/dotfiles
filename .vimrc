@@ -1,12 +1,19 @@
 " ----------------------------
 "       MAIN SETTINGS
 " ----------------------------
-
-" utf-8 default encoding
+set autochdir
+set noerrorbells
+set t_Co=256
 set enc=utf-8
+set mouse=a
+set modeline
+set title
 
-" Syntax highlighting
+set scrolloff=10
+
 syntax on
+set number
+set nowrap
 
 " Tab width and replace-tab
 set tabstop=4
@@ -14,20 +21,17 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set cindent
+set copyindent
 
-" Line numbers
-set number
+" switch tabs with Ctrl-{j,k}
+noremap <C-K>   <C-PageDown>
+noremap <C-J>   <C-PageUp>
+inoremap <C-K>  <C-PageDown>
+inoremap <C-J>  <C-PageUp>
 
-" No line wrapping
-set nowrap
-
-" Ruler (x, y position display)
-set ruler
-
-" Enable filetype plugins and indention
-filetype on
-filetype plugin on
-filetype indent on
+" switch windows with Ctrl-{h,l}
+map <C-h> <C-w>h
+map <C-l> <C-w>l
 
 " Better Search
 set hlsearch
@@ -40,19 +44,6 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 highlight OverLength ctermbg=255
 match OverLength /\%81v.*/
 
-set t_Co=256
-
-
-" ----------------------------
-"       OTHER SETTINGS
-" ----------------------------
-" Paste mode
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
-
-" Activate syntax syncing from start
-autocmd BufEnter * :syntax sync fromstart
-
 " Set backup/session dir
 set backupdir=~/.vim/sessions
 set dir=~/.vim/sessions
@@ -60,24 +51,25 @@ set dir=~/.vim/sessions
 " Remember cursor position after reload
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
+" Paste mode
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+
+" Activate syntax syncing from start
+autocmd BufEnter * :syntax sync fromstart
+
 set wildmenu
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class
 set wildmode=list:full
 
+" Enable filetype plugins and indention
+filetype on
+filetype plugin on
+filetype indent on
+
 " go with smartindent if there is no plugin indent file.
 " but don't outdent hashes
 inoremap # X#
-
-" don't bell or blink
-set noerrorbells
-
-
-" ----------------------------
-"       LANGUAGE SUPPORT
-" ----------------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 " Python!
 autocmd FileType python setlocal
@@ -134,12 +126,3 @@ let html_no_rendering=1 " disable wysiwyg rendering
 let g:closetag_default_xml=1
 autocmd FileType html,htmldjango,htmljinja,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/scripts/closetag.vim
-
-" CTRL-D for dd
-inoremap <C-D>  <C-C>ddi
-
-" switch tabs with Ctrl-{j,k}
-noremap <C-K>   <C-PageDown>
-noremap <C-J>   <C-PageUp>
-inoremap <C-K>  <C-PageDown>
-inoremap <C-J>  <C-PageUp>

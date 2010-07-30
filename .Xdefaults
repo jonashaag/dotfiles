@@ -1,1 +1,3 @@
 Xft.lcdfilter: lcddefault
+#xterm*foreground: white
+#xterm*background: black
