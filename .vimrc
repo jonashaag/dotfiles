@@ -7,7 +7,7 @@ set enc=utf-8
 set mouse=a
 set modeline
 set title
-set scrolloff=10
+set scrolloff=99999
 set cmdheight=2
 set number
 set nowrap
@@ -39,9 +39,29 @@ set copyindent
 
 " switch tabs with Ctrl-{j,k}
 noremap <C-K>   <C-PageDown>
-noremap <C-J>   <C-PageUp>
 inoremap <C-K>  <C-PageDown>
+noremap <C-J>   <C-PageUp>
 inoremap <C-J>  <C-PageUp>
+
+" switch to tab N with Alt-N
+noremap <A-1>   1gt
+inoremap <A-1>  1gt
+noremap <A-2>   2gt
+inoremap <A-2>  2gt
+noremap <A-3>   3gt
+inoremap <A-3>  3gt
+noremap <A-4>   4gt
+inoremap <A-4>  4gt
+noremap <A-5>   5gt
+inoremap <A-5>  5gt
+noremap <A-6>   6gt
+inoremap <A-6>  6gt
+noremap <A-7>   7gt
+inoremap <A-7>  7gt
+noremap <A-8>   8gt
+inoremap <A-8>  8gt
+noremap <A-9>   9gt
+inoremap <A-9>  9gt
 
 " switch windows with Ctrl-{h,l}
 map <C-h> <C-w>h

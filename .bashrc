@@ -10,7 +10,7 @@ relpwd() {
     ~/.bin/pathcrop `echo -n $(pwd | sed s,$HOME,~,)`
 }
 
-PS1='$(relpwd)>> '
+PS1='$(relpwd)$ '
 PAGER=less
 
 . ~/.bash.private
