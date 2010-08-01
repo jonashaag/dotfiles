@@ -1,8 +1,13 @@
 #!/bin/sh
 DATE=`date +%Y-%m-%d-%H-%M-%S`
 
-echo 'run
+if [[ ! -d ~/.gdb_run ]]; then
+    echo 'run
 bt full
 quit'>~/.gdb_run
-gdb -q -x ~/.gdb_run --args $@ > ~/.logs/gdb/"$1-${DATE}"
-rm ~/.gdb_run
+fi
+
+STDERR=$( { gdb -q -x ~/.gdb_run --args $@ > ~/.logs/gdb/"$1-${DATE}"; } 2>&1 | grep -v "No stack.")
+if [[ -n "$STDERR" ]]; then
+    echo "$STDERR"
+fi

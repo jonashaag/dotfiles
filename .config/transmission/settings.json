@@ -61,7 +61,7 @@
     "rpc-password": "{c9ec391af2219198c9d7caeb4fae3a26b484e91aDdLjV7UD", 
     "rpc-port": 9091, 
     "rpc-username": "", 
-    "rpc-whitelist": "127.0.0.1", 
+    "rpc-whitelist": "127.0.0.*,0.0.0.0", 
     "rpc-whitelist-enabled": true, 
     "script-torrent-done-enabled": false, 
     "script-torrent-done-filename": "/home/jonas", 

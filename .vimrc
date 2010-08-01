@@ -1,6 +1,5 @@
-" ----------------------------
-"       MAIN SETTINGS
-" ----------------------------
+" vim:shiftwidth=2
+syntax on
 set autochdir
 set noerrorbells
 set t_Co=256
@@ -8,12 +7,27 @@ set enc=utf-8
 set mouse=a
 set modeline
 set title
-
 set scrolloff=10
-
-syntax on
+set cmdheight=2
 set number
 set nowrap
+
+fu! _filetype()
+  if &ft != 'python'
+    if &ft == ''
+      return ''
+    else
+      return '[' . &ft . ']'
+    endif
+  elseif exists("w:PHStatusLine")
+    return '  ' . w:PHStatusLine
+  else
+    return ''
+  endif
+endfunction
+
+set statusline=%F\ %h%m%r%w%{_filetype()}%*%=\ pos:\ %l\,%c/%L%<\ \|\ asc\ %b/0x%B\ \|\ %P
+set laststatus=2
 
 " Tab width and replace-tab
 set tabstop=4
@@ -41,8 +55,8 @@ set smartcase
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Warn at line length > 79
-highlight OverLength ctermbg=255
-match OverLength /\%81v.*/
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%>80v.\+/
 
 " Set backup/session dir
 set backupdir=~/.vim/sessions
@@ -76,7 +90,6 @@ autocmd FileType python setlocal
 \   formatoptions+=croq " c+r+o+q
 \   cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 \   complete+=k~/.vim/syntax/python.vim isk+=.,(
-\   map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 let python_highlight_all = 1
 
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab

@@ -1,4 +1,4 @@
-"set guifont=Inconsolata\ Medium\ 11
+"set guifont=Inconsolata\ Medium\ 10
 "set guifont=Monaco\ 10
 "set guifont=Droid\ Sans\ \Mono\ 10
 set guifont=Monospace\ 10

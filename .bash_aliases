@@ -41,5 +41,3 @@ search() {
     fi
     grep -nHIirE${GREPOPT} -- "$REGEXP" "$DIR"
 }
-
-netunpack() { wget -O - $1 | unpack -; }
