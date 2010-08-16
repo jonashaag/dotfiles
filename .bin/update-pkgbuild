@@ -1,0 +1,4 @@
+#!/bin/sh
+makepkg --source -f
+. ./PKGBUILD
+aurploader $pkgname-$pkgver-$pkgrel.src.tar.gz

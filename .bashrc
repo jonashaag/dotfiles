@@ -7,7 +7,7 @@ export PATH=~/.bin:~/.bin/openoffice:$PATH
 [ -z "$PS1" ] && return
 
 relpwd() {
-    ~/.bin/pathcrop `echo -n $(pwd | sed s,$HOME,~,)`
+    ~/.bin/pathcrop "`echo -n $(pwd | sed s,$HOME,~,)`"
 }
 
 PS1='$(relpwd)$ '

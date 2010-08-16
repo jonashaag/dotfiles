@@ -37,6 +37,10 @@ set smarttab
 set cindent
 set copyindent
 
+" Scroll a half page on PageDown and PageUp
+map <PageDown> <C-D>
+map <PageUp>   <C-U>
+
 " switch tabs with Ctrl-{j,k}
 noremap <C-K>   <C-PageDown>
 inoremap <C-K>  <C-PageDown>

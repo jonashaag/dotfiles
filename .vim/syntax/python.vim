@@ -238,10 +238,10 @@ if exists("python_highlight_builtins") && python_highlight_builtins != 0
   syn keyword pythonBuiltinFunc	__import__ abs all any apply
   syn keyword pythonBuiltinFunc	basestring bin bool buffer bytearray bytes callable
   syn keyword pythonBuiltinFunc	chr classmethod cmp coerce compile complex
-  syn keyword pythonBuiltinFunc	delattr dict dir divmod enumerate eval
-  syn keyword pythonBuiltinFunc	execfile file filter float format frozenset getattr
-  syn keyword pythonBuiltinFunc	globals hasattr hash help hex id 
-  syn keyword pythonBuiltinFunc	input int intern isinstance
+  syn keyword pythonBuiltinFunc	delattr dict divmod enumerate eval
+  syn keyword pythonBuiltinFunc	execfile filter float frozenset getattr
+  syn keyword pythonBuiltinFunc	globals hasattr hash help hex
+  syn keyword pythonBuiltinFunc	int isinstance
   syn keyword pythonBuiltinFunc	issubclass iter len list locals long map max
   syn keyword pythonBuiltinFunc	min next object oct open ord
   syn keyword pythonBuiltinFunc	pow property range
