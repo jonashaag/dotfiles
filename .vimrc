@@ -26,7 +26,7 @@ fu! _filetype()
   endif
 endfunction
 
-set statusline=%F\ %h%m%r%w%{_filetype()}%*%=\ pos:\ %l\,%c/%L%<\ \|\ asc\ %b/0x%B\ \|\ %P
+set statusline=%f\ %h%m%r%w%{_filetype()}%*%=\ pos:\ %l\,%c/%L%<\ \|\ asc\ %b/0x%B\ \|\ %P
 set laststatus=2
 
 " Tab width and replace-tab
