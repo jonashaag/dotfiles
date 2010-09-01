@@ -1,0 +1,19 @@
+#!/bin/sh
+
+ensure_dollar_1() {
+    if [ -z "$1" ]
+    then
+        echo "USAGE: $0 device"
+        exit 1
+    fi
+}
+
+if [ -z "$(mount|grep exthdd)" ]
+then
+    ensure_dollar_1 $@
+    sudo cryptsetup luksOpen $1 exthdd
+    mount /dev/mapper/exthdd
+else
+    umount /media/exthdd
+    sudo cryptsetup luksClose exthdd
+fi
