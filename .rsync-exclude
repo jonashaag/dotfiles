@@ -4,3 +4,8 @@ src/
 gorleben/
 mozilla/jonas.default/Cache
 .cache/
+dev/projects/fileshare/runtime
+dev/projects/fileshare/virtualenv
+dev/projects/django-nonrel
+dev/projects/rock
+music/
