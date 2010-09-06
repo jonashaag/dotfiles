@@ -2,7 +2,7 @@ movies/
 arch/
 src/
 gorleben/
-mozilla/jonas.default/Cache
+.mozilla/jonas.default/Cache
 .cache/
 dev/projects/fileshare/runtime
 dev/projects/fileshare/virtualenv
