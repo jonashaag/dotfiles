@@ -18,3 +18,5 @@ PAGER=less
 . ~/.bash_functions
 
 export PYTHONPATH=~/.syspath:$PYTHONPATH
+
+export MOZ_DISABLE_PANGO=1

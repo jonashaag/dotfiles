@@ -19,7 +19,7 @@ TIME_FORMAT = '%a %b %d %H:%M:%S'
 @register
 def clock():
     now = datetime.datetime.now()
-    here=now.strftime(TIME_FORMAT),
+    return here=now.strftime(TIME_FORMAT),
 
 MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s %(currenttime)s"
 @register
