@@ -1,0 +1,8 @@
+[ui]
+username = jonashaag
+email = jonas@lophus.org
+
+[extensions]
+hgext.bookmarks = 
+hggit = 
+color =

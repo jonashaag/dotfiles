@@ -5,7 +5,7 @@ import re
 import datetime
 import moc
 
-WARN_BATSTATE = 15
+WARN_BATSTATE = 10
 FILES = []
 
 def get_output(cmd):
@@ -19,12 +19,7 @@ TIME_FORMAT = '%a %b %d %H:%M:%S'
 @register
 def clock():
     now = datetime.datetime.now()
-    now_in_australia = now + datetime.timedelta(hours=7, minutes=30)
-
-    return '({australia}) {here}'.format(
-        here=now.strftime(TIME_FORMAT),
-        australia=now_in_australia.strftime(TIME_FORMAT)
-    )
+    here=now.strftime(TIME_FORMAT),
 
 MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s %(currenttime)s"
 @register

@@ -30,7 +30,7 @@ wmiir write /tagrules <<!
 /.*Pidgin.*/ -> 3
 /xchat.*/ -> 3
 /gedit.*/ -> 2
-/Transmission/ -> 1
+/Transmission/ -> 7
 /.*/ -> sel
 !
 
@@ -52,7 +52,7 @@ Action status
     if wmiir remove /rbar/status 2>/dev/null; then
         sleep 2
     fi
-    PYTHONPATH=~/.syspath ~/.wmii-hg/./statusbar.py 1 >> ~/.logs/wmii
+    PYTHONPATH=~/.syspath ~/.wmii/statusbar.py 1 >> ~/sys/logs/wmii
 
 # Terminals
 #Key $MODKEY-Return

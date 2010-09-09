@@ -1,3 +1,0 @@
-#!/bin/sh
-export PYTHONPATH=/home/jonas/dev/cream/src/libs:$PYTHONPATH
-exec bash

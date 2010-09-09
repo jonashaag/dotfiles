@@ -1,7 +1,0 @@
-#!/bin/sh
-rm ~/.surf/cookies.txt 2>/dev/null
-rmdir ~/Desktop 2>/dev/null
-
-~/.src/skvm/skvm -d > ~/.logs/skvm &
-
-~/.bin/autostart.private &
