@@ -1,4 +1,4 @@
-all: copyconfig patchPKGBUILD makepkg
+all: copyconfig patchPKGBUILD makepkg-and-install
 
 copyconfig:
 	cp myconfig.h /tmp/evilvte-config.h
@@ -6,5 +6,5 @@ copyconfig:
 patchPKGBUILD:
 	sed 's/make ||/echo "#include <\/tmp\/evilvte-config.h>" >> src\/config.h; make ||/' PKGBUILD > /tmp/evilvte-PKGBUILD
 
-makepkg:
-	makepkg -f -p /tmp/evilvte-PKGBUILD
+makepkg-and-install:
+	makepkg -i -f -p /tmp/evilvte-PKGBUILD
