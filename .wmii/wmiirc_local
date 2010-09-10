@@ -52,7 +52,7 @@ Action status
     if wmiir remove /rbar/status 2>/dev/null; then
         sleep 2
     fi
-    PYTHONPATH=~/.syspath ~/.wmii/statusbar.py 1 >> ~/sys/logs/wmii
+    PYTHONPATH=~/.syspath ~/.wmii/statusbar.py 3 >> ~/sys/logs/wmii
 
 # Terminals
 #Key $MODKEY-Return
@@ -81,11 +81,11 @@ Key $MODKEY-Control-$UP
     wmiir xwrite /tag/sel/ctl grow sel sel down -3
 
 # special keys
-Key $MODKEY-F5
-    amixer -q set PCM 3%-
-Key $MODKEY-F6
-    amixer -q set PCM 3%+
+Key $MODKEY-F1
+    amixer -q set Master 3%-
+Key $MODKEY-F2
+    amixer -q set Master 3%+
 Key $MODKEY-F3
-    amixer set PCM toggle
+    amixer set Master toggle
 !
 }

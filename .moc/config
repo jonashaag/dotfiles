@@ -5,3 +5,4 @@ SoundDriver = ALSA
 StartInMusicDir = yes
 #ASCIILines = yes
 SeekTime = 3
+AlsaMixer = Master

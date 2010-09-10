@@ -6,6 +6,7 @@ import datetime
 import moc
 
 WARN_BATSTATE = 10
+BAT_STATE_FILE = '/proc/acpi/battery/BAT0/state'
 FILES = []
 
 def get_output(cmd):
@@ -19,7 +20,7 @@ TIME_FORMAT = '%a %b %d %H:%M:%S'
 @register
 def clock():
     now = datetime.datetime.now()
-    return here=now.strftime(TIME_FORMAT),
+    return now.strftime(TIME_FORMAT)
 
 MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s %(currenttime)s"
 @register
@@ -43,15 +44,18 @@ def mocp_state():
 def battery_state():
     try:
         batstate = get_output('acpitool -b').split(':', 1)[1].strip()
-        if 'discharging' in batstate:
-            try:
-                if float(batstate.split(' ')[1].rstrip(',%')) < WARN_BATSTATE:
-                    return 'WARNING: %s' % batstate
-            except (IndexError, ValueError, TypeError):
-                pass
-        return batstate
     except IndexError:
-        return 'BAT0: not present'
+        return 'running on AC'
+    if 'discharging' in batstate:
+        try:
+            if float(batstate.split(' ')[1].rstrip(',%')) < WARN_BATSTATE:
+                batstate = 'WARNING: %s' % batstate
+        except (IndexError, ValueError, TypeError):
+            pass
+        rate = [line for line in open(BAT_STATE_FILE).read().split('\n')
+                if 'present rate' in line][0].split('rate:')[1].strip()
+        return batstate + ' (%s)' % rate
+    return batstate
 
 
 def main():
