@@ -1,4 +1,11 @@
 " vim:shiftwidth=2
+
+" Only include once
+if exists('hello_vimrc')
+  finish
+endif
+let hello_vimrc = 1
+
 syntax on
 set autochdir
 set noerrorbells
@@ -8,7 +15,7 @@ set mouse=a
 set modeline
 set title
 set scrolloff=99999
-set cmdheight=2
+"set cmdheight=2
 set number
 set nowrap
 
