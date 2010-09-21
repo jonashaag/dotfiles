@@ -1,19 +1,14 @@
 #!/bin/sh
 
-if [ -z "$1" ]; then
- echo 'buh!'
- exit 1
+~/sys/bin/mount-exthdd "$1"
+if [ 0 -ne $? ]
+then
+    exit $?
 fi
 
-cp /etc/fstab /tmp/fstab
-cp /etc/fstab /tmp/fstab2
-echo "/dev/mapper/exthdd /media/exthdd ext4 user" >> /tmp/fstab
-sudo cp /tmp/fstab /etc/fstab
-sudo cryptsetup luksOpen "$1" exthdd
-mount /dev/mapper/exthdd
 echo 'bereeiiit?'
 read
+echo 'go go go'
 rsync -arv --exclude-from=$HOME/.rsync-exclude ~ /media/exthdd/
-umount /media/exthdd
-sudo cryptsetup luksClose exthdd
-sudo cp /tmp/fstab2 /etc/fstab
+
+~/sys/bin/mount-exthdd "$1"

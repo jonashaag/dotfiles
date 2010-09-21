@@ -1,10 +1,12 @@
-export PATH=~/.bin:~/.bin/openoffice:$PATH
+export PATH=~/.bin:~/sys/bin:$PATH
 #if [ $TERM == 'xterm' ]; then
 #    export TERM='xterm-256color'
 #fi
 
 # Check for an interactive session
 [ -z "$PS1" ] && return
+
+set -o vi
 
 relpwd() {
     ~/sys/bin/pathcrop "`echo -n $(pwd | sed s,$HOME,~,)`"

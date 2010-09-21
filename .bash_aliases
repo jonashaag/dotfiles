@@ -8,9 +8,9 @@ alias '....'='cd ../../..'
 alias 'ls'='ls --color=auto'
 alias 'l'='ls -l'
 alias 'md'='mkdir -p'
+alias 'wlan'='sudo iwconfig wlan0 txpower'
 
 # Python stuff
-alias 'i'='ipython'
 alias 'django'='python manage.py'
 alias 'clean'='find -name "*.pyc" -exec rm {} \;'
 
