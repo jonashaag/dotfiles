@@ -27,10 +27,10 @@ wmiir write /colrules <<!
 wmiir write /tagrules <<!
 /.*Lanikai.*/ -> 8
 /.*Namoroka.*/ -> 1
-/.*Pidgin.*/ -> 3
-/xchat.*/ -> 3
+/.*Pidgin.*/ -> 7
+/xchat.*/ -> 9
 /gedit.*/ -> 2
-/Transmission/ -> 7
+/Transmission/ -> 9
 /.*/ -> sel
 !
 
@@ -82,10 +82,24 @@ Key $MODKEY-Control-$UP
 
 # special keys
 Key $MODKEY-F1
-    amixer -q set Master 3%-
+    amixer -q set PCM 3%-
+Key Xf86AudioLowerVolume
+    amixer -q set PCM 3%-
 Key $MODKEY-F2
-    amixer -q set Master 3%+
+    amixer -q set PCM 3%+
+Key Xf86AudioRaiseVolume
+    amixer -q set PCM 3%+
 Key $MODKEY-F3
-    amixer set Master toggle
+    amixer set PCM toggle
+Key Xf86AudioMute
+    amixer set PCM toggle
+Key $MODKEY-F4
+    decr /sys/class/backlight/acpi_video0/brightness
+Key $MODKEY-F5
+    incr /sys/class/backlight/acpi_video0/brightness
+Key $MODKEY-F12
+    setxkbmap us
+Key $MODKEY-F11
+    setxkbmap de
 !
 }

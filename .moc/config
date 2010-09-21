@@ -1,8 +1,8 @@
 Keymap = keymap
-MusicDir = /home/jonas/musik
+MusicDir = /jonas/musik
 InputBuffer = 2048
 SoundDriver = ALSA
 StartInMusicDir = yes
 #ASCIILines = yes
 SeekTime = 3
-AlsaMixer = Master
+AlsaMixer = PCM
