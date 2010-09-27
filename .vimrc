@@ -86,8 +86,11 @@ set smartcase
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Warn at line length > 79
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-match OverLength /\%>80v.\+/
+"highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+"match OverLength /\%>80v.\+/
+
+" Highlight column 81
+set colorcolumn=81
 
 " Set backup/session dir
 set backupdir=~/.vim/sessions

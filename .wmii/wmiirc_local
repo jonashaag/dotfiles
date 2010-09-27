@@ -101,5 +101,7 @@ Key $MODKEY-F12
     setxkbmap us
 Key $MODKEY-F11
     setxkbmap de
+Key $MODKEY-F9
+    sudo pm-suspend
 !
 }
