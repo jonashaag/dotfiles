@@ -27,9 +27,8 @@ wmiir write /colrules <<!
 wmiir write /tagrules <<!
 /.*Lanikai.*/ -> 8
 /.*Namoroka.*/ -> 1
+/.*Netsurf.*/ -> 1
 /.*Pidgin.*/ -> 7
-/xchat.*/ -> 9
-/gedit.*/ -> 2
 /Transmission/ -> 9
 /.*/ -> sel
 !

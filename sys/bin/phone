@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -z "$1" ]
+then
+    echo "USAGE: $0 device"
+    exit 1
+fi
+pmount "$1" 2>/dev/null
+pmount "$1"1

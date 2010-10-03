@@ -20,5 +20,5 @@ PAGER=less
 . ~/.bash_functions
 
 export PYTHONPATH=~/.syspath:$PYTHONPATH
-
 export MOZ_DISABLE_PANGO=1
+export GREP_OPTIONS='--color=auto'

@@ -11,7 +11,6 @@ alias 'md'='mkdir -p'
 alias 'wlan'='sudo iwconfig wlan0 txpower'
 
 # Python stuff
-alias 'django'='python manage.py'
 alias 'clean'='find -name "*.pyc" -exec rm {} \;'
 
 # vim
