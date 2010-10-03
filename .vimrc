@@ -1,10 +1,5 @@
 " vim:shiftwidth=2
-
-" Only include once
-if exists('hello_vimrc')
-  finish
-endif
-let hello_vimrc = 1
+let hello_vimrc=1
 
 syntax on
 set autochdir
@@ -91,6 +86,7 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Highlight column 81
 set colorcolumn=81
+highlight ColorColumn ctermbg=darkgrey
 
 " Set backup/session dir
 set backupdir=~/.vim/sessions
