@@ -2,3 +2,4 @@
 *.private
 .wmii-hg/history*
 .vim/sessions
+.rsync_exclude

@@ -1,4 +1,5 @@
 filme/
+talks/
 musik/
 sys/pkgbuild
 src/
@@ -8,4 +9,5 @@ src/
 .wine/
 dev/fileshare/runtime
 dev/fileshare/virtualenv
+dev/fileshare/fileshare_project/uploads
 dev/django-nonrel
