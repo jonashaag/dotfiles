@@ -7,7 +7,7 @@ bt full
 quit'>~/.gdb_run
 fi
 
-STDERR=$( { gdb -q -x ~/.gdb_run --args $@ > ~/.logs/gdb/"$1-${DATE}"; } 2>&1 | grep -v "No stack.")
+STDERR=$( { gdb -q -x ~/.gdb_run --args $@ > ~/sys/logs/gdb/"$(basename $1)-${DATE}"; } 2>&1 | grep -v "No stack.")
 if [[ -n "$STDERR" ]]; then
     echo "$STDERR"
 fi

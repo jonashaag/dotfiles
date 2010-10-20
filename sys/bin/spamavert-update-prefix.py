@@ -3,7 +3,7 @@ import random
 import string
 import os
 
-prefs_dot_js = '/home/jonas/.mozilla/firefox/jonas.default/prefs.js'
+prefs_dot_js = '/jonas/.mozilla/firefox/jonas.default/prefs.js'
 
 ALPHABET = string.letters + string.digits
 

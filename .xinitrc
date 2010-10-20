@@ -19,5 +19,6 @@ synclient HorizTwoFingerScroll=1
 syndaemon -d -i 1 -t
 
 ~/.xinitrc.private &
+sys/bin/spamavert-update-prefix.py
 
 ~/sys/bin/x-session
