@@ -25,6 +25,7 @@ wmiir write /colrules <<!
 
 # Tagging Rules
 wmiir write /tagrules <<!
+/.*dwb.*/ -> 1
 /.*Lanikai.*/ -> 8
 /.*Namoroka.*/ -> 1
 /.*Netsurf.*/ -> 1
@@ -89,9 +90,9 @@ Key $MODKEY-F2
 Key Xf86AudioRaiseVolume
     amixer -q set PCM 3%+
 Key $MODKEY-F3
-    amixer set PCM toggle
+    amixer set Master toggle
 Key Xf86AudioMute
-    amixer set PCM toggle
+    amixer set Master toggle
 Key $MODKEY-F4
     decr /sys/class/backlight/acpi_video0/brightness
 Key $MODKEY-F5
