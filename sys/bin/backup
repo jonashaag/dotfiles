@@ -1,14 +1,14 @@
 #!/bin/sh
 
-~/sys/bin/mount-exthdd "$1"
-if [ 0 -ne $? ]
-then
-    exit $?
-fi
+safe_exec() {
+    $@
+    rv=$?
+    if [ 0 -ne $rv ]
+    then
+        exit $rv
+    fi
+}
 
-echo 'bereeiiit?'
-read
-echo 'go go go'
-rsync -arv --exclude-from=$HOME/.rsync-exclude ~ /media/exthdd/
-
-~/sys/bin/mount-exthdd "$1"
+safe_exec ~/sys/bin/mount-exthdd "$1"
+safe_exec rsync -arv --exclude-from=$HOME/.rsync-exclude ~ /media/exthdd/
+safe_exec ~/sys/bin/mount-exthdd "$1"

@@ -122,6 +122,8 @@ autocmd FileType python setlocal
 \   complete+=k~/.vim/syntax/python.vim isk+=.,(
 let python_highlight_all = 1
 
+autocmd FileType c setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 
 " Java
@@ -133,37 +135,7 @@ autocmd FileType rst setlocal shiftwidth=3 tabstop=3 softtabstop=3
 " Ruby
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
-" HTML/XML/...
-fun! s:SelectHTML()
-let n = 1
-while n < 50 && n < line("$")
-  " check for jinja
-  if getline(n) =~ '{%\s*\(extends\|block\|macro\|set\|if\|for\|include\|trans\)\>'
-    set ft=htmljinja
-    return
-  endif
-  " check for django
-  if getline(n) =~ '{%\s*\(extends\|block\|comment\|ssi\|if\|for\|blocktrans\)\>'
-    set ft=htmldjango
-    return
-  endif
-  " check for mako
-    if getline(n) =~ '<%\(def\|inherit\)'
-      set ft=mako
-      return
-    endif
-    " check for genshi
-    if getline(n) =~ 'xmlns:py\|py:\(match\|for\|if\|def\|strip\|xmlns\)'
-      set ft=genshi
-      return
-    endif
-    let n = n + 1
-  endwhile
-  " go with html
-  set ft=html
-endfun
-
-autocmd BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
+autocmd BufNewFile,BufRead *.html,*.htm  set filetype=htmljinja
 let html_no_rendering=1 " disable wysiwyg rendering
 
 let g:closetag_default_xml=1
