@@ -1,0 +1,124 @@
+diff -r d578c187d733 django/core/cache/backends/base.py
+--- a/django/core/cache/backends/base.py	Sat Oct 23 11:31:45 2010 +0200
++++ b/django/core/cache/backends/base.py	Tue Nov 02 02:12:01 2010 +0100
+@@ -22,6 +22,18 @@
+             timeout = 300
+         self.default_timeout = timeout
+ 
++        max_entries = params.get('max_entries', 300)
++        try:
++            self._max_entries = int(max_entries)
++        except (ValueError, TypeError):
++            self._max_entries = 300
++
++        cull_frequency = params.get('cull_frequency', 3)
++        try:
++            self._cull_frequency = int(cull_frequency)
++        except (ValueError, TypeError):
++            self._cull_frequency = 3
++
+     def add(self, key, value, timeout=None):
+         """
+         Set a value in the cache if the key does not already exist. If
+diff -r d578c187d733 django/core/cache/backends/db.py
+--- a/django/core/cache/backends/db.py	Sat Oct 23 11:31:45 2010 +0200
++++ b/django/core/cache/backends/db.py	Tue Nov 02 02:12:01 2010 +0100
+@@ -25,7 +25,7 @@
+         self.managed = True
+         self.proxy = False
+ 
+-class CacheClass(BaseCache):
++class BaseDatabaseCacheClass(BaseCache):
+     def __init__(self, table, params):
+         BaseCache.__init__(self, params)
+         self._table = table
+@@ -34,17 +34,7 @@
+             _meta = Options(table)
+         self.cache_model_class = CacheEntry
+ 
+-        max_entries = params.get('max_entries', 300)
+-        try:
+-            self._max_entries = int(max_entries)
+-        except (ValueError, TypeError):
+-            self._max_entries = 300
+-        cull_frequency = params.get('cull_frequency', 3)
+-        try:
+-            self._cull_frequency = int(cull_frequency)
+-        except (ValueError, TypeError):
+-            self._cull_frequency = 3
+-
++class CacheClass(BaseDatabaseCacheClass):
+     def get(self, key, default=None):
+         self.validate_key(key)
+         db = router.db_for_read(self.cache_model_class)
+diff -r d578c187d733 django/core/cache/backends/filebased.py
+--- a/django/core/cache/backends/filebased.py	Sat Oct 23 11:31:45 2010 +0200
++++ b/django/core/cache/backends/filebased.py	Tue Nov 02 02:12:01 2010 +0100
+@@ -14,19 +14,6 @@
+ class CacheClass(BaseCache):
+     def __init__(self, dir, params):
+         BaseCache.__init__(self, params)
+-
+-        max_entries = params.get('max_entries', 300)
+-        try:
+-            self._max_entries = int(max_entries)
+-        except (ValueError, TypeError):
+-            self._max_entries = 300
+-
+-        cull_frequency = params.get('cull_frequency', 3)
+-        try:
+-            self._cull_frequency = int(cull_frequency)
+-        except (ValueError, TypeError):
+-            self._cull_frequency = 3
+-
+         self._dir = dir
+         if not os.path.exists(self._dir):
+             self._createdir()
+diff -r d578c187d733 django/core/cache/backends/locmem.py
+--- a/django/core/cache/backends/locmem.py	Sat Oct 23 11:31:45 2010 +0200
++++ b/django/core/cache/backends/locmem.py	Tue Nov 02 02:12:01 2010 +0100
+@@ -14,19 +14,6 @@
+         BaseCache.__init__(self, params)
+         self._cache = {}
+         self._expire_info = {}
+-
+-        max_entries = params.get('max_entries', 300)
+-        try:
+-            self._max_entries = int(max_entries)
+-        except (ValueError, TypeError):
+-            self._max_entries = 300
+-
+-        cull_frequency = params.get('cull_frequency', 3)
+-        try:
+-            self._cull_frequency = int(cull_frequency)
+-        except (ValueError, TypeError):
+-            self._cull_frequency = 3
+-
+         self._lock = RWLock()
+ 
+     def add(self, key, value, timeout=None):
+diff -r d578c187d733 tests/regressiontests/cache/tests.py
+--- a/tests/regressiontests/cache/tests.py	Sat Oct 23 11:31:45 2010 +0200
++++ b/tests/regressiontests/cache/tests.py	Tue Nov 02 02:12:01 2010 +0100
+@@ -410,6 +410,10 @@
+     def test_cull(self):
+         self.perform_cull_test(50, 29)
+ 
++    def test_zero_cull(self):
++        self.cache = get_cache('db://%s?max_entries=30&cull_frequency=0' % self._table_name)
++        self.perform_cull_test(50, 18)
++
+ class LocMemCacheTests(unittest.TestCase, BaseCacheTests):
+     def setUp(self):
+         self.cache = get_cache('locmem://?max_entries=30')
+@@ -417,6 +421,10 @@
+     def test_cull(self):
+         self.perform_cull_test(50, 29)
+ 
++    def test_zero_cull(self):
++        self.cache = get_cache('locmem://?max_entries=30&cull_frequency=0')
++        self.perform_cull_test(50, 19)
++
+ # memcached backend isn't guaranteed to be available.
+ # To check the memcached backend, the test settings file will
+ # need to contain a CACHE_BACKEND setting that points at

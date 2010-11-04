@@ -1,0 +1,28 @@
+diff -r c4a0ada72269 data/hints.js
+--- a/data/hints.js	Thu Oct 07 02:33:09 2010 +0200
++++ b/data/hints.js	Tue Oct 12 22:15:14 2010 +0200
+@@ -9,6 +9,7 @@
+ var styles;
+ var form_hints = "//form";
+ var hints = "//a | //area | //textarea | //select | //link | //input | //button | //frame | //iframe | //*[@onclick or @onmouseover or @onmousedown or @onmouseup or @oncommand or @class='lk' or @role='link' or @href]";
++var _dwb_stylesheet_created = false;
+ 
+ function DwbHint(element, id) {
+   this.element = element;
+@@ -133,6 +134,8 @@
+   dwb_clear();
+ }
+ function dwb_create_stylesheet() {
++  if(_dwb_stylesheet_created)
++    return;
+   var styles = document.createElement("style");
+   styles.type = "text/css";
+   document.getElementsByTagName('head')[0].appendChild(styles);
+@@ -144,6 +147,7 @@
+   style.insertRule('a[dwb_highlight=hint_active] { background: ' + hint_active_color + '  } ', 0);
+   style.insertRule('a[dwb_highlight=hint_active] { border: 2px solid ' + hint_active_color + '  } ', 0);
+   style.insertRule('input[dwb_highlight=hint_active] { outline: 2px solid ' + hint_active_color + '  } ', 0);
++  _dwb_stylesheet_created = true;
+ }
+ 
+ function dwb_get_visibility(e) {

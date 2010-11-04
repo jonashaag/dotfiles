@@ -1,0 +1,92 @@
+diff -r b1d00ceba10d djangotoolbox/fields.py
+--- a/djangotoolbox/fields.py	Sat Oct 09 17:52:35 2010 +0200
++++ b/djangotoolbox/fields.py	Sun Oct 10 23:24:51 2010 +0200
+@@ -41,8 +41,7 @@
+ 
+     def _convert(self, func, values, *args, **kwargs):
+         if isinstance(values, (list, tuple, set)):
+-            values = [func(value, *args, **kwargs) for value in values]
+-            values = self._type(values)
++            return self._type(func(value, *args, **kwargs) for value in values)
+         return values
+ 
+     def to_python(self, value):
+@@ -60,7 +59,7 @@
+         try:
+             iter(values)
+         except TypeError:
+-            raise ValidationError(_(u'Value of type %r is not iterable' % type(values)))
++            raise ValidationError(_(u'Value of type %r is not iterable') % type(values))
+ 
+     def formfield(self, **kwargs):
+         raise NotImplementedError("No form field implemented for %r" % type(self))
+@@ -85,7 +84,7 @@
+ 
+     def _convert(self, func, values, *args, **kwargs):
+         values = super(ListField, self)._convert(func, values, *args, **kwargs)
+-        if self.ordering is not None:
++        if values is not None and self.ordering is not None:
+             values.sort(key=self.ordering)
+         return values
+ 
+@@ -107,8 +106,10 @@
+     _type = dict
+ 
+     def _convert(self, func, values, *args, **kwargs):
+-        return dict([(key, func(values[key], *args, **kwargs))
+-                     for key in values])
++        if values is None:
++            return None
++        return dict((key, func(value, *args, **kwargs))
++                     for key, value in values.iteritems())
+ 
+     def validate(self, values, model_instance):
+         if not isinstance(values, dict):
+diff -r b1d00ceba10d djangotoolbox/tests.py
+--- a/djangotoolbox/tests.py	Sat Oct 09 17:52:35 2010 +0200
++++ b/djangotoolbox/tests.py	Sun Oct 10 23:24:51 2010 +0200
+@@ -13,7 +13,8 @@
+ 
+ class OrderedListModel(models.Model):
+     ordered_ints = ListField(models.IntegerField(max_length=500), default=[],
+-                             ordering=lambda x: x)
++                             ordering=lambda x: x, null=True)
++    ordered_nullable = ListField(ordering=lambda x:x, null=True)
+ 
+ class SetModel(models.Model):
+     setfield = SetField(models.IntegerField())
+@@ -22,6 +23,7 @@
+ if supports_dicts:
+     class DictModel(models.Model):
+         dictfield = DictField(models.IntegerField())
++        dictfield_nullable = DictField(null=True)
+ 
+ class FilterTest(TestCase):
+     floats = [5.3, 2.6, 9.1, 1.58]
+@@ -137,12 +139,14 @@
+         SetModel(setfield=map(str, setdata)).save()
+         item = SetModel.objects.filter(setfield=3)[0]
+         self.assertEqual(item.setfield, set(setdata))
++        self.assertRaises(DatabaseError, SetModel().save)
+ 
+     @skip_if(not supports_dicts)
+     def test_dictfield(self):
+         DictModel(dictfield=dict(a=1, b='55', foo=3.14)).save()
+         item = DictModel.objects.get()
+         self.assertEqual(item.dictfield, {u'a' : 1, u'b' : 55, u'foo' : 3})
++        self.assertRaises(DatabaseError, DictModel().save)
+ 
+     # passes on GAE production but not on sdk
+     @skip_if(True)
+@@ -170,9 +174,4 @@
+         list(BaseModelProxy.objects.all())
+ 
+     def test_proxy_with_inheritance(self):
+-        try:
+-            list(ExtendedModelProxy.objects.all())
+-        except DatabaseError:
+-            pass
+-        else:
+-            self.fail()
+\ No newline at end of file
++        self.assertRaises(DatabaseError, lambda: list(ExtendedModelProxy.objects.all()))

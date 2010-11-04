@@ -1,0 +1,35 @@
+changeset:   145:5fb0bc6dcdac
+tag:         master
+tag:         tip
+user:        jonashaag
+date:        Mon Oct 11 23:44:54 2010 +0200
+summary:     Implemented a wrapper around item_field's to_python method in DictField if item_field uses models.SubfieldBase as metaclass to emulate assignment behaviour.
+
+diff -r 2d29b176c2b0 -r 5fb0bc6dcdac djangotoolbox/fields.py
+--- a/djangotoolbox/fields.py	Mon Oct 11 10:33:14 2010 +0200
++++ b/djangotoolbox/fields.py	Mon Oct 11 23:44:54 2010 +0200
+@@ -103,6 +103,7 @@
+ 
+     Depending on the backend, keys that aren't strings might not be allowed.
+     """
++    __metaclass__ = models.SubfieldBase
+     _type = dict
+ 
+     def _convert(self, func, values, *args, **kwargs):
+@@ -115,6 +116,15 @@
+         if not isinstance(values, dict):
+             raise ValidationError('Value is of type %r. Should be a dict.' % type(values))
+ 
++    def to_python(self, value):
++        metaclass = getattr(self.item_field, '__metaclass__', models.NOT_PROVIDED)
++        if metaclass is models.SubfieldBase or issubclass(metaclass, models.SubfieldBase):
++            # Emulate assignment behaviour that is patched in using
++            # __set__/__get__ if a model uses SubfieldBase as __metaclass__.
++            # (See django.db.models.fields.subclassing.{SubfieldBase,Creator})
++            return self._convert(self.item_field.to_python, value)
++        return value
++
+ class BlobField(models.Field):
+     """
+     A field for storing blobs of binary data.
+
