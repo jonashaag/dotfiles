@@ -45,8 +45,6 @@ decr () {
 
 local_events() {
 	cat <<'!'
-Key $MODKEY-o      # Open program menu
-	eval wmiir setsid "$(wimenu -h "${hist}.progs" -n $histnum <$progsfile)" &
 
 # Status bar
 Action status

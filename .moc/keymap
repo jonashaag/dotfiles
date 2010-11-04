@@ -125,9 +125,9 @@ exec_command8 = 	F8
 exec_command9 = 	F9
 exec_command10 = 	F10
 
-equalizer_next = ]
-equalizer_prev = [
-toggle_make_mono = {
-toggle_softmixer = }
+equalizer_next =
+equalizer_prev =
+toggle_make_mono =
+toggle_softmixer =
 
 # vim:set tabstop=8 :noexpandtab

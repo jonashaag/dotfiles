@@ -70,7 +70,7 @@ show_global_settings= Sgs
 toggle_encoding= te
 autoload_images= ti
 autoresize_window= tr
-toggle_block_content= tB
+toggle_block_content= tb
 toggle_bottomstack= go
 caret_browsing= t7
 java_applets= tj
@@ -86,5 +86,3 @@ yank_primary= Y
 zoom_normal=Control 0
 zoom_in=Control =
 zoom_out=Control -
-allow_content= tb
-save= sf

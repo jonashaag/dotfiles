@@ -19,11 +19,6 @@ PAGER=less
 . ~/.bash_aliases
 . ~/.bash_functions
 
-workon() {
-    eval 'source $(which virtualenvwrapper.sh)' 
-    workon $@
-}
-
 export PYTHONPATH=~/.syspath:$PYTHONPATH
 export MOZ_DISABLE_PANGO=1
 export GREP_OPTIONS='--color=auto'
