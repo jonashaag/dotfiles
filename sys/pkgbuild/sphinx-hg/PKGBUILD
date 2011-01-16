@@ -1,10 +1,11 @@
-#Contributor: Mineo <the_mineo at web dot de>
+# Maintainer: Jonas Haag <jonas@lophus.org>
+# Original contributor: Mineo <the_mineo at web dot de>
 
 pkgname=python-sphinx-hg
 provides=python-sphinx
 conflicts=('python-sphinx')
 replaces=('python-sphinx')
-pkgver=20100307
+pkgver=20110601
 pkgrel=1
 pkgdesc="development version of Sphinx, *the* documentation generator"
 url="http://sphinx.pocoo.org/latest/"
@@ -33,6 +34,6 @@ build() {
 	cp -r $startdir/src/$_hgname $startdir/src/$_hgname-build
 	cd $startdir/src/$_hgname-build
 
-    python setup.py install --root=$startdir/pkg || return 1
+  python2 setup.py install --root=$startdir/pkg || return 1
 }
 
