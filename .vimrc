@@ -6,7 +6,7 @@ set autochdir
 set noerrorbells
 set t_Co=256
 set enc=utf-8
-set mouse=a
+"set mouse=a
 set modeline
 set title
 set scrolloff=99999
@@ -39,7 +39,12 @@ set smarttab
 set cindent
 set copyindent
 
-" Scroll a half page on PageDown and PageUp
+nnoremap <F5> :GundoToggle<CR>
+
+" I hate accidentally hitting F1 when trying to press ESC.
+map <F1> <ESC>
+
+" Only scroll a half page on PageDown and PageUp
 map <PageDown> <C-D>
 map <PageUp>   <C-U>
 
@@ -48,26 +53,6 @@ noremap <C-K>   <C-PageDown>
 inoremap <C-K>  <C-PageDown>
 noremap <C-J>   <C-PageUp>
 inoremap <C-J>  <C-PageUp>
-
-" switch to tab N with Alt-N
-noremap <A-1>   1gt
-inoremap <A-1>  1gt
-noremap <A-2>   2gt
-inoremap <A-2>  2gt
-noremap <A-3>   3gt
-inoremap <A-3>  3gt
-noremap <A-4>   4gt
-inoremap <A-4>  4gt
-noremap <A-5>   5gt
-inoremap <A-5>  5gt
-noremap <A-6>   6gt
-inoremap <A-6>  6gt
-noremap <A-7>   7gt
-inoremap <A-7>  7gt
-noremap <A-8>   8gt
-inoremap <A-8>  8gt
-noremap <A-9>   9gt
-inoremap <A-9>  9gt
 
 " switch windows with Ctrl-{h,l}
 map <C-h> <C-w>h
@@ -78,7 +63,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <silent> <C-o> :nohl<CR>
 
 " Warn at line length > 79
 "highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
@@ -99,9 +84,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-" Activate syntax syncing from start
-autocmd BufEnter * :syntax sync fromstart
-
 set wildmenu
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class
 set wildmode=list:full
@@ -115,6 +97,9 @@ filetype indent on
 " but don't outdent hashes
 inoremap # X#
 
+" Activate syntax syncing from start
+autocmd BufEnter * :syntax sync fromstart
+
 " Python!
 autocmd FileType python setlocal
 \   formatoptions+=croq " c+r+o+q
@@ -122,9 +107,14 @@ autocmd FileType python setlocal
 \   complete+=k~/.vim/syntax/python.vim isk+=.,(
 let python_highlight_all = 1
 
+" Assembler with routines
 autocmd FileType c setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+" Makefiles
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+
+" Shell scripts
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Java
 autocmd FileType java setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -135,9 +125,15 @@ autocmd FileType rst setlocal shiftwidth=3 tabstop=3 softtabstop=3
 " Ruby
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+" Mails
+autocmd FileType mail setlocal wrap
+
+" OOC
+autocmd BufNewFile,BufRead *.ooc set filetype=ooc
+
+" XML, HTML, Django/Jinja
 autocmd BufNewFile,BufRead *.html,*.htm  set filetype=htmljinja
 let html_no_rendering=1 " disable wysiwyg rendering
-
 let g:closetag_default_xml=1
-autocmd FileType html,htmldjango,htmljinja,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/scripts/closetag.vim
+autocmd FileType html,htmljinja let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmljinja source ~/.vim/scripts/closetag.vim
