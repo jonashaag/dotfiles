@@ -88,3 +88,16 @@ zoom_in=Control =
 zoom_out=Control -
 allow_content= tb
 save= sf
+undo= u
+youtube.sh=Control y
+allow_plugins= ap
+execute_userscript= eu
+print=Control Mod1 p
+complete_bookmarks=Control B
+complete_history=Control H
+complete_commands=Control I
+complete_searchengines=Control S
+complete_userscript=Control U
+open_start_page=Control h
+scroll_halfpage_down=Control d
+scroll_halfpage_up=Control u
