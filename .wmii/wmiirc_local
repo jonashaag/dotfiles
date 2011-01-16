@@ -42,7 +42,6 @@ decr () {
     echo $(($(cat $1) - 1)) >$1
 }
 
-
 local_events() {
 	cat <<'!'
 Key $MODKEY-o      # Open program menu
@@ -54,7 +53,7 @@ Action status
     if wmiir remove /rbar/status 2>/dev/null; then
         sleep 2
     fi
-    PYTHONPATH=~/.syspath ~/.wmii/statusbar.py 3 >> ~/sys/logs/wmii
+    PYTHONPATH=~/.syspath ~/.wmii/statusbar.py >> ~/sys/logs/wmii
 
 # Terminals
 #Key $MODKEY-Return
@@ -99,11 +98,11 @@ Key $MODKEY-F4
     decr /sys/class/backlight/acpi_video0/brightness
 Key $MODKEY-F5
     incr /sys/class/backlight/acpi_video0/brightness
-Key $MODKEY-F12
+Key $MODKEY-x
     setxkbmap us
-Key $MODKEY-F11
-    setxkbmap de
+Key $MODKEY-c
+    setxkbmap de nodeadkeys
 Key $MODKEY-F9
-    sudo pm-suspend
+    sudo pm-suspend &
 !
 }

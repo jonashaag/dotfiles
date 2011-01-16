@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 import os
-import sys
 import re
 import datetime
 import moc
 
-WARN_BATSTATE = 10
+WARN_BATSTATE = 6
 BAT_STATE_FILE = '/proc/acpi/battery/BAT0/state'
 FILES = []
+GERMAN_KEYBOARD = re.compile('pidgin', re.IGNORECASE)
 
 def get_output(cmd):
     return os.popen(cmd).read()
@@ -16,18 +16,26 @@ def register(callback):
     FILES.insert(0, (callback.func_name,  callback))
     return callback
 
+def frequency(freq):
+    def decorator(callback):
+        callback._frequency = freq
+        return callback
+    return decorator
+
 TIME_FORMAT = '%a %b %d %H:%M:%S'
+@frequency(2)
 @register
 def clock():
     now = datetime.datetime.now()
     return now.strftime(TIME_FORMAT)
 
 MOCP_FORMAT_STRING = "%(artist)s -- %(songtitle)s %(currenttime)s"
+@frequency(2)
 @register
 def mocp_state():
-    mocp_info = moc.get_info_dict()
-    if mocp_info is None:
-        # mocp not running
+    try:
+        mocp_info = moc.get_info_dict()
+    except moc.MocNotRunning:
         return 'no moc :('
     if mocp_info['state'] == moc.STATE_STOPPED:
         return 'no moc :( [stopped]'
@@ -40,6 +48,7 @@ def mocp_state():
     except KeyError:
         return ''
 
+@frequency(10)
 @register
 def battery_state():
     try:
@@ -57,23 +66,45 @@ def battery_state():
         return batstate + ' (%s)' % rate
     return batstate
 
+def _get_keyboard_layout():
+    x = os.popen('setxkbmap -print').read()
+    if '+de' in x:
+        if '+de(nodead' in x:
+            return 'de nodeadkeys'
+        return 'de'
+    return 'us'
+
+@register
+def keyboard_layout():
+    props = os.popen('wmiir read /client/sel/props 2>/dev/null').read()
+    current = _get_keyboard_layout()
+    if GERMAN_KEYBOARD.match(props):
+        if current[:2] == 'us':
+            os.system('setxkbmap de')
+            return 'de'
+        return current
+    else:
+        if current == 'de':
+            os.system('setxkbmap us')
+            return 'us'
+        return current
 
 def main():
     WMII_UPDATE_CMD = 'echo -n "%s" | wmiir create /rbar/%s%s >/dev/null 2>&1'
 
     from time import sleep
-    sleeptime = float(sys.argv[1])
-    sleep_after_retry = 5
+    from itertools import count
 
-    while True:
+    for i in count(1):
         for index, (file, callback) in enumerate(FILES):
+            if i % getattr(callback, '_frequency', 1) != 0:
+                continue
             retval = os.system(WMII_UPDATE_CMD % (callback(), index, file))
             if retval == 256:
                 print "wmii seems unavailable, refusing to work."
                 exit(1)
 
-        sleep(sleeptime)
-
+        sleep(0.5)
 
 if __name__ == '__main__':
     main()
