@@ -9,7 +9,7 @@ export PATH=~/.bin:~/sys/bin:$PATH
 set -o vi
 
 relpwd() {
-    ~/sys/bin/pathcrop "`echo -n $(pwd | sed s,$HOME,~,)`"
+    ~/sys/bin/pathcrop "`echo -n $(pwd | sed s,$HOME/,~/, | sed s,^$HOME$,~,)`"
 }
 
 PS1='\[\e[0;33m\]$(relpwd)\[\e[0m\] '
@@ -18,6 +18,8 @@ PAGER=less
 . ~/.bash.private
 . ~/.bash_aliases
 . ~/.bash_functions
+
+. /etc/bash_completion.d/git
 
 workon() {
     eval 'source $(which virtualenvwrapper.sh)' 
