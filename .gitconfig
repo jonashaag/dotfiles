@@ -24,3 +24,4 @@
 
     s-u = submodule update --init --recursive
     s-s = submodule status
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
