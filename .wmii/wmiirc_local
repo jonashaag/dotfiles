@@ -27,7 +27,7 @@ wmiir write /colrules <<!
 wmiir write /tagrules <<!
 /.*dwb.*/ -> 1
 /.*Lanikai.*/ -> 8
-/.*Namoroka.*/ -> 1
+/.*Chromium.*/ -> 1
 /.*Netsurf.*/ -> 1
 /.*Pidgin.*/ -> 7
 /Transmission/ -> 9

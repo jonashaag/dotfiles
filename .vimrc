@@ -32,8 +32,8 @@ set statusline=%f\ %h%m%r%w%{_filetype()}%*%=\ pos:\ %l\/%L,%c%<\ \|\ asc\ %b/0x
 set laststatus=2
 
 " Tab width and replace-tab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
 set cindent
@@ -102,28 +102,20 @@ autocmd BufEnter * :syntax sync fromstart
 
 " Python!
 autocmd FileType python setlocal
+\   shiftwidth=4 tabstop=4 softtabstop=4
 \   formatoptions+=croq " c+r+o+q
 \   cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 \   complete+=k~/.vim/syntax/python.vim isk+=.,(
 let python_highlight_all = 1
 
-" Assembler with routines
-autocmd FileType c setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" Scehme
+autocmd FileType scheme setlocal lisp
 
 " Makefiles
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 
-" Shell scripts
-autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
-" Java
-autocmd FileType java setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
 " ReST
 autocmd FileType rst setlocal shiftwidth=3 tabstop=3 softtabstop=3
-
-" Ruby
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Mails
 autocmd FileType mail setlocal wrap

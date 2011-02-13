@@ -74,7 +74,7 @@ def _get_keyboard_layout():
         return 'de'
     return 'us'
 
-@register
+#@register
 def keyboard_layout():
     props = os.popen('wmiir read /client/sel/props 2>/dev/null').read()
     current = _get_keyboard_layout()

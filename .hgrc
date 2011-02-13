@@ -5,4 +5,3 @@ email = jonas@lophus.org
 [extensions]
 hgext.bookmarks = 
 color =
-hggit =

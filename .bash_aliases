@@ -12,6 +12,9 @@ alias md='mkdir -p'
 # Python stuff
 alias clean='find -name "*.pyc" -exec rm {} \;'
 
+# Scheme
+alias i='rlwrap -q\" ikarus'
+
 # vim
 alias vimrc='vim ~/.vimrc'
 
