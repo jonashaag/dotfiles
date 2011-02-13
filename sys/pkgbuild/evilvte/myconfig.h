@@ -12,6 +12,7 @@
 #define     TABBAR_SCROLLABLE           TRUE  
 
 /* Various settings */
+#define     STATUS_BAR                  FALSE
 #define     MOUSE_CURSOR_AUTOHIDE       TRUE
 #define     WINDOW_TITLE_DYNAMIC        TRUE
 #define     CURSOR_BLINKS               FALSE
