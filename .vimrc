@@ -109,7 +109,7 @@ autocmd FileType python setlocal
 let python_highlight_all = 1
 
 " Scehme
-autocmd FileType scheme setlocal lisp
+autocmd FileType scheme setlocal lisp nocindent
 
 " Makefiles
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab

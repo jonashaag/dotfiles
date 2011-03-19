@@ -83,13 +83,13 @@ Key $MODKEY-Control-$UP
 
 # special keys
 Key $MODKEY-F1
-    amixer -q set PCM 3%-
+    amixer -q set PCM 5%-
 Key Xf86AudioLowerVolume
-    amixer -q set PCM 3%-
+    amixer -q set PCM 5%-
 Key $MODKEY-F2
-    amixer -q set PCM 3%+
+    amixer -q set PCM 5%+
 Key Xf86AudioRaiseVolume
-    amixer -q set PCM 3%+
+    amixer -q set PCM 5%+
 Key $MODKEY-F3
     amixer set Master toggle
 Key Xf86AudioMute
@@ -98,10 +98,6 @@ Key $MODKEY-F4
     decr /sys/class/backlight/acpi_video0/brightness
 Key $MODKEY-F5
     incr /sys/class/backlight/acpi_video0/brightness
-Key $MODKEY-x
-    setxkbmap us
-Key $MODKEY-c
-    setxkbmap de nodeadkeys
 Key $MODKEY-F9
     sudo pm-suspend &
 !

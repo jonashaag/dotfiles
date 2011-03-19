@@ -5,7 +5,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ls='ls --color=auto -l'
+alias ls='ls --color=auto -1'
 #alias 'ls'='ls -l'
 alias md='mkdir -p'
 
