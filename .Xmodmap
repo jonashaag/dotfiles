@@ -1,0 +1,10 @@
+keycode 20 = minus underscore ssharp
+keycode 26 = e E EuroSign
+keycode 30 = u U udiaeresis Udiaeresis
+keycode 32 = o O odiaeresis Odiaeresis
+keycode 38 = a A adiaeresis Adiaeresis
+
+remove Lock = Caps_Lock
+keysym Caps_Lock = Shift_L
+add Shift = Shift_L
+keycode 108 = Mode_switch
