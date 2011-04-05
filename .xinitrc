@@ -11,7 +11,7 @@ if ! pidof ssh-agent; then
 fi
 
 # wmii
-export WMII_ADDRESS="unix!/tmp/wmii-$DISPLAY.sock"
+export WMII_ADDRESS='unix!'"/tmp/wmii-$DISPLAY.sock"
 wmii -a $WMII_ADDRESS > ~/sys/logs$LOG_SUBDIR/wmii 2>&1 &
 
 xmodmap .Xmodmap
