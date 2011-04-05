@@ -1,0 +1,26 @@
+#!/bin/sh
+
+PATCH=`mktemp`
+PATCH2=`mktemp`
+
+cp "$1" $PATCH
+
+ARGS="$@"
+shift
+
+git apply $PATCH
+git add -p
+git commit -m 'blah'
+git d > $PATCH2
+git reset --hard
+eval "$@"
+read inp
+if [ $inp = y ]; then
+  mv $PATCH2 $PATCH
+  ./apply-interactive
+else
+  git reset --hard HEAD~1
+  ./apply-interactive
+fi
+rm $PATCH
+rm $PATCH2
