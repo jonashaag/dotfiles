@@ -1,14 +1,7 @@
 #!/bin/sh
 
-safe_exec() {
-    $@
-    rv=$?
-    if [ 0 -ne $rv ]
-    then
-        exit $rv
-    fi
-}
+set -e
 
-safe_exec ~/sys/bin/mount-exthdd "$1"
-safe_exec rsync -arv --exclude-from=$HOME/.rsync-exclude ~ /media/exthdd/
-safe_exec ~/sys/bin/mount-exthdd "$1"
+~/sys/bin/mount-exthdd "$1"
+rsync -arv --exclude-from=$HOME/.rsync-exclude ~ /media/exthdd/
+~/sys/bin/mount-exthdd "$1"
