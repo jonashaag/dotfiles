@@ -5,3 +5,7 @@ email = jonas@lophus.org
 [extensions]
 hgext.bookmarks = 
 color =
+hggit = ~/src/hg-git/hggit
+
+[git]
+intree = True

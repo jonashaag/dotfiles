@@ -6,3 +6,5 @@ StartInMusicDir = yes
 #ASCIILines = yes
 SeekTime = 3
 AlsaMixer = PCM
+#AlsaDevice = "default:CARD=Headset"
+#AlsaMixer = Speaker

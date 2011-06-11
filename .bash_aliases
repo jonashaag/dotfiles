@@ -5,7 +5,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ls='ls --color=auto -1'
+alias ls='ls --color=always -1 --ignore "*.pyc"'
 #alias 'ls'='ls -l'
 alias md='mkdir -p'
 
@@ -14,6 +14,8 @@ alias clean='find -name "*.pyc" -exec rm {} \;'
 
 # Scheme
 alias i='rlwrap -q\" ikarus'
+
+alias lgem='gem install -i ~/.gems --no-ri --no-rdoc'
 
 # vim
 alias vimrc='vim ~/.vimrc'

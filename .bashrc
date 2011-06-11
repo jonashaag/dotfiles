@@ -22,6 +22,7 @@ PAGER=less
 . /etc/bash_completion.d/git
 
 workon() {
+    export WORKON_HOME=~/.virtualenvs
     eval 'source $(which virtualenvwrapper.sh)' 
     workon $@
 }

@@ -26,7 +26,7 @@ wmiir write /colrules <<!
 # Tagging Rules
 wmiir write /tagrules <<!
 /.*dwb.*/ -> 1
-/.*Lanikai.*/ -> 8
+/.*Thunderbird.*/ -> 8
 /.*Chromium.*/ -> 1
 /.*Netsurf.*/ -> 1
 /.*Pidgin.*/ -> 7

@@ -37,6 +37,9 @@ def mocp_state():
         mocp_info = moc.get_info_dict()
     except moc.MocNotRunning:
         return 'no moc :('
+    except moc.MocError:
+        import traceback; traceback.print_exc()
+        return 'moc error'
     if mocp_info['state'] == moc.STATE_STOPPED:
         return 'no moc :( [stopped]'
     if mocp_info['state'] == moc.STATE_PAUSED:

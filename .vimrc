@@ -7,6 +7,7 @@ set noerrorbells
 set t_Co=256
 set enc=utf-8
 "set mouse=a
+set mouse=n
 set modeline
 set title
 set scrolloff=99999
@@ -108,8 +109,11 @@ autocmd FileType python setlocal
 \   complete+=k~/.vim/syntax/python.vim isk+=.,(
 let python_highlight_all = 1
 
-" Scehme
+" Scheme
 autocmd FileType scheme setlocal lisp nocindent
+
+" Javascript
+autocmd FileType javascript setlocal nocindent autoindent
 
 " Makefiles
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
