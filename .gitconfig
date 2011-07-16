@@ -16,6 +16,7 @@
     s = status
     d = diff
     d2 = diff --staged
+    pick = cherry-pick
 
     br = branch
     co = checkout

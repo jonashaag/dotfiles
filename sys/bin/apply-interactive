@@ -15,12 +15,12 @@ git d > $PATCH2
 git reset --hard
 eval "$@"
 read inp
-if [ $inp = y ]; then
+if [ "$inp" = y ]; then
   mv $PATCH2 $PATCH
-  ./apply-interactive
+  $0 $PATCH $@
 else
   git reset --hard HEAD~1
-  ./apply-interactive
+  $0 $ARGS
 fi
 rm $PATCH
 rm $PATCH2

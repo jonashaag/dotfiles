@@ -100,5 +100,7 @@ Key $MODKEY-F5
     incr /sys/class/backlight/acpi_video0/brightness
 Key $MODKEY-F9
     sudo pm-suspend &
+Key $MODKEY-c
+    xclip -o | xclip -sel C
 !
 }

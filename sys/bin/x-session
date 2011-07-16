@@ -1,6 +1,4 @@
 #!/bin/sh
 while true; do
-    sleep 600;
-    sudo ntpdate de.pool.ntp.org
-    sleep 20000;
+  sleep 1d;
 done
