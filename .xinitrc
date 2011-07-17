@@ -16,5 +16,7 @@ wmii -a $WMII_ADDRESS > ~/sys/logs$LOG_SUBDIR/wmii 2>&1 &
 
 xmodmap .Xmodmap
 xset m 5 3
+synclient HorizTwoFingerScroll=1
+synclient VertScrollDelta=150
 
 ~/sys/bin/x-session

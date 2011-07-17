@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
+import sys; sys.path.append('/jonas/dev/moc')
 import os
 import re
 import datetime
