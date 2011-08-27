@@ -1,6 +1,8 @@
 " vim:shiftwidth=2
 let hello_vimrc=1
 
+set nofsync swapsync=
+
 syntax on
 set autochdir
 set noerrorbells
@@ -55,6 +57,10 @@ inoremap <C-K>  <C-PageDown>
 noremap <C-J>   <C-PageUp>
 inoremap <C-J>  <C-PageUp>
 
+let mapleader=','
+map <leader>t :CommandT ~/dev/<CR>
+let g:CommandTMaxFiles=20000
+
 " switch windows with Ctrl-{h,l}
 map <C-h> <C-w>h
 map <C-l> <C-w>l
@@ -75,8 +81,10 @@ set colorcolumn=81
 highlight ColorColumn ctermbg=darkgrey
 
 " Set backup/session dir
-set backupdir=~/.vim/sessions
-set dir=~/.vim/sessions
+"set backupdir=~/.vim/sessions
+"set dir=~/.vim/sessions
+set backupdir=/tmp
+set dir=/tmp
 
 " Remember cursor position after reload
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
