@@ -1,4 +1,5 @@
 export PATH=~/.bin:~/sys/bin:$PATH
+export PYTHON=python2
 #if [ $TERM == 'xterm' ]; then
 #    export TERM='xterm-256color'
 #fi
@@ -23,6 +24,9 @@ PAGER=less
 
 workon() {
     export WORKON_HOME=~/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=python2
+    export VIRTUALENVWRAPPER_VIRTUALENV=virtualenv2
+    export VIRTUALENV_USE_DISTRIBUTE=yep
     eval 'source $(which virtualenvwrapper.sh)' 
     workon $@
 }

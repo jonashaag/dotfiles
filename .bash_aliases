@@ -9,11 +9,16 @@ alias ls='ls --color=always -1 --ignore "*.pyc"'
 #alias 'ls'='ls -l'
 alias md='mkdir -p'
 
+alias x='startx -- -quiet'
+
 # Python stuff
 alias clean='find -name "*.pyc" -exec rm {} \;'
+alias i=ipython2
+alias py=python2
+alias dj='./manage.py'
 
 # Scheme
-alias i='rlwrap -q\" ikarus'
+# alias i='rlwrap -q\" ikarus'
 
 alias lgem='gem install -i ~/.gems --no-ri --no-rdoc'
 
@@ -26,6 +31,8 @@ alias fixgit="sed -i 's/git:\/\/github\.com\//git@github.com:/g' .git/config"
 alias compl='. /etc/bash_completion'
 alias hget='wget -O /dev/null -S -v --spider'
 alias torrent=transmission-cli
+alias pdf=mupdf
+alias img=sxiv
 
 unpack() {
     aunpack $1 && rm $1
