@@ -4,4 +4,4 @@ set -e
 
 ~/sys/bin/mount-exthdd "$1"
 rsync -arv --exclude-from=$HOME/.rsync-exclude ~ /media/exthdd/
-~/sys/bin/mount-exthdd "$1"
+~/sys/bin/mount-exthdd "$1" -u

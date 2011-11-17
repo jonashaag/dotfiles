@@ -1,11 +1,13 @@
 [ui]
-username = jonashaag
+username = Jonas Haag <jonas@lophus.org>
 email = jonas@lophus.org
 
 [extensions]
 hgext.bookmarks = 
+hggit =
+mq =
 color =
-hggit = ~/src/hg-git/hggit
+convert =
 
 [git]
 intree = True

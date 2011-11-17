@@ -1,3 +1,4 @@
+UseMmap = yes
 Keymap = keymap
 MusicDir = /jonas/musik
 InputBuffer = 2048
