@@ -43,6 +43,7 @@ set cindent
 set copyindent
 
 nnoremap <F5> :GundoToggle<CR>
+map <F4> <ESC>:vs<CR><ESC> :execute "lvimgrep /" . expand("<cword>") . "./**"<CR><ESC>:lw<CR>
 
 " I hate accidentally hitting F1 when trying to press ESC.
 map <F1> <ESC>
@@ -72,13 +73,16 @@ set ignorecase
 set smartcase
 nnoremap <silent> <C-o> :nohl<CR>
 
-" Warn at line length > 79
-"highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-"match OverLength /\%>80v.\+/
+" Warn at line length > 80
 
 " Highlight column 81
-set colorcolumn=81
-highlight ColorColumn ctermbg=darkgrey
+if exists('+colorcolumn')
+  set colorcolumn=81
+  highlight ColorColumn ctermbg=darkgrey
+else
+  highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+  match OverLength /\%>80v.\+/
+endif
 
 " Set backup/session dir
 "set backupdir=~/.vim/sessions
@@ -134,6 +138,9 @@ autocmd FileType mail setlocal wrap
 
 " OOC
 autocmd BufNewFile,BufRead *.ooc set filetype=ooc
+
+" Jinja
+autocmd BufNewFile,BufRead *.jinja set filetype=jinja
 
 " XML, HTML, Django/Jinja
 autocmd BufNewFile,BufRead *.html,*.htm  set filetype=htmljinja

@@ -8,8 +8,10 @@ endif
 "set guifont=Droid\ Sans\ \Mono\ 10
 set guifont=Panic\ Sans\ 10
 colorscheme github
+highlight ColorColumn guibg=#eee
+
 set noerrorbells
 set vb t_vb=
 set guioptions-=m " hide menubar
 set guioptions-=T " hide toolbar"
-highlight ColorColumn guibg=#eee
+let &guicursor = &guicursor . ",a:blinkon0"
