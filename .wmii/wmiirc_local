@@ -14,7 +14,6 @@ WMII_FOCUSCOLORS='#ffffff #285577 #4c7899'
 WMII_BACKGROUND='#333333'
 WMII_FONT='-*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*'
 
-WMII_SLOW_TERM="evilvte"
 WMII_TERM="xterm"
 #WMII_FAST_TERM="SHELL=/bin/sh xterm"
 
@@ -34,42 +33,40 @@ wmiir write /tagrules <<!
 /.*/ -> sel
 !
 
-incr () {
-    echo $(($(cat $1) + 1)) >$1
-}
-
-decr () {
-    echo $(($(cat $1) - 1)) >$1
+toggle_touchpad() {
+  if synclient | grep Touchpad | grep 1
+    then synclient TouchpadOff=0
+    else synclient TouchpadOff=1
+  fi
 }
 
 local_events() {
 	cat <<'!'
-Key $MODKEY-o      # Open program menu
-	eval wmiir setsid "$(wimenu -h "${hist}.progs" -n $histnum <$progsfile)" &
-
 # Status bar
 Action status
     set +xv
     if wmiir remove /rbar/status 2>/dev/null; then
         sleep 2
     fi
-    PYTHONPATH=~/.syspath ~/.wmii/statusbar.py >> ~/sys/logs/wmii
+    ~/.wmii/statusbar.py >> /tmp/logs/wmii
 
-# Terminals
-#Key $MODKEY-Return
-#    eval $WMII_FAST_TERM &
-Key $MODKEY-Control-Return
-    eval $WMII_SLOW_TERM &
-Key $MODKEY-Return
-    eval $WMII_TERM &
+# Various stuff
+Key $MODKEY-o      # Open program menu
+	eval wmiir setsid "$(wimenu -h "${hist}.progs" -n $histnum <$progsfile)" &
+Key $MODKEY-Q
+    eval wmiir setsid $WMII_TERM &
+Key $MODKEY-c
+    xclip -o | xclip -sel C
 
 # moc
-Key $MODKEY-n
+Key XF86AudioNext
     mocp --next
-Key $MODKEY-b
+Key XF86AudioPrev
     mocp --previous
-Key $MODKEY-v
+Key XF86AudioPlay
     mocp --toggle-pause
+Key XF86AudioStop
+    mocp --exit
 
 # Keyboard resize
 Key $MODKEY-Control-$LEFT
@@ -84,23 +81,19 @@ Key $MODKEY-Control-$UP
 # special keys
 Key $MODKEY-F1
     amixer -q set PCM 5%-
-Key Xf86AudioLowerVolume
+Key XF86AudioLowerVolume
     amixer -q set PCM 5%-
 Key $MODKEY-F2
     amixer -q set PCM 5%+
-Key Xf86AudioRaiseVolume
+Key XF86AudioRaiseVolume
     amixer -q set PCM 5%+
 Key $MODKEY-F3
     amixer set Master toggle
-Key Xf86AudioMute
+Key XF86AudioMute
     amixer set Master toggle
-Key $MODKEY-F4
-    decr /sys/class/backlight/acpi_video0/brightness
-Key $MODKEY-F5
-    incr /sys/class/backlight/acpi_video0/brightness
-Key $MODKEY-F9
+Key XF86TouchpadToggle
+    toggle_touchpad
+Key XF86Sleep
     sudo pm-suspend &
-Key $MODKEY-c
-    xclip -o | xclip -sel C
 !
 }
