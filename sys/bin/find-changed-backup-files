@@ -1,0 +1,49 @@
+#!/usr/bin/env python2
+import os
+import hashlib
+import subprocess
+
+def scan(*paths):
+    return subprocess.check_output(['find'] + list(paths)).splitlines()
+
+def get_all_package_names():
+    return [line.split()[0] for line in
+            subprocess.check_output(['pacman', '-Q']).splitlines()]
+
+def find_package_dir(pkg):
+    return os.path.join(PACMAN_DIR, sorted(p for p in PACKAGES if p.startswith(pkg))[0])
+
+def get_package_files(pkg):
+    dir = find_package_dir(pkg)
+    lines = open(os.path.join(dir, 'files')).read().splitlines()
+    for i, line in enumerate(lines):
+        if line == '%BACKUP%':
+            files, backup_files = lines[1:i], lines[i+1:]
+            return files, [line.split('\t') for line in backup_files if line]
+    return lines[1:], []
+
+PACMAN_DIR = '/var/lib/pacman/local/'
+PACKAGES = os.listdir(PACMAN_DIR)
+ROOT_FILES = set(scan('/etc'))
+
+seen_files = set()
+for pkg in get_all_package_names():
+    files, backup_files = get_package_files(pkg)
+    for file in files:
+        seen_files.add('/'+file.rstrip('/'))
+    for filename, md5 in backup_files:
+        filename = '/' + filename
+        if filename in {'/etc/fstab', '/etc/group', '/etc/hosts', '/etc/inittab',
+                        '/etc/passwd', '/etc/shadow', '/etc/gshadow',
+                        '/boot/grub/grub.cfg', '/etc/mkinitcpio.conf',
+                        '/etc/pacman.d/mirrorlist', '/etc/sudoers',
+                        '/etc/resolv.conf', '/etc/locale.gen'}:
+            continue
+        local_md5 = hashlib.md5(open(filename).read()).hexdigest()
+        if md5 != local_md5:
+            print pkg, filename
+
+for file in ROOT_FILES.copy():
+    if file.startswith(('/etc/ssl/certs', '/etc/fonts/', '/etc/gconf')):
+        ROOT_FILES.remove(file)
+print ROOT_FILES - seen_files

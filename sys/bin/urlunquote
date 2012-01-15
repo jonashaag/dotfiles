@@ -1,0 +1,6 @@
+#!/usr/bin/python2
+
+import sys
+import urlparse
+
+print urlparse.unquote(sys.argv[1])

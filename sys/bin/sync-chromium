@@ -1,0 +1,21 @@
+#!/bin/bash
+
+STATIC=$HOME/.config/chromium-backup
+LINK=$HOME/.config/chromium
+VOLATILE=/dev/shm/.chromium
+
+[[ ! -d $VOLATILE/cache ]] && mkdir -p $VOLATILE/cache
+[[ ! -h $HOME/.cache/chromium ]] && ln -s $VOLATILE/cache $HOME/.cache/chromium
+[[ -r $VOLATILE ]] || install -dm755 $VOLATILE
+
+if [[ `readlink $LINK` != $VOLATILE ]]; then
+  mv $LINK $STATIC
+  ln -s $VOLATILE $LINK
+fi
+
+if [[ -e $LINK/.flagged ]]; then
+  rsync -a --delete --exclude .flagged $LINK/ $STATIC/
+else
+  rsync -a --exclude='cache/*' $STATIC/ $LINK/
+  touch $LINK/.flagged
+fi
