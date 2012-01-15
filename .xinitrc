@@ -11,13 +11,13 @@ if pidof ssh-agent; then
 fi;
 eval $(ssh-agent)
 
-rm -r .cache/chromium && sync-chromium
+rm -r .cache/chromium && sync-chromium &
 
 
 xmodmap .Xmodmap
 xset m 5 3
 
-dwm &
+dwm | grep -v 'missing fontset' &
 dwm-status.sh &
 
 sleep 60

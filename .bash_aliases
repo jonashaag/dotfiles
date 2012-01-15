@@ -18,7 +18,7 @@ alias py=python2
 alias dj='./manage.py'
 
 # Scheme
-# alias i='rlwrap -q\" ikarus'
+alias ik='rlwrap -q\" ikarus'
 
 alias lgem='gem install -i ~/.gems --no-ri --no-rdoc'
 
@@ -33,6 +33,7 @@ alias hget='wget -O /dev/null -S -v --spider'
 alias torrent=transmission-cli
 alias pdf=mupdf
 alias img=sxiv
+alias w=wicd-curses
 
 unpack() {
     aunpack $1 && rm $1

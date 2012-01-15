@@ -16,7 +16,7 @@ then
     sudo chown jonas:users /media/exthdd
     sudo mount /dev/mapper/exthdd /media/exthdd
 else
-    if [ "$2" = "-u" ]
+    if [ "$1" = "-u" ]
     then
         sudo umount /media/exthdd
         sudo cryptsetup luksClose exthdd
