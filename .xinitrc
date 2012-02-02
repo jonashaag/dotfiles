@@ -15,7 +15,7 @@ rm -r .cache/chromium && sync-chromium &
 
 
 xmodmap .Xmodmap
-xset m 5 3
+xset m 10 5
 
 dwm | grep -v 'missing fontset' &
 dwm-status.sh &

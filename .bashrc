@@ -13,7 +13,7 @@ relpwd() {
     ~/sys/bin/pathcrop "`echo -n $(pwd | sed s,$HOME/,~/, | sed s,^$HOME$,~,)`"
 }
 
-PS1='\[\e[0;33m\]$(relpwd)\[\e[0m\] '
+PS1='\[\e[0;33m\]\h $(relpwd)\[\e[0m\] '
 PAGER=less
 
 . ~/.bash.private
