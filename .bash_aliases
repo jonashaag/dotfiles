@@ -15,6 +15,7 @@ alias x='startx -- -quiet'
 alias clean='find -name "*.pyc" -exec rm {} \;'
 alias i=ipython2
 alias py=python2
+alias p=bpython
 alias dj='./manage.py'
 
 # Scheme
@@ -35,6 +36,6 @@ alias pdf=mupdf
 alias img=sxiv
 alias w=wicd-curses
 
-unpack() {
+u() {
     aunpack $1 && rm $1
 }
