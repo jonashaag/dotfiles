@@ -1,5 +1,25 @@
 " vim:shiftwidth=2
-let hello_vimrc=1
+filetype off " Vundle hack
+let hello_vimrc=1 " gvimrc hack
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Syntastic'
+Bundle 'TaskList.vim'
+"Bundle 'HTML-AutoCloseTag'
+Bundle 'The-NERD-Commenter'
+Bundle 'Gundo'
+Bundle 'git://github.com/kana/vim-gf-user.git'
+Bundle 'git://github.com/kana/vim-gf-diff.git'
+Bundle 'html5.vim'
+Bundle 'JavaScript-Indent'
+Bundle 'Jinja'
+Bundle 'lodgeit.vim'
+Bundle 'svn-diff.vim'
+Bundle 'taglist.vim'
+Bundle 'VimClojure'
 
 set nofsync swapsync=
 
@@ -31,7 +51,8 @@ fu! _filetype()
   endif
 endfunction
 
-set statusline=%f\ %h%m%r%w%{_filetype()}%*%=\ pos:\ %l\/%L,%c%<\ \|\ asc\ %b/0x%B\ \|\ %P
+" XXX was %*%= (right align) doesn't work anymore?!
+set statusline=%f\ %h%m%r%w%{_filetype()}%*\ pos:\ %l\/%L,%c%<\ \|\ asc\ %b/0x%B\ \|\ %P
 set laststatus=2
 
 " Tab width and replace-tab
@@ -48,6 +69,10 @@ map <F4> <ESC>:vs<CR><ESC> :execute "lvimgrep /" . expand("<cword>") . "./**"<CR
 " I hate accidentally hitting F1 when trying to press ESC.
 map <F1> <ESC>
 
+" use H/L instead of ^/$
+nnoremap H ^
+nnoremap L g_
+
 " Only scroll a half page on PageDown and PageUp
 map <PageDown> <C-D>
 map <PageUp>   <C-U>
@@ -57,10 +82,6 @@ noremap <C-K>   <C-PageDown>
 inoremap <C-K>  <C-PageDown>
 noremap <C-J>   <C-PageUp>
 inoremap <C-J>  <C-PageUp>
-
-let mapleader=','
-map <leader>t :CommandT ~/dev/<CR>
-let g:CommandTMaxFiles=20000
 
 " switch windows with Ctrl-{h,l}
 map <C-h> <C-w>h
@@ -97,21 +118,24 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-set wildmenu
-set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class
-set wildmode=list:full
+nmap <C-t> :TlistToggle<CR>
+set updatetime=10
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_SingleClick=1
 
-" Enable filetype plugins and indention
-filetype on
-filetype plugin on
-filetype indent on
+set wildmenu
+set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class
+set wildmode=list:full
 
 " go with smartindent if there is no plugin indent file.
 " but don't outdent hashes
 inoremap # X#
 
 " Activate syntax syncing from start
-autocmd BufEnter * :syntax sync fromstart
+"autocmd BufEnter * :syntax sync fromstart
+
+" Enable filetype plugins and indention
+filetype plugin indent on
 
 " Python!
 autocmd FileType python setlocal
@@ -125,7 +149,7 @@ let python_highlight_all = 1
 autocmd FileType scheme setlocal lisp nocindent
 
 " Javascript
-autocmd FileType javascript setlocal nocindent autoindent
+"autocmd FileType javascript setlocal nocindent autoindent
 
 " Makefiles
 autocmd FileType make setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
@@ -139,12 +163,9 @@ autocmd FileType mail setlocal wrap
 " OOC
 autocmd BufNewFile,BufRead *.ooc set filetype=ooc
 
-" Jinja
-autocmd BufNewFile,BufRead *.jinja set filetype=jinja
-
 " XML, HTML, Django/Jinja
-autocmd BufNewFile,BufRead *.html,*.htm  set filetype=htmljinja
+autocmd BufNewFile,BufRead *.html,*.htm set filetype=htmljinja indentexpr=
 let html_no_rendering=1 " disable wysiwyg rendering
-let g:closetag_default_xml=1
-autocmd FileType html,htmljinja let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmljinja source ~/.vim/scripts/closetag.vim
+
+" CleverCSS
+autocmd BufNewFile,BufRead *.ccss set filetype=clevercss
