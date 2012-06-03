@@ -96,6 +96,6 @@ endif
 nnoremap <buffer> % :call PyJump("")<Enter>
 vnoremap <buffer> % omao<Esc>:call PyJump(visualmode())<Enter>
 
-" Execute file being edited with <Shift> + e:
-imap <buffer> <F5> <C-C>:w<CR>:!/usr/bin/env python % <CR>
-map <buffer> <F5> :w<CR>:!/usr/bin/env python % <CR>
+" Execute file being edited with <F6>
+map <buffer> <F6> :w<CR>:!/usr/bin/env python % <CR>
+map <buffer> <F7> :w<CR>:!/usr/bin/env python2 % <CR>

@@ -1,1 +1,0 @@
-../bundle/gundo/plugin/gundo.vim
