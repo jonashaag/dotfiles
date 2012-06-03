@@ -251,7 +251,7 @@ endif
 
 if exists("python_highlight_builtin_funcs") && python_highlight_builtin_funcs != 0
   " Builtin functions
-  syn match pythonBuiltinFunc "\(\.\|\w\)\@<!\%(__import__\|abs\|all\|any\|apply\|basestring\|bin\|bool\|buffer\|bytearray\|bytes\|callable\|chr\|classmethod\|cmp\|coerce\|compile\|complex\|delattr\|dict\|dir\|divmod\|enumerate\|eval\|execfile\|file\|filter\|float\|format\|frozenset\|getattr\|globals\|hasattr\|hash\|help\|hex\|id\|input\|int\|intern\|isinstance\|issubclass\|iter\|len\|list\|locals\|long\|map\|max\|min\|next\|object\|oct\|open\|ord\|pow\|property\|range\|raw_input\|reduce\|reload\|repr\|reversed\|round\|set\|setattr\|slice\|sorted\|staticmethod\|str\|sum\|super\|tuple\|type\|unichr\|unicode\|vars\|xrange\|zip\)\w\@!"
+  syn match pythonBuiltinFunc "\(\.\|\w\)\@<!\%(__import__\|abs\|all\|any\|apply\|basestring\|bin\|bool\|buffer\|bytearray\|bytes\|callable\|chr\|classmethod\|cmp\|coerce\|compile\|complex\|delattr\|dict\|dir\|divmod\|enumerate\|eval\|execfile\||filter\|float\|format\|frozenset\|getattr\|globals\|hasattr\|hash\|help\|hex\|int\|intern\|isinstance\|issubclass\|iter\|len\|list\|locals\|long\|map\|max\|min\|:xt\|object\|oct\|open\|ord\|pow\|property\|range\|raw_input\|reduce\|reload\|repr\|reversed\|round\|set\|setattr\|slice\|sorted\|staticmethod\|str\|sum\|super\|tuple\|type\|unichr\|unicode\|vars\|xrange\|zip\)\w\@!"
 
   if exists("python_print_as_function") && python_print_as_function != 0
       syn keyword pythonBuiltinFunc	print
