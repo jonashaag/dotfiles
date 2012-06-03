@@ -5,6 +5,6 @@ keycode 32 = o O odiaeresis Odiaeresis
 keycode 38 = a A adiaeresis Adiaeresis
 
 remove Lock = Caps_Lock
-keysym Caps_Lock = Shift_L
+keysym Caps_Lock = Escape
 add Shift = Shift_L
 keycode 108 = Mode_switch
