@@ -20,6 +20,7 @@ Bundle 'lodgeit.vim'
 Bundle 'svn-diff.vim'
 Bundle 'taglist.vim'
 Bundle 'VimClojure'
+Bundle 'EasyMotion'
 
 set nofsync swapsync=
 
@@ -66,6 +67,36 @@ set copyindent
 nnoremap <F5> :GundoToggle<CR>
 map <F4> <ESC>:vs<CR><ESC> :execute "lvimgrep /" . expand("<cword>") . "./**"<CR><ESC>:lw<CR>
 
+" move by screen line instead of actual line
+nnoremap j gj
+nnoremap k gk
+
+" Redo with U & undo with u
+nnoremap U <C-R>
+
+" Use sane regexes
+nnoremap / /\v
+vnoremap / /\v
+
+" clear search highlights
+noremap <silent> <ESC><ESC> :nohls<CR>
+
+" Split line (sister to [J]oin lines)
+" The normal use of S is covered by cc, so don't worry about shadowing it.
+nnoremap S i<CR><ESC>^mzgk:silent! s/\v +$//<CR>:nohls<CR>`w
+
+" (de)indent
+nmap > >>
+nmap < <<
+vnoremap > >gv
+vnoremap < <gv
+
+" move lines up/down (doen't shadow ⌃N, ⌃P in {insert} mode (autocompletion)
+nnoremap <C-n> mz:m+<CR>`z==
+nnoremap <C-p> mz:m-2<CR>`z==
+vnoremap <C-n> :m'>+<CR>gv=`<my`>mzgv`yo`z
+vnoremap <C-p> :m'<-2<CR>gv=`>my`<mzgv`yo`z
+
 " I hate accidentally hitting F1 when trying to press ESC.
 map <F1> <ESC>
 
@@ -92,7 +123,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-nnoremap <silent> <C-o> :nohl<CR>
 
 " Warn at line length > 80
 
@@ -148,6 +178,10 @@ let python_highlight_all = 1
 " Scheme
 autocmd FileType scheme setlocal lisp nocindent
 
+" Clojure
+let g:vimclojure#ParenRainbow = 1
+let g:vimclojure#DynamicHighlighting = 1
+
 " Javascript
 "autocmd FileType javascript setlocal nocindent autoindent
 
@@ -169,3 +203,7 @@ let html_no_rendering=1 " disable wysiwyg rendering
 
 " CleverCSS
 autocmd BufNewFile,BufRead *.ccss set filetype=clevercss
+
+" Java
+let Checkstyle_Classpath = '/jonas/uni/swt/checkstyle/checkstyle-5.5.jar'
+let Checkstyle_XML = '/jonas/uni/swt/checkstyle_swt1.xml'
