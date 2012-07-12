@@ -1,11 +1,5 @@
 #!/bin/sh
 
-LOG_DIR=/tmp/logs/
-if [ $DISPLAY != ":0" ]; then
-  LOG_DIR=$LOG_DIR/"$DISPLAY"
-fi
-mkdir -p "$LOG_DIR"
-
 if pidof ssh-agent; then
   killall ssh-agent
 fi;
