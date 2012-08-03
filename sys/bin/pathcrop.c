@@ -1,12 +1,9 @@
 /*
-   ~/src/dietlibc-0.32/bin-i386/diet                            \
-   gcc -I ~/src/dietlibc-0.32/ -std=c99 -static -fno-builtin    \
-   pathcrop.c -o pathcrop
+   diet gcc -I ~/src/dietlibc-0.32/ -std=c99 -static -fno-builtin pathcrop.c -o pathcrop
 */
 #include <stdlib.h>
 #include <unistd.h>
-#include "dietstring.h"
-#include <syscalls.h>
+#include <string.h>
 
 #define MAX1 3
 #define MAX2 2
