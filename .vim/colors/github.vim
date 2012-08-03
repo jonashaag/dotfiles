@@ -72,21 +72,22 @@ hi Search		guibg=#cdcdfd guifg=#000000 gui=italic
 
 " {{{ Syntax groups
 hi Ignore		guifg=#808080
-hi Identifier	guifg=#0086B3
-hi PreProc		guifg=#A0A0A0 gui=bold
+hi Identifier	guifg=#333333
+hi Self         guifg=#999999
+hi PreProc		guifg=#999999 gui=bold
 hi Comment		guifg=#999988
-hi Constant		guifg=#177F80 gui=none
-hi String		guifg=#D81745
+hi Constant		guifg=#0086b3 gui=none
+hi String		guifg=#dd1144
 hi Function		guifg=#990000 gui=bold
-hi Statement	guifg=#000000 gui=bold
+hi Statement	guifg=#333333 gui=bold
 hi Type			guifg=#445588 gui=bold
-hi Number		guifg=#1C9898
+hi Number		guifg=#009999
 hi Todo			guifg=#FFFFFF guibg=#990000 gui=bold
 hi Special		guifg=#159828 gui=bold
-hi rubySymbol   guifg=#960B73
+hi RubySymbol   guifg=#960B73
 hi Error        guibg=#f8f8ff guifg=#ff1100 gui=undercurl
 hi Todo         guibg=#f8f8ff guifg=#ff1100 gui=underline
-hi Label        guifg=#000000 gui=bold
+hi Label        guifg=#333333 gui=bold
 hi StorageClass guifg=#000000 gui=bold
 hi Structure    guifg=#000000 gui=bold
 hi TypeDef      guifg=#000000 gui=bold

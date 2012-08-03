@@ -1,27 +1,3 @@
-" Vim syntax file
-" Language:	Python
-" Maintainer:	Dmitry Vasiliev <dima@hlabs.spb.ru>
-" URL:		http://www.hlabs.spb.ru/vim/python.vim
-" Last Change:	2010-04-09
-" Filenames:	*.py
-" Version:	2.6.6
-"
-" Based on python.vim (from Vim 6.1 distribution)
-" by Neil Schemenauer <nas@python.ca>
-"
-" Thanks:
-"
-"    Jeroen Ruigrok van der Werven
-"        for the idea to highlight erroneous operators
-"    Pedro Algarvio
-"        for the patch to enable spell checking only for the right spots
-"        (strings and comments)
-"    John Eikenberry
-"        for the patch fixing small typo
-"    Caleb Adamantine
-"        for the patch fixing highlighting for decorators
-"    Andrea Riciputi
-"        for the patch with new configuration options
 
 "
 " Options:
@@ -119,8 +95,10 @@ syn keyword pythonStatement	pass raise
 syn keyword pythonStatement	global assert
 syn keyword pythonStatement	lambda yield
 syn keyword pythonStatement	with
-syn keyword pythonStatement	def class nextgroup=pythonFunction skipwhite
+syn keyword pythonStatement	def class nextgroup=pythonClassName skipwhite
 syn match   pythonFunction	"[a-zA-Z_][a-zA-Z0-9_]*" display contained
+syn match   pythonClassName	"[a-zA-Z_][a-zA-Z0-9_]*" display contained
+syn match   self	"self"
 syn keyword pythonRepeat	for while
 syn keyword pythonConditional	if elif else
 syn keyword pythonPreCondit	import from as
@@ -304,6 +282,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonStatement	Statement
   HiLink pythonPreCondit	Statement
   HiLink pythonFunction		Function
+  HiLink pythonClassName		Type
   HiLink pythonConditional	Conditional
   HiLink pythonRepeat		Repeat
   HiLink pythonException	Exception
@@ -350,10 +329,11 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonHexError		Error
   HiLink pythonBinError		Error
 
-  HiLink pythonBuiltinObj	Structure
-  HiLink pythonBuiltinFunc	Function
+  HiLink pythonBuiltinObj	Constant "Builtin
+  HiLink pythonBuiltinFunc	Builtin
 
-  HiLink pythonExClass	Structure
+  HiLink pythonExClass	Function
+  HiLink self Self
 
   delcommand HiLink
 endif
