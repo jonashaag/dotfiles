@@ -2,11 +2,13 @@
 
 if pidof ssh-agent; then
   killall ssh-agent
-fi;
+fi
 eval $(ssh-agent)
 
-rm -r .cache/chromium && sync-chromium &
-
+if pidof mini_httpd; then
+  killall mini_httpd
+fi
+mini_httpd -h localhost -p 9999 -d dev/todo/
 
 xmodmap .Xmodmap
 xset m 10 5
@@ -16,10 +18,9 @@ dwm-status.sh &
 
 xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
 xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
-
+xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
 
 sleep 60
 sudo ntpdate de.pool.ntp.org
-
 
 while true; do sleep 1; done

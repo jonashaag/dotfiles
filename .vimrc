@@ -53,7 +53,8 @@ fu! _filetype()
 endfunction
 
 " XXX was %*%= (right align) doesn't work anymore?!
-set statusline=%f\ %h%m%r%w%{_filetype()}%*\ pos:\ %l\/%L,%c%<\ \|\ asc\ %b/0x%B\ \|\ %P
+"set statusline=%f\ %h%m%r%w%{_filetype()}%*\ pos:\ %l\/%L,%c%<\ \|\ asc\ %b/0x%B\ \|\ %P
+let g:Powerline_symbols = 'fancy'
 set laststatus=2
 
 " Tab width and replace-tab
@@ -162,7 +163,7 @@ set wildmode=list:full
 inoremap # X#
 
 " Activate syntax syncing from start
-"autocmd BufEnter * :syntax sync fromstart
+autocmd BufEnter * :syntax sync fromstart
 
 " Enable filetype plugins and indention
 filetype plugin indent on

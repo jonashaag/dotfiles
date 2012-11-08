@@ -6,7 +6,8 @@ endif
 "set guifont=Inconsolata\ Medium\ 10
 "set guifont=Monaco\ 10
 "set guifont=Droid\ Sans\ \Mono\ 10
-set guifont=Panic\ Sans\ 10
+"set guifont=Panic\ Sans\ 10
+set guifont=Monaco\ for\ Powerline
 colorscheme github
 highlight ColorColumn guibg=#eee
 
