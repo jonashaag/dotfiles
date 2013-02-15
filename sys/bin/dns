@@ -1,0 +1,6 @@
+#!/bin/sh
+DNS="$1"
+if [ -z "$DNS" ]; then
+  export DNS=8.8.8.8
+fi
+sudo -s sh -c "echo nameserver $DNS > /etc/resolv.conf"

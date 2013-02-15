@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+sudo aura -Syu && {
+read -p "Clean cache? Y/n" ans
+if [ "$ans" != "n" ]; then
+  sudo rm -f /var/cache/pacman/pkg/*pkg*
+fi
+rm /tmp/.dwm-updates-cache
+}

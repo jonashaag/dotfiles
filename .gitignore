@@ -3,3 +3,9 @@
 .wmii-hg/history*
 .vim/sessions
 .rsync-exclude
+.config/
+.local/
+.mozilla/
+.thunderbird/
+.vim/bundle
+.viminfo
