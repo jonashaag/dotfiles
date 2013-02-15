@@ -32,10 +32,14 @@ alias sp='ps aux | grep $1'
 alias fixgit="sed -i 's/git:\/\/github\.com\//git@github.com:/g' .git/config"
 alias compl='. /etc/bash_completion'
 alias hget='wget -O /dev/null -S -v --spider'
-alias torrent=transmission-cli
+alias t=transmission-gtk
 alias pdf=mupdf
 alias img=sxiv
 alias w=wicd-curses
+alias m=mocp
+alias ack=ag
+alias dd=dcfldd
+alias aura='sudo aura'
 
 u() {
     aunpack $1 && rm $1
