@@ -8,11 +8,11 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Syntastic'
 Bundle 'TaskList.vim'
+Bundle 'AutoComplPop'
 "Bundle 'HTML-AutoCloseTag'
-Bundle 'The-NERD-Commenter'
 Bundle 'Gundo'
-Bundle 'git://github.com/kana/vim-gf-user.git'
-Bundle 'git://github.com/kana/vim-gf-diff.git'
+Bundle 'https://github.com/kana/vim-gf-user.git'
+Bundle 'https://github.com/kana/vim-gf-diff.git'
 Bundle 'html5.vim'
 Bundle 'JavaScript-Indent'
 Bundle 'Jinja'
@@ -20,7 +20,9 @@ Bundle 'lodgeit.vim'
 Bundle 'svn-diff.vim'
 Bundle 'taglist.vim'
 Bundle 'VimClojure'
-Bundle 'EasyMotion'
+Bundle 'paredit.vim'
+Bundle 'https://github.com/tomtom/shymenu_vim.git'
+Bundle 'https://github.com/Lokaltog/vim-powerline'
 
 set nofsync swapsync=
 
@@ -169,11 +171,10 @@ autocmd BufEnter * :syntax sync fromstart
 filetype plugin indent on
 
 " Python!
-autocmd FileType python setlocal
-\   shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType python setlocal   shiftwidth=4 tabstop=4 softtabstop=4
 \   formatoptions+=croq " c+r+o+q
 \   cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-\   complete+=k~/.vim/syntax/python.vim isk+=.,(
+\   complete+=k~/.vim/syntax/python.vim isk+=".,("
 let python_highlight_all = 1
 
 " Scheme
@@ -208,3 +209,6 @@ autocmd BufNewFile,BufRead *.ccss set filetype=clevercss
 " Java
 let Checkstyle_Classpath = '/jonas/uni/swt/checkstyle/checkstyle-5.5.jar'
 let Checkstyle_XML = '/jonas/uni/swt/checkstyle_swt1.xml'
+
+" Opa
+autocmd BufNewFile,BufRead *.opa set filetype=opa

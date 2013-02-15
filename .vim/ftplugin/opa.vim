@@ -1,0 +1,1 @@
+/jonas/.opa/share/opa/vim/ftdetect/opa.vim

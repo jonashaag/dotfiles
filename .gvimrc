@@ -8,7 +8,8 @@ endif
 "set guifont=Droid\ Sans\ \Mono\ 10
 "set guifont=Panic\ Sans\ 10
 set guifont=Monaco\ for\ Powerline
-colorscheme github
+"colorscheme github
+colorscheme molokai
 highlight ColorColumn guibg=#eee
 
 set noerrorbells
