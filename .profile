@@ -1,1 +1,1 @@
-exec bash
+exec zsh
