@@ -6,7 +6,7 @@ SoundDriver = ALSA
 StartInMusicDir = yes
 #ASCIILines = yes
 SeekTime = 3
-AlsaMixer = PCM
+AlsaMixer1 = PCM
 #AlsaDevice = "default:CARD=Headset"
 #AlsaDevice = "default:CARD=PODStudioGX"
 #AlsaMixer = Speaker

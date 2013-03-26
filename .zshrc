@@ -1,10 +1,15 @@
-
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 
 setopt appendhistory autocd extendedglob nomatch notify HIST_IGNORE_ALL_DUPS prompt_subst inc_append_history share_history
 unsetopt beep
+
+autoload -U compinit
+compinit -C
+## case-insensitive (all),partial-word and then substring completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
+       'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 bindkey -v
 bindkey '^R' history-incremental-search-backward
@@ -37,6 +42,6 @@ j() {
   if [ -z "$1" ]; then
     source env/bin/activate
   else
-    source ~/.virtualenvs/$1/bin/activate
+    source $1/bin/activate
   fi
 }

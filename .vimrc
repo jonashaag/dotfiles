@@ -8,7 +8,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Syntastic'
 Bundle 'TaskList.vim'
-Bundle 'AutoComplPop'
+"Bundle 'AutoComplPop'
+Bundle 'neocomplcache'
 "Bundle 'HTML-AutoCloseTag'
 Bundle 'Gundo'
 Bundle 'https://github.com/kana/vim-gf-user.git'
@@ -23,6 +24,9 @@ Bundle 'VimClojure'
 Bundle 'paredit.vim'
 Bundle 'https://github.com/tomtom/shymenu_vim.git'
 Bundle 'https://github.com/Lokaltog/vim-powerline'
+Bundle 'https://github.com/tek/vim-conque'
+
+source ~/.vim/neocomplcache.vim
 
 set nofsync swapsync=
 
@@ -69,6 +73,10 @@ set copyindent
 
 nnoremap <F5> :GundoToggle<CR>
 map <F4> <ESC>:vs<CR><ESC> :execute "lvimgrep /" . expand("<cword>") . "./**"<CR><ESC>:lw<CR>
+
+" Force unindent
+imap <C-Backspace> <ESC>0i
+nmap <C-Return> o<C-Backspace>
 
 " move by screen line instead of actual line
 nnoremap j gj
