@@ -2,4 +2,6 @@
 if [ ! -z "$1" ]; then
   sleep "$1"
 fi
+sync
 sudo systemctl suspend
+#sudo sh -c 'echo 1 > /sys/power/pm_trace; echo mem > /sys/power/state'

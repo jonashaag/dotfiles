@@ -2,7 +2,7 @@ HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 
-setopt appendhistory autocd extendedglob nomatch notify HIST_IGNORE_ALL_DUPS prompt_subst inc_append_history share_history
+setopt appendhistory autocd extendedglob nomatch notify HIST_IGNORE_ALL_DUPS prompt_subst inc_append_history share_history histignorespace
 unsetopt beep
 
 autoload -U compinit
@@ -40,7 +40,11 @@ RPROMPT='%T %(?..:()'
 
 j() {
   if [ -z "$1" ]; then
-    source env/bin/activate
+    if [ -d ".env" ]; then
+      source .env/bin/activate
+    else
+      source env/bin/activate
+    fi
   else
     source $1/bin/activate
   fi

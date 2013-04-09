@@ -24,7 +24,7 @@ Bundle 'VimClojure'
 Bundle 'paredit.vim'
 Bundle 'https://github.com/tomtom/shymenu_vim.git'
 Bundle 'https://github.com/Lokaltog/vim-powerline'
-Bundle 'https://github.com/tek/vim-conque'
+Bundle 'https://github.com/mattn/zencoding-vim'
 
 source ~/.vim/neocomplcache.vim
 
@@ -208,7 +208,8 @@ autocmd FileType mail setlocal wrap
 autocmd BufNewFile,BufRead *.ooc set filetype=ooc
 
 " XML, HTML, Django/Jinja
-autocmd BufNewFile,BufRead *.html,*.htm set filetype=htmljinja indentexpr=
+autocmd BufNewFile,BufRead *.html,*.htm set filetype=htmljinja
+" indentexpr=
 let html_no_rendering=1 " disable wysiwyg rendering
 
 " CleverCSS

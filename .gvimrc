@@ -7,7 +7,8 @@ endif
 "set guifont=Monaco\ 10
 "set guifont=Droid\ Sans\ \Mono\ 10
 "set guifont=Panic\ Sans\ 10
-set guifont=Monaco\ for\ Powerline
+"set guifont=Monaco\ for\ Powerline
+set guifont=agave\ 12
 "colorscheme github
 colorscheme molokai
 highlight ColorColumn guibg=#eee
