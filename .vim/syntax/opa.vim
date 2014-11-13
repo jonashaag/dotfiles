@@ -1,1 +1,0 @@
-/jonas/.opa/share/opa/vim/syntax/opa.vim

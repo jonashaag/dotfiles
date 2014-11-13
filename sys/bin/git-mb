@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -eu
 git branch $2
-git rst $1
+git-rst $1
 git checkout $2

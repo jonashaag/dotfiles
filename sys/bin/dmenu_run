@@ -1,7 +1,0 @@
-#!/bin/sh
-
-dmenu() {
-  cat ~/.dmenu_favorites /dev/stdin | /usr/bin/dmenu
-}
-
-source /usr/bin/dmenu_run

@@ -1,5 +1,0 @@
-#!/bin/sh
-if synclient | grep Touchpad | grep 1 > /dev/null
-  then synclient TouchpadOff=0
-  else synclient TouchpadOff=1
-fi
