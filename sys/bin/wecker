@@ -1,0 +1,20 @@
+#!/bin/sh
+
+schedule() {
+  if ! (grep : <<< "$1"); then
+    t="$1:00"
+  else
+    t="$1"
+  fi
+  echo "atq | cut -f1 | xargs atrm 2>/dev/null; $2" | ssh r at "$t"
+}
+
+case "$1" in
+  aus)
+    ssh r "killall wecker.sh; mocp --stop 2>/dev/null"
+    ;;
+
+  *)
+    schedule "$1" /jonas/wecker.sh
+    ;;
+esac
