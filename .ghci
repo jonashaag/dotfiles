@@ -1,0 +1,12 @@
+import Control.Applicative
+import Control.Monad
+
+import Data.String
+import Data.Char
+import Data.List
+
+-- You must set your prompt to a lambda, it's a law.
+:set prompt "λ "
+
+:def hlint const . return $ ":! hlint \"src\""
+:def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""

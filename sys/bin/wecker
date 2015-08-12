@@ -11,7 +11,7 @@ schedule() {
 
 case "$1" in
   aus)
-    ssh r "killall wecker.sh; mocp --stop 2>/dev/null"
+    ssh r "killall wecker.sh"
     ;;
 
   *)

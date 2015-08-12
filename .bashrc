@@ -1,40 +1,63 @@
-[ -s "/jonas/.scm_breeze/scm_breeze.sh" ] && source "/jonas/.scm_breeze/scm_breeze.sh"
-
-export PATH=~/.bin:~/sys/bin:$PATH:~/.gem/ruby/1.9.1/bin:~/.local/bin/
-export PYTHON=python2
-#if [ $TERM == 'xterm' ]; then
-#    export TERM='xterm-256color'
-#fi
-
 # Check for an interactive session
 [ -z "$PS1" ] && return
+
+export PATH=/Users/j/Library/Haskell/bin:/Users/j/dev/dotfiles/sys/bin:/Users/j/.bin:"$PATH"
 
 set -o vi
 
 relpwd() {
-    ~/sys/bin/pathcrop "`echo -n $(pwd | sed s,$HOME/,~/, | sed s,^$HOME$,~,)`"
+    ~/dev/dotfiles/sys/bin/pathcrop "`echo -n $(pwd | sed \"s,$HOME,~,\")`"
 }
 
 PS1='\[\e[0;33m\]\h $(relpwd)\[\e[0m\] '
 PAGER=less
 
-. ~/.bash.private
-. ~/.bash_aliases
-. ~/.bash_functions
-
-workon() {
-    export WORKON_HOME=~/.virtualenvs
-    export VIRTUALENVWRAPPER_PYTHON=python2
-    export VIRTUALENVWRAPPER_VIRTUALENV=virtualenv2
-    export VIRTUALENV_USE_DISTRIBUTE=yep
-    eval 'source $(which virtualenvwrapper.sh)' 
-    workon $@
-}
-
-export PYTHONPATH=~/.syspath:$PYTHONPATH
-export MOZ_DISABLE_PANGO=1
-export GREP_OPTIONS='--color=auto'
 
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=999999
-export HISTIGNORE="ls:wget:pass:git commit:git co:git checkout:git reset:git push:.."
+export HISTIGNORE="ls:git:.."
+
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ls='ls -G -1'
+alias md='mkdir -p'
+alias fixgit="sed -i '' 's/https:\/\/github\.com\//git@github.com:/g' .git/config"
+
+j() {
+  if [ -z "$1" ]; then
+    if [ -d ".env" ]; then
+      source .env/bin/activate
+    else
+      source env/bin/activate
+    fi
+  else
+    source $1/bin/activate
+  fi
+}
+
+export DISPLAY=:0.0
+export LC_ALL=en_US.UTF-8
+
+
+# # # GHCI HACK # # #
+function ghcs {
+  local DIR=$PWD
+  local TARGET="cabal.sandbox.config"
+  while [ ! -e $DIR/$TARGET -a $DIR != "/" ]; do
+    DIR=$(dirname $DIR)
+  done
+  local CMD=$1
+  shift
+  if test $DIR != "/"; then
+    local DB=$(sed -ne '/^package-db: */{s///p;q;}' "$DIR/$TARGET")
+    command $CMD -no-user-package-db -package-db="$DB" "$@"
+  else
+    command $CMD "$@"
+  fi
+}
+
+alias ghc='ghcs ghc'
+alias ghci='ghcs ghci'
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'

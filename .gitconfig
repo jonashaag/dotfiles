@@ -1,14 +1,10 @@
 [core]
     editor = vim
 
-[merge]
-    tool = gvimdiff
-
 [user]
     name = Jonas Haag
     email = jonas@lophus.org
 
-# $ cheat git
 [color]
     ui = true
 
@@ -20,10 +16,5 @@
 
     br = branch
     co = checkout
-
-    s-u = submodule update --init --recursive
-    s-s = submodule status
-	  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
 [push]
 	default = simple
