@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/j/dev/klaus/tests/repos/no-newline-at-end-of-file'
+let g:netrw_dirhist_2='/Users/j/dev/project4/ulugugu/widgets'
+let g:netrw_dirhist_3='/Users/j/dev/project4/ulugugu/drawings'
+let g:netrw_dirhist_4='/Users/j/dev/ba/cparser-master/libfirm/ir/adt'

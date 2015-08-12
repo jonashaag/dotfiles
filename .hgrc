@@ -1,13 +1,3 @@
 [ui]
 username = Jonas Haag <jonas@lophus.org>
 email = jonas@lophus.org
-
-[extensions]
-hgext.bookmarks = 
-hggit =
-mq =
-color =
-convert =
-
-[git]
-intree = True
