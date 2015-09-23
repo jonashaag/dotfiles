@@ -1,0 +1,18 @@
+#!/bin/sh
+pylint --reports n \
+       --output-format colorized \
+       -d C \
+       -d too-many-format-args \
+       -d too-many-arguments \
+       -d too-many-locals \
+       -d too-many-branches \
+       -d too-many-statements \
+       -d too-few-arguments \
+       -d bad-indentation \
+       -d too-few-public-methods \
+       -d fixme \
+       -d no-self-use \
+       -d abstract-method \
+       -d no-member \
+       -d unused-argument \
+       "$@"
