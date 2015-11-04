@@ -1,0 +1,8 @@
+#!/bin/bash
+sack__vim_shortcut=$(sed -n "$1p" < /Users/j/.sack_shortcuts)
+if [ -z "$EDITOR" ]; then
+    sack__editor="vim"
+else
+    sack__editor="$EDITOR"
+fi
+$sack__editor +$sack__vim_shortcut

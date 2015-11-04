@@ -1,3 +1,5 @@
+set shell=bash
+
 syntax on
 filetype plugin indent on
 
@@ -10,6 +12,7 @@ set wildmode=list:full
 
 source $HOME/.vim/conf/basics.vim
 
+source $HOME/.vim/conf/ack.vim
 source $HOME/.vim/conf/ctrlp.vim
 source $HOME/.vim/conf/ctags.vim
 source $HOME/.vim/conf/sparkup.vim

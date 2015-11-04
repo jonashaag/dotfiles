@@ -39,3 +39,6 @@ set smartcase
 
 " Remember cursor position after reload
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+" Always keep cursor vertically centered
+set scrolloff=99999

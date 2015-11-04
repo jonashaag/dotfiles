@@ -1,0 +1,53 @@
+#!/bin/sh -ue
+DST_DIR="$TMPDIR/.rm/"
+
+err=
+dir_ok=
+emptyargs=1
+for arg in "$@"; do
+  # -r flag:
+  if [[ "$arg" = "-r" ]]; then
+    dir_ok=1
+    shift
+
+  # -f flag
+  elif [[ "$arg" = "-f" ]]; then
+    echo "mvrm: ignoring -f flag"
+    shift
+
+  # -rf flag
+  elif [[ "$arg" = "-rf" ]]; then
+    echo "mvrm: ignoring -f flag"
+    dir_ok=1
+    shift
+
+  # file arg
+  else
+    emptyargs=
+
+    # missing file
+    if ! test -e "$arg"; then
+      echo "$arg: no such file or directory" >&2
+      err=1
+
+    # directory but -r missing
+    elif test -d "$arg" && ! test -L "$arg" && test -z "$dir_ok"; then
+      echo "$arg is a directory" >&2
+      err=1
+    fi
+  fi
+done
+
+if ! test -z "$emptyargs"; then
+  echo "Usage: mvrm [file...]" >&2
+  exit 1
+fi
+
+if ! test -z "$err"; then
+  echo "Aborting." >&2
+  exit 1
+else
+  dst="$DST_DIR/$(gdate +'%c %s %N')"
+  mkdir -p "$dst"
+  mv "$@" "$dst"
+fi
