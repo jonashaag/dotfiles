@@ -1,1 +1,1 @@
-autocmd FileType c setlocal   shiftwidth=8 tabstop=8 noexpandtab
+autocmd FileType c,cpp setlocal   shiftwidth=8 tabstop=8 noexpandtab

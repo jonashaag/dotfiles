@@ -1,5 +1,8 @@
-#!/bin/sh
-set -eu
+#!/bin/sh -eu
+if [ $# -ne 2 ]; then
+  echo "usage: git mb <original head> <branch where changes should have gone>"
+  exit 1
+fi
 git branch $2
 git-rst $1
 git checkout $2

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -eu
 
 if git diff --quiet; then
   if git diff --staged --quiet; then

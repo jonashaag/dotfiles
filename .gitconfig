@@ -1,22 +1,27 @@
 [core]
-    editor = vim
-    excludesfile = /Users/j/.gitignore_global
+  editor = vim
+  excludesfile = /Users/j/.gitignore_global
 
 [user]
-    name = Jonas Haag
-    email = jonas@lophus.org
+  name = Jonas Haag
+  email = jonas@lophus.org
 
 [color]
-    ui = true
+  ui = true
 
 [alias]
-    s = status
-    d = diff
-    d2 = diff --staged
-    pick = cherry-pick
-
-    br = branch
-    co = checkout
+  s    = status
+  d    = diff
+  d2   = diff --staged
+  pick = cherry-pick
+  br   = branch
+  co   = checkout
+  p    = pull --ff-only
+  prb  = pull --rebase
+  rb   = rebase
+  rbi  = rebase -i
+  rbc  = rebase --continue
+  rba  = rebase --abort
 [push]
 	default = simple
 [filter "lfs"]
