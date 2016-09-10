@@ -34,3 +34,21 @@
 [submodule ".vim/bundle/vimshell.vim"]
 	path = .vim/bundle/vimshell.vim
 	url = https://github.com/Shougo/vimshell.vim
+[submodule ".vim/bundle/dash.vim"]
+	path = .vim/bundle/dash.vim
+	url = https://github.com/rizzatti/dash.vim.git
+[submodule ".vim/bundle/elm-vim"]
+	path = .vim/bundle/elm-vim
+	url = https://github.com/ElmCast/elm-vim
+[submodule ".vim/bundle/semantic-highlight.vim"]
+	path = .vim/bundle/semantic-highlight.vim
+	url = https://github.com/jaxbot/semantic-highlight.vim.git
+[submodule ".vim/bundle/vim-bracketed-paste"]
+	path = .vim/bundle/vim-bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste
+[submodule ".vim/bundle/vim-instant-markdown"]
+	path = .vim/bundle/vim-instant-markdown
+	url = https://github.com/suan/vim-instant-markdown
+[submodule ".vim/bundle/yajs.vim"]
+	path = .vim/bundle/yajs.vim
+	url = https://github.com/othree/yajs.vim

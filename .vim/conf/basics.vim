@@ -1,3 +1,5 @@
+set tabpagemax=999999999
+set nocompatible
 set noerrorbells
 set nowrap
 set ruler
@@ -8,6 +10,9 @@ set shiftwidth=2
 set expandtab
 set smartindent
 set smarttab
+
+set list
+set listchars=tab:.\ 
 
 " (de)indent
 nmap > >>

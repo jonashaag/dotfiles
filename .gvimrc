@@ -1,5 +1,5 @@
-set guifont=agave:h20
-colorscheme molokai
+set guifont=Fira\ Code:h18
+set macligatures
 
 set noerrorbells
 set vb t_vb=

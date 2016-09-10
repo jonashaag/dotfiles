@@ -1,6 +1,6 @@
 " Fix indentation:
 inoremap # X#
-autocmd FileType python setlocal   shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType python setlocal   shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 \   formatoptions=tcrqn comments=:#\:,:#
 "\   cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 "\   complete+=k~/.vim/syntax/python.vim isk+=".,("
