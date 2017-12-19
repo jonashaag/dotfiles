@@ -1,15 +1,5 @@
 set shell=bash
 
-syntax on
-filetype plugin indent on
-
-map <F1> <ESC>
-imap <F1> <ESC>
-
-set wildmenu
-set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class,Desktop/,*.hi
-set wildmode=list:full
-
 source $HOME/.vim/conf/basics.vim
 source $HOME/.vim/conf/syntastic.vim
 
@@ -24,5 +14,8 @@ source $HOME/.vim/conf/html.vim
 source $HOME/.vim/conf/markdown.vim
 source $HOME/.vim/conf/php.vim
 source $HOME/.vim/conf/elm.vim
+source $HOME/.vim/conf/javascript.vim
+source $HOME/.vim/conf/css.vim
+source $HOME/.vim/conf/nginx.vim
 
 execute pathogen#infect()

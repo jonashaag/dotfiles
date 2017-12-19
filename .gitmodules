@@ -52,3 +52,63 @@
 [submodule ".vim/bundle/yajs.vim"]
 	path = .vim/bundle/yajs.vim
 	url = https://github.com/othree/yajs.vim
+[submodule ".vim/bundle/vim-jsx"]
+	path = .vim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx
+[submodule ".vim/bundle/nginx.vim"]
+	path = .vim/bundle/nginx.vim
+	url = https://github.com/vim-scripts/nginx.vim
+[submodule ".vim/bundle/better-indent-support-for-php-with-html"]
+	path = .vim/bundle/better-indent-support-for-php-with-html
+	url = " https://github.com/captbaritone/better-indent-support-for-php-with-html"
+[submodule ".vim/bundle/css.vim"]
+	path = .vim/bundle/css.vim
+	url = " https://github.com/JulesWang/css.vim"
+[submodule ".vim/bundle/gundo.vim"]
+	path = .vim/bundle/gundo.vim
+	url = " https://github.com/sjl/gundo.vim"
+[submodule ".vim/bundle/incsearch.vim"]
+	path = .vim/bundle/incsearch.vim
+	url = " https://github.com/haya14busa/incsearch.vim"
+[submodule ".vim/bundle/php.vim"]
+	path = .vim/bundle/php.vim
+	url = " https://github.com/StanAngeloff/php.vim.git"
+[submodule ".vim/bundle/scss-syntax.vim"]
+	path = .vim/bundle/scss-syntax.vim
+	url = " https://github.com/cakebaker/scss-syntax.vim"
+[submodule ".vim/bundle/sourcemap.vim"]
+	path = .vim/bundle/sourcemap.vim
+	url = " https://github.com/chikatoike/sourcemap.vim"
+[submodule ".vim/bundle/vim-highlightedyank"]
+	path = .vim/bundle/vim-highlightedyank
+	url = " https://github.com/machakann/vim-highlightedyank"
+[submodule ".vim/bundle/vim-vue"]
+	path = .vim/bundle/vim-vue
+	url = " https://github.com/posva/vim-vue.git"
+[submodule ".vim/bundle/vim-sneak"]
+	path = .vim/bundle/vim-sneak
+	url = " https://github.com/justinmk/vim-sneak"
+[submodule ".vim/bundle/is.vim"]
+	path = .vim/bundle/is.vim
+	url = " https://github.com/haya14busa/is.vim"
+[submodule ".vim/bundle/numbers"]
+	path = .vim/bundle/numbers
+	url = " https://github.com/myusuf3/numbers.vim.git"
+[submodule ".vim/bundle/splice"]
+	path = .vim/bundle/splice
+	url = " https://github.com/sjl/splice.vim.git"
+[submodule ".vim/bundle/splitjoin.vim"]
+	path = .vim/bundle/splitjoin.vim
+	url = " https://github.com/AndrewRadev/splitjoin.vim"
+[submodule ".vim/bundle/vim-alias"]
+	path = .vim/bundle/vim-alias
+	url = " https://github.com/Konfekt/vim-alias"
+[submodule ".vim/bundle/vim-anzu"]
+	path = .vim/bundle/vim-anzu
+	url = " https://github.com/osyo-manga/vim-anzu"
+[submodule ".vim/bundle/vim-eunuch"]
+	path = .vim/bundle/vim-eunuch
+	url = " git://github.com/tpope/vim-eunuch.git"
+[submodule ".vim/bundle/vim-over"]
+	path = .vim/bundle/vim-over
+	url = " https://github.com/osyo-manga/vim-over"

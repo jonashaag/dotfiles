@@ -1,0 +1,6 @@
+#!/bin/sh
+# Clean up old docker images to keep disk usage low.
+docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs docker rm
+docker ps -a | grep 'days ago' | awk '{print $1}' | xargs docker rm
+docker images -a | grep 'weeks ago' | awk '{print $3}' | xargs docker rmi --no-prune
+docker images -a | grep 'days ago' | awk '{print $3}' | xargs docker rmi --no-prune

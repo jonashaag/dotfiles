@@ -1,21 +1,21 @@
 [core]
 	editor = vim
 	excludesfile = /Users/j/.gitignore_global
-	pager = diff-so-fancy | less
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [user]
 	name = Jonas Haag
 	email = jonas@lophus.org
-[color]
-	ui = always
 [push]
 	default = current
 [help]
-	autocorrect = 1
+	autocorrect = 30
 [alias]
+	ci   = commit
+	cia  = commit -a
 	s    = status
 	d    = diff
 	d2   = diff --staged
-	d3 = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # diff between the latest commit and current state
+	d3   = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # diff between the latest commit and current state
 	ca   = commit --amend
 	caa  = commit --amend -a
 	pick = cherry-pick
@@ -27,3 +27,15 @@
 	rbi  = rebase -i
 	rbc  = rebase --continue
 	rba  = rebase --abort
+	mc   = merge --continue
+	ma   = merge --abort
+	patch = !"git --no-pager diff --no-color"
+	aa   = -a --amend
+	brl  = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[rerere]
+	enabled = true
