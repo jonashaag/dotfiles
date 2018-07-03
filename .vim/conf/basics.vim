@@ -11,8 +11,8 @@ set noerrorbells
 set nowrap
 set ruler
 
-map <F1> <ESC>
-imap <F1> <ESC>
+"map <F1> <ESC>
+"imap <F1> <ESC>
 set backspace=indent,eol,start
 
 " Tab width and replace-tab
@@ -40,14 +40,14 @@ map <PageDown> <C-D>
 map <PageUp>   <C-U>
 
 " switch tabs with Ctrl-{j,k}
-noremap <C-K>   <C-PageDown>
 inoremap <C-K>  <C-PageDown>
-noremap <C-J>   <C-PageUp>
 inoremap <C-J>  <C-PageUp>
+noremap <C-J>   gT:redraw<BAR>file<CR>
+noremap <C-K>   gt:redraw<BAR>file<CR>
 
 " switch windows with Ctrl-{h,l}
-map <C-h> <C-w>h
-map <C-l> <C-w>l
+map <C-H> <C-w>h
+map <C-L> <C-w>l
 
 " Better Search
 set ignorecase
@@ -68,10 +68,10 @@ set showmatch
 nnoremap j gj
 nnoremap k gk
 
-inoremap jk <ESC>
-vnoremap ;; :w<CR>
-nnoremap ;; :w<CR>
-inoremap ;; <ESC>:w<CR>
+inoremap <C-]> <ESC>:w<CR>
+nnoremap <C-]> :w<CR>
+let mapleader="\<Space>"
+nmap <leader>q :q<CR>
 
 map y  <Plug>(highlightedyank)
 
@@ -83,3 +83,34 @@ map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
 set statusline=%{anzu#search_status()}
+
+function ToggleColorscheme()
+  if get(g:, 'colors_name', '') != 'Focus (light)'
+    colorscheme focus-light
+  else
+    colorscheme default
+  endif
+endfunction
+
+nmap <C-F> :call ToggleColorscheme()<CR>
+
+augroup litecorrect
+  autocmd!
+  autocmd FileType markdown,mkd,md,rst,txt call litecorrect#init()
+augroup END
+
+" Sideways
+map <leader>h :SidewaysJumpLeft<CR>
+map <leader>l :SidewaysJumpRight<CR>
+map <leader>H :SidewaysLeft<CR>
+map <leader>L :SidewaysRight<CR>
+
+map <leader>wv <C-W>v<CR>
+map <leader>ws <C-W>s<CR>
+map <leader>wh <C-W>h<CR>
+map <leader>wl <C-W>l<CR>
+
+" Useless
+map <S-k> <Nop>
+
+set shell=fish

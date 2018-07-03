@@ -112,3 +112,27 @@
 [submodule ".vim/bundle/vim-over"]
 	path = .vim/bundle/vim-over
 	url = " https://github.com/osyo-manga/vim-over"
+[submodule ".vim/bundle/sideways.vim"]
+	path = .vim/bundle/sideways.vim
+	url = " https://github.com/AndrewRadev/sideways.vim"
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = " https://github.com/godlygeek/tabular"
+[submodule ".vim/bundle/typescript-vim"]
+	path = .vim/bundle/typescript-vim
+	url = " https://github.com/leafgarland/typescript-vim"
+[submodule ".vim/bundle/vim-litecorrect"]
+	path = .vim/bundle/vim-litecorrect
+	url = " https://github.com/reedes/vim-litecorrect"
+[submodule ".vim/bundle/vim-mundo"]
+	path = .vim/bundle/vim-mundo
+	url = " https://github.com/simnalamburt/vim-mundo"
+[submodule ".vim/bundle/vim-solidity"]
+	path = .vim/bundle/vim-solidity
+	url = " https://github.com/tomlion/vim-solidity"
+[submodule ".vim/bundle/vim-sort-motion"]
+	path = .vim/bundle/vim-sort-motion
+	url = " https://github.com/christoomey/vim-sort-motion"
+[submodule ".vim/bundle/vim-system-copy"]
+	path = .vim/bundle/vim-system-copy
+	url = " https://github.com/christoomey/vim-system-copy"

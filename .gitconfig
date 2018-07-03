@@ -1,7 +1,7 @@
 [core]
 	editor = vim
 	excludesfile = /Users/j/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=4 -RFX# --pattern '^(Date|added|deleted|modified): '
 [user]
 	name = Jonas Haag
 	email = jonas@lophus.org
@@ -32,10 +32,10 @@
 	patch = !"git --no-pager diff --no-color"
 	aa   = -a --amend
 	brl  = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 [rerere]
 	enabled = true
+#[pager]
+	#diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
+[interactive]
+	diffFilter = "diff-highlight | less -FRX --tabs=4"
