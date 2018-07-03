@@ -1,0 +1,9 @@
+#!/bin/bash -eu
+# Print file size w/ and w/o gzip
+if [ $# -eq 0 ]; then
+  gzip -4 | wc -c
+else
+  for f in "$@"; do
+    { echo -n $f!; echo -n $(cat $f | wc -c)!; echo $(cat $f | gzip -4 | wc -c); } | column -s! -t
+  done
+fi

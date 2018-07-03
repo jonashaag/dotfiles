@@ -1,0 +1,4 @@
+#!/usr/bin/env python3
+import sys
+for line in sys.stdin.readlines():
+    print(''.join(reversed(line.rstrip('\n'))), end='\n' if line[-1] == '\n' else '')

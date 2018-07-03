@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+if test "$1" != "aster"; then
+  echo >/dev/stderr "Usage: git com aster"
+  exit 1
+fi
+
+echo 'Correcting to "git co master"'
+git checkout master
