@@ -1,28 +1,19 @@
 [core]
 	editor = vim
-	excludesfile = /Users/j/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX# --pattern '^(Date|added|deleted|modified): '
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[pager]
+	diff = true
+	show = true
+	log = true
 [user]
 	name = Jonas Haag
 	email = jonas@lophus.org
 [push]
-	default = current
+	default = simple
 [help]
 	autocorrect = 30
 [alias]
-	ci   = commit
-	cia  = commit -a
-	s    = status
-	d    = diff
-	d2   = diff --staged
 	d3   = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # diff between the latest commit and current state
-	ca   = commit --amend
-	caa  = commit --amend -a
-	pick = cherry-pick
-	br   = branch
-	co   = checkout
-	p    = pull --ff-only
-	prb  = pull --rebase
 	rb   = rebase
 	rbi  = rebase -i
 	rbc  = rebase --continue
@@ -30,12 +21,9 @@
 	mc   = merge --continue
 	ma   = merge --abort
 	patch = !"git --no-pager diff --no-color"
-	aa   = -a --amend
 	brl  = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads
 	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 [rerere]
 	enabled = true
-#[pager]
-	#diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
-[interactive]
-	diffFilter = "diff-highlight | less -FRX --tabs=4"
+[sequence]
+	editor = interactive-rebase-tool

@@ -6,6 +6,6 @@ import shutil
 ROOT = "/Users/j/Downloads/"
 
 for f in os.listdir(ROOT):
-    if f in {"_Alt", "Telegram Desktop"}: continue
+    if f in {"Alt", "Telegram Desktop"}: continue
     if (time.time() - os.stat(ROOT + f, follow_symlinks=False).st_mtime)/3600/24 > 7:
         shutil.move(ROOT + f, ROOT + "Alt/" + f)

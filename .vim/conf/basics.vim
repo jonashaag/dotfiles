@@ -53,9 +53,6 @@ map <C-L> <C-w>l
 set ignorecase
 set smartcase
 
-" Remember cursor position after reload
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
 " Always keep cursor vertically centered
 set scrolloff=99999
 
@@ -68,49 +65,24 @@ set showmatch
 nnoremap j gj
 nnoremap k gk
 
-inoremap <C-]> <ESC>:w<CR>
-nnoremap <C-]> :w<CR>
 let mapleader="\<Space>"
 nmap <leader>q :q<CR>
+nmap <leader>w :wq<CR>
 
-map y  <Plug>(highlightedyank)
+inoremap <C-E> <ESC>:w<CR>
+nnoremap <C-E> :w<CR>
 
 " Search
 set incsearch
 set hlsearch
-map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
-map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
-set statusline=%{anzu#search_status()}
-
-function ToggleColorscheme()
-  if get(g:, 'colors_name', '') != 'Focus (light)'
-    colorscheme focus-light
-  else
-    colorscheme default
-  endif
-endfunction
-
-nmap <C-F> :call ToggleColorscheme()<CR>
-
-augroup litecorrect
-  autocmd!
-  autocmd FileType markdown,mkd,md,rst,txt call litecorrect#init()
-augroup END
-
-" Sideways
-map <leader>h :SidewaysJumpLeft<CR>
-map <leader>l :SidewaysJumpRight<CR>
-map <leader>H :SidewaysLeft<CR>
-map <leader>L :SidewaysRight<CR>
-
-map <leader>wv <C-W>v<CR>
-map <leader>ws <C-W>s<CR>
-map <leader>wh <C-W>h<CR>
-map <leader>wl <C-W>l<CR>
+"nmap <Esc><Esc> :nohlsearch<CR>
 
 " Useless
 map <S-k> <Nop>
 
-set shell=fish
+set undofile
+set undodir=~/.vim/undod
+
+let g:polyglot_disabled = ['jsx']
+
+set nofoldenable

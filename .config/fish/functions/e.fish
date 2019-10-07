@@ -1,4 +1,4 @@
-function j
+function e
   if test (count $argv) -gt 0
     source {$argv[1]}/bin/activate.fish
   else if test -e env

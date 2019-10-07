@@ -1,0 +1,44 @@
+#!/bin/bash -eu
+
+function log() {
+  echo >&2 "$@"
+}
+
+current_branch=`git symbolic-ref --short HEAD`
+function revert_current_branch() {
+  git checkout "$current_branch"
+}
+trap revert_current_branch EXIT
+
+root_branch="$1"
+root_branch_cid=`git rev-parse "$root_branch"`
+
+log "$root_branch is at $root_branch_cid"
+
+branches=
+for branch in `git for-each-ref refs/heads | cut -f2 | sed s@refs/heads/@@`; do
+  branch_cid=`git rev-parse "$branch"`
+  if [ $branch_cid == $root_branch_cid ]; then continue; fi
+  res=`git merge-base --fork-point $root_branch "$branch"` || continue
+  #log "[$branch] is forked from $root_branch at $res"
+  branches="$branches $branch"
+done
+
+git checkout "$root_branch" >/dev/null 2>/dev/null
+git pull --ff-only >/dev/null 2>/dev/null
+
+for branch in $branches; do
+  log
+  log "----- $branch"
+  #branch_cid=`git rev-parse "$branch"`
+  cmd="git rebase --onto $root_branch $root_branch_cid $branch"
+  log "Trying to rebase onto $root_branch"
+  log "$cmd"
+  if $cmd 2>/dev/null >/dev/null; then
+    log "Rebases cleanly onto new $root_branch."
+    #git rst $branch_cid >/dev/null
+  else
+    log "Does not rebase cleanly onto new $root_branch. Skipping."
+    git rebase --abort
+  fi
+done

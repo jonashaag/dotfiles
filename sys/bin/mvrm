@@ -1,5 +1,6 @@
 #!/bin/sh -ue
 DST_DIR="$TMPDIR/.rm/"
+DST_DIR="/Users/j/.Trash/"
 
 err=
 dir_ok=

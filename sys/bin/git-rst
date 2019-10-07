@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
-if git diff --quiet; then
+if git diff --quiet --ignore-submodules; then
   if git diff --staged --quiet; then
     git reset --hard "$@"
   else

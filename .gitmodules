@@ -1,138 +1,87 @@
-[submodule ".vim/bundle/a.vim"]
-	path = .vim/bundle/a.vim
-	url = https://github.com/vim-scripts/a.vim
-[submodule ".vim/bundle/ack.vim"]
-	path = .vim/bundle/ack.vim
-	url = https://github.com/vim-scripts/ack.vim
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/vim-scripts/ctrlp.vim
-[submodule ".vim/bundle/molokai"]
-	path = .vim/bundle/molokai
-	url = https://github.com/vim-scripts/molokai
-[submodule ".vim/bundle/sparkup"]
-	path = .vim/bundle/sparkup
-	url = https://github.com/rstacruz/sparkup/
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = https://github.com/vim-scripts/syntastic
-[submodule ".vim/bundle/taglist.vim"]
-	path = .vim/bundle/taglist.vim
-	url = https://github.com/vim-scripts/taglist.vim
-[submodule ".vim/bundle/vim-fish"]
-	path = .vim/bundle/vim-fish
-	url = https://github.com/dag/vim-fish
+[submodule ".vim/bundle/vim-eunuch"]
+	path = .vim/bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule ".vim/bundle/vim-styled-components"]
+	path = .vim/bundle/vim-styled-components
+	url = https://github.com/styled-components/vim-styled-components
+[submodule ".vim/bundle/vim-yapf"]
+	path = .vim/bundle/vim-yapf
+	url = https://github.com/mindriot101/vim-yapf
+[submodule ".vim/bundle/numbers.vim"]
+	path = .vim/bundle/numbers.vim
+	url = https://github.com/myusuf3/numbers.vim.git
+[submodule ".vim/bundle/vim-lastplace"]
+	path = .vim/bundle/vim-lastplace
+	url = https://github.com/farmergreg/vim-lastplace
+[submodule ".vim/bundle/vim-mundo"]
+	path = .vim/bundle/vim-mundo
+	url = https://github.com/simnalamburt/vim-mundo
+[submodule ".vim/bundle/vim-alias"]
+	path = .vim/bundle/vim-alias
+	url = https://github.com/Konfekt/vim-alias
+[submodule ".vim/bundle/vim-jsx-pretty"]
+	path = .vim/bundle/vim-jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule ".vim/bundle/ale"]
+	path = .vim/bundle/ale
+	url = https://github.com/w0rp/ale.git
+[submodule ".vim/bundle/fzf-mru.vim"]
+	path = .vim/bundle/fzf-mru.vim
+	url = https://github.com/pbogut/fzf-mru.vim
+[submodule ".vim/bundle/fzf.vim"]
+	path = .vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule ".vim/bundle/focus"]
+	path = .vim/bundle/focus
+	url = https://github.com/sindresorhus/focus
+[submodule ".vim/bundle/splitjoin.vim"]
+	path = .vim/bundle/splitjoin.vim
+	url = https://github.com/AndrewRadev/splitjoin.vim
+[submodule ".vim/bundle/sideways.vim"]
+	path = .vim/bundle/sideways.vim
+	url = https://github.com/AndrewRadev/sideways.vim
+[submodule ".vim/bundle/vim-polyglot"]
+	path = .vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule ".vim/bundle/vim-hdevtools"]
-	path = .vim/bundle/vim-hdevtools
-	url = https://github.com/bitc/vim-hdevtools
-[submodule ".vim/bundle/vimproc.vim"]
-	path = .vim/bundle/vimproc.vim
-	url = https://github.com/Shougo/vimproc.vim
-[submodule ".vim/bundle/vimshell.vim"]
-	path = .vim/bundle/vimshell.vim
-	url = https://github.com/Shougo/vimshell.vim
-[submodule ".vim/bundle/dash.vim"]
-	path = .vim/bundle/dash.vim
-	url = https://github.com/rizzatti/dash.vim.git
-[submodule ".vim/bundle/elm-vim"]
-	path = .vim/bundle/elm-vim
-	url = https://github.com/ElmCast/elm-vim
-[submodule ".vim/bundle/semantic-highlight.vim"]
-	path = .vim/bundle/semantic-highlight.vim
-	url = https://github.com/jaxbot/semantic-highlight.vim.git
+[submodule ".vim/bundle/vim-sort-motion"]
+	path = .vim/bundle/vim-sort-motion
+	url = https://github.com/christoomey/vim-sort-motion
+[submodule ".vim/bundle/coc.nvim"]
+	path = .vim/bundle/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule ".vim/bundle/vim-sneak"]
+	path = .vim/bundle/vim-sneak
+	url = https://github.com/justinmk/vim-sneak
+[submodule ".vim/bundle/splice.vim"]
+	path = .vim/bundle/splice.vim
+	url = https://github.com/sjl/splice.vim.git
+[submodule ".vim/bundle/vim-anzu"]
+	path = .vim/bundle/vim-anzu
+	url = https://github.com/osyo-manga/vim-anzu
+[submodule ".vim/bundle/vim-system-copy"]
+	path = .vim/bundle/vim-system-copy
+	url = https://github.com/christoomey/vim-system-copy
+[submodule ".vim/bundle/vim-highlightedyank"]
+	path = .vim/bundle/vim-highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank
+[submodule ".vim/bundle/vim-over"]
+	path = .vim/bundle/vim-over
+	url = https://github.com/osyo-manga/vim-over
+[submodule ".vim/bundle/vim-litecorrect"]
+	path = .vim/bundle/vim-litecorrect
+	url = https://github.com/reedes/vim-litecorrect
+[submodule ".vim/bundle/is.vim"]
+	path = .vim/bundle/is.vim
+	url = https://github.com/haya14busa/is.vim
 [submodule ".vim/bundle/vim-bracketed-paste"]
 	path = .vim/bundle/vim-bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste
-[submodule ".vim/bundle/vim-instant-markdown"]
-	path = .vim/bundle/vim-instant-markdown
-	url = https://github.com/suan/vim-instant-markdown
-[submodule ".vim/bundle/yajs.vim"]
-	path = .vim/bundle/yajs.vim
-	url = https://github.com/othree/yajs.vim
-[submodule ".vim/bundle/vim-jsx"]
-	path = .vim/bundle/vim-jsx
-	url = https://github.com/mxw/vim-jsx
-[submodule ".vim/bundle/nginx.vim"]
-	path = .vim/bundle/nginx.vim
-	url = https://github.com/vim-scripts/nginx.vim
-[submodule ".vim/bundle/better-indent-support-for-php-with-html"]
-	path = .vim/bundle/better-indent-support-for-php-with-html
-	url = " https://github.com/captbaritone/better-indent-support-for-php-with-html"
-[submodule ".vim/bundle/css.vim"]
-	path = .vim/bundle/css.vim
-	url = " https://github.com/JulesWang/css.vim"
-[submodule ".vim/bundle/gundo.vim"]
-	path = .vim/bundle/gundo.vim
-	url = " https://github.com/sjl/gundo.vim"
-[submodule ".vim/bundle/incsearch.vim"]
-	path = .vim/bundle/incsearch.vim
-	url = " https://github.com/haya14busa/incsearch.vim"
-[submodule ".vim/bundle/php.vim"]
-	path = .vim/bundle/php.vim
-	url = " https://github.com/StanAngeloff/php.vim.git"
-[submodule ".vim/bundle/scss-syntax.vim"]
-	path = .vim/bundle/scss-syntax.vim
-	url = " https://github.com/cakebaker/scss-syntax.vim"
-[submodule ".vim/bundle/sourcemap.vim"]
-	path = .vim/bundle/sourcemap.vim
-	url = " https://github.com/chikatoike/sourcemap.vim"
-[submodule ".vim/bundle/vim-highlightedyank"]
-	path = .vim/bundle/vim-highlightedyank
-	url = " https://github.com/machakann/vim-highlightedyank"
-[submodule ".vim/bundle/vim-vue"]
-	path = .vim/bundle/vim-vue
-	url = " https://github.com/posva/vim-vue.git"
-[submodule ".vim/bundle/vim-sneak"]
-	path = .vim/bundle/vim-sneak
-	url = " https://github.com/justinmk/vim-sneak"
-[submodule ".vim/bundle/is.vim"]
-	path = .vim/bundle/is.vim
-	url = " https://github.com/haya14busa/is.vim"
-[submodule ".vim/bundle/numbers"]
-	path = .vim/bundle/numbers
-	url = " https://github.com/myusuf3/numbers.vim.git"
-[submodule ".vim/bundle/splice"]
-	path = .vim/bundle/splice
-	url = " https://github.com/sjl/splice.vim.git"
-[submodule ".vim/bundle/splitjoin.vim"]
-	path = .vim/bundle/splitjoin.vim
-	url = " https://github.com/AndrewRadev/splitjoin.vim"
-[submodule ".vim/bundle/vim-alias"]
-	path = .vim/bundle/vim-alias
-	url = " https://github.com/Konfekt/vim-alias"
-[submodule ".vim/bundle/vim-anzu"]
-	path = .vim/bundle/vim-anzu
-	url = " https://github.com/osyo-manga/vim-anzu"
-[submodule ".vim/bundle/vim-eunuch"]
-	path = .vim/bundle/vim-eunuch
-	url = " git://github.com/tpope/vim-eunuch.git"
-[submodule ".vim/bundle/vim-over"]
-	path = .vim/bundle/vim-over
-	url = " https://github.com/osyo-manga/vim-over"
-[submodule ".vim/bundle/sideways.vim"]
-	path = .vim/bundle/sideways.vim
-	url = " https://github.com/AndrewRadev/sideways.vim"
-[submodule ".vim/bundle/tabular"]
-	path = .vim/bundle/tabular
-	url = " https://github.com/godlygeek/tabular"
-[submodule ".vim/bundle/typescript-vim"]
-	path = .vim/bundle/typescript-vim
-	url = " https://github.com/leafgarland/typescript-vim"
-[submodule ".vim/bundle/vim-litecorrect"]
-	path = .vim/bundle/vim-litecorrect
-	url = " https://github.com/reedes/vim-litecorrect"
-[submodule ".vim/bundle/vim-mundo"]
-	path = .vim/bundle/vim-mundo
-	url = " https://github.com/simnalamburt/vim-mundo"
-[submodule ".vim/bundle/vim-solidity"]
-	path = .vim/bundle/vim-solidity
-	url = " https://github.com/tomlion/vim-solidity"
-[submodule ".vim/bundle/vim-sort-motion"]
-	path = .vim/bundle/vim-sort-motion
-	url = " https://github.com/christoomey/vim-sort-motion"
-[submodule ".vim/bundle/vim-system-copy"]
-	path = .vim/bundle/vim-system-copy
-	url = " https://github.com/christoomey/vim-system-copy"
+[submodule ".vim/bundle/fzf"]
+	path = .vim/bundle/fzf
+	url = https://github.com/junegunn/fzf
