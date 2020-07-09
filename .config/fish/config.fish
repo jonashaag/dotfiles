@@ -12,3 +12,5 @@ set --export FZF_DEFAULT_COMMAND 'rg --files --hidden --follow 2>/dev/null'
 set --export FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 
 set --export HOMEBREW_AUTO_UPDATE_SECS 4320
+
+source /Users/j/Library/Preferences/org.dystroy.broot/launcher/fish/br

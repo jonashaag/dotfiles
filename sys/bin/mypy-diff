@@ -1,0 +1,8 @@
+#!/bin/bash -eu
+ref_commit="$1"
+shift
+git checkout --quiet "$ref_commit"
+mypy "$@" | sed -E 's/:[0-9]+://g' > /tmp/mypy-old || true
+git checkout --quiet -
+mypy "$@" | sed -E 's/:[0-9]+://g' > /tmp/mypy-new || true
+git difftool /tmp/mypy-old /tmp/mypy-new

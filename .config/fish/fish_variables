@@ -4,6 +4,7 @@ SETUVAR __fish_classic_git_prompt_initialized:\x1d
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
+SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_gbr:git\x20branch
 SETUVAR _fish_abbr_gca:git\x20commit\x20\x2d\x2damend
 SETUVAR _fish_abbr_gcaa:git\x20commit\x20\x2d\x2damend\x20\x2d\x2dall
@@ -18,6 +19,7 @@ SETUVAR _fish_abbr_gprb:git\x20pull\x20\x2d\x2drebase
 SETUVAR _fish_abbr_grb:git\x20rebase
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
+SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:\x2d\x2dbold
 SETUVAR fish_color_comment:red
 SETUVAR fish_color_cwd:green
@@ -27,6 +29,7 @@ SETUVAR fish_color_error:brred
 SETUVAR fish_color_escape:bryellow\x1e\x2d\x2dbold
 SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:yellow
 SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
 SETUVAR fish_color_normal:normal
 SETUVAR fish_color_operator:bryellow

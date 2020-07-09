@@ -1,12 +1,6 @@
 [submodule ".vim/bundle/vim-eunuch"]
 	path = .vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
-[submodule ".vim/bundle/vim-styled-components"]
-	path = .vim/bundle/vim-styled-components
-	url = https://github.com/styled-components/vim-styled-components
-[submodule ".vim/bundle/vim-yapf"]
-	path = .vim/bundle/vim-yapf
-	url = https://github.com/mindriot101/vim-yapf
 [submodule ".vim/bundle/numbers.vim"]
 	path = .vim/bundle/numbers.vim
 	url = https://github.com/myusuf3/numbers.vim.git
@@ -19,9 +13,6 @@
 [submodule ".vim/bundle/vim-alias"]
 	path = .vim/bundle/vim-alias
 	url = https://github.com/Konfekt/vim-alias
-[submodule ".vim/bundle/vim-jsx-pretty"]
-	path = .vim/bundle/vim-jsx-pretty
-	url = https://github.com/MaxMEllon/vim-jsx-pretty
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular
@@ -34,15 +25,9 @@
 [submodule ".vim/bundle/fzf.vim"]
 	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule ".vim/bundle/focus"]
-	path = .vim/bundle/focus
-	url = https://github.com/sindresorhus/focus
 [submodule ".vim/bundle/splitjoin.vim"]
 	path = .vim/bundle/splitjoin.vim
 	url = https://github.com/AndrewRadev/splitjoin.vim
-[submodule ".vim/bundle/sideways.vim"]
-	path = .vim/bundle/sideways.vim
-	url = https://github.com/AndrewRadev/sideways.vim
 [submodule ".vim/bundle/vim-polyglot"]
 	path = .vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
@@ -52,9 +37,6 @@
 [submodule ".vim/bundle/vim-sort-motion"]
 	path = .vim/bundle/vim-sort-motion
 	url = https://github.com/christoomey/vim-sort-motion
-[submodule ".vim/bundle/coc.nvim"]
-	path = .vim/bundle/coc.nvim
-	url = https://github.com/neoclide/coc.nvim
 [submodule ".vim/bundle/vim-sneak"]
 	path = .vim/bundle/vim-sneak
 	url = https://github.com/justinmk/vim-sneak
@@ -85,3 +67,6 @@
 [submodule ".vim/bundle/fzf"]
 	path = .vim/bundle/fzf
 	url = https://github.com/junegunn/fzf
+[submodule ".vim/bundle/vim-mma"]
+	path = .vim/bundle/vim-mma
+	url = https://github.com/voldikss/vim-mma

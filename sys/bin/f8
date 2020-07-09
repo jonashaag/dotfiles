@@ -1,0 +1,2 @@
+#!/bin/bash -eu
+flake8 --ignore=E "$@"

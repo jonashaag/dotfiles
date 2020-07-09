@@ -4,12 +4,11 @@ source $HOME/.vim/conf/basics.vim
 
 source $HOME/.vim/conf/sideways.vim
 source $HOME/.vim/conf/litecorrect.vim
-source $HOME/.vim/conf/focus.vim
 source $HOME/.vim/conf/anzu.vim
 source $HOME/.vim/conf/highlightedyank.vim
 source $HOME/.vim/conf/ack.vim
 source $HOME/.vim/conf/fzf.vim
-source $HOME/.vim/conf/ctags.vim
+"source $HOME/.vim/conf/ctags.vim
 
 source $HOME/.vim/conf/c.vim
 source $HOME/.vim/conf/python.vim
@@ -20,6 +19,7 @@ source $HOME/.vim/conf/elm.vim
 source $HOME/.vim/conf/javascript.vim
 source $HOME/.vim/conf/css.vim
 source $HOME/.vim/conf/nginx.vim
+source $HOME/.vim/conf/mathematica.vim
 
 let g:gutentags_ctags_extra_args = ['-n']
 
