@@ -11,6 +11,7 @@ SETUVAR _fish_abbr_gcaa:git\x20commit\x20\x2d\x2damend\x20\x2d\x2dall
 SETUVAR _fish_abbr_gcl:git\x20clone
 SETUVAR _fish_abbr_gco:git\x20checkout
 SETUVAR _fish_abbr_gd:git\x20diff
+SETUVAR _fish_abbr_gd2:git\x20diff\x20HEAD
 SETUVAR _fish_abbr_gds:git\x20diff\x20\x2d\x2dstaged
 SETUVAR _fish_abbr_gl:git\x20log
 SETUVAR _fish_abbr_gp:git\x20pull\x20\x2d\x2dff\x2donly
@@ -47,4 +48,4 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/Users/j/\x2ecargo/bin\x1e/Users/j/dev/dotfiles/sys/bin\x1e/Users/j/\x2ebin\x1e/Users/j/\x2elocal/bin\x1e/usr/local/opt/llvm/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/usr/sbin\x1e/sbin\x1e/opt/X11/bin\x1e/usr/local/opt/fzf/bin
+SETUVAR fish_user_paths:/opt/homebrew/bin/\x1e/opt/homebrew/bin/\x1e/Users/j/\x2ecargo/bin\x1e/Users/j/dev/dotfiles/sys/bin\x1e/Users/j/\x2ebin\x1e/Users/j/\x2elocal/bin\x1e/usr/local/opt/llvm/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/usr/sbin\x1e/sbin\x1e/opt/X11/bin\x1e/usr/local/opt/fzf/bin\x1e/Users/j/\x2efzf/bin\x1e/opt/homebrew/opt/fzf/bin

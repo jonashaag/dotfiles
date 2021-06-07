@@ -2,15 +2,20 @@
 import sys
 import operator
 import functools
+import statistics
 
 op = sys.argv[1]
-op = {
-  '*': 'mul',
-  '+': 'add',
-  '/': 'div',
-  '-': 'sub',
-}.get(op, op)
-op = getattr(operator, op)
-
 stdin = [float(x) for x in sys.stdin.read().split()]
-print(functools.reduce(op, stdin))
+
+stats_op = getattr(statistics, op, None)
+if stats_op:
+    print(stats_op(stdin))
+else:
+    op = {
+      '*': 'mul',
+      '+': 'add',
+      '/': 'div',
+      '-': 'sub',
+    }.get(op, op)
+    op = getattr(operator, op)
+    print(functools.reduce(op, stdin))

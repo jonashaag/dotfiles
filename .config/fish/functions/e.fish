@@ -1,6 +1,10 @@
 function e
   if test (count $argv) -gt 0
-    source {$argv[1]}/bin/activate.fish
+    if test -e ~/.venvs/{$argv[1]}
+      source ~/.venvs/{$argv[1]}/bin/activate.fish
+    else
+      source {$argv[1]}/bin/activate.fish
+    end
   else if test -e env
     source env/bin/activate.fish
   else if test -e env3

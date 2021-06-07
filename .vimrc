@@ -15,12 +15,12 @@ source $HOME/.vim/conf/python.vim
 source $HOME/.vim/conf/html.vim
 source $HOME/.vim/conf/markdown.vim
 source $HOME/.vim/conf/php.vim
-source $HOME/.vim/conf/elm.vim
+"source $HOME/.vim/conf/elm.vim
 source $HOME/.vim/conf/javascript.vim
 source $HOME/.vim/conf/css.vim
 source $HOME/.vim/conf/nginx.vim
 source $HOME/.vim/conf/mathematica.vim
 
-let g:gutentags_ctags_extra_args = ['-n']
+"let g:gutentags_ctags_extra_args = ['-n']
 
 execute pathogen#infect()

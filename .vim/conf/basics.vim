@@ -1,6 +1,13 @@
 syntax on
 filetype plugin indent on
 
+nnoremap , :
+vnoremap , :
+xnoremap , :
+"nnoremap : ,
+"vnoremap : ,
+"xnoremap : ,
+
 set wildmenu
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class,Desktop/,*.hi
 set wildmode=list:full

@@ -1,6 +1,6 @@
 #!/bin/sh -ue
 DST_DIR="$TMPDIR/.rm/"
-DST_DIR="/Users/j/.Trash/"
+DST_DIR="/Users/j/.Trash"
 
 err=
 dir_ok=
@@ -48,7 +48,8 @@ if ! test -z "$err"; then
   echo "Aborting." >&2
   exit 1
 else
-  dst="$DST_DIR/$(gdate +'%c %s %N')"
+  dst="$DST_DIR/$(date +'%s %c') _$RANDOM"
   mkdir -p "$dst"
   mv "$@" "$dst"
+  echo "`basename $0` -> $dst" >&2
 fi
