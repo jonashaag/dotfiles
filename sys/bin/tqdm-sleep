@@ -1,0 +1,7 @@
+#!/bin/bash -eu
+{
+  for i in `seq $1`; do
+    echo asdf
+    sleep 1
+  done
+} | tqdm --total $1 > /dev/null

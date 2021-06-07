@@ -70,3 +70,15 @@
 [submodule ".vim/bundle/vim-mma"]
 	path = .vim/bundle/vim-mma
 	url = https://github.com/voldikss/vim-mma
+[submodule ".vim/bundle/vim-argwrap"]
+	path = .vim/bundle/vim-argwrap
+	url = https://github.com/FooSoft/vim-argwrap
+[submodule ".vim/bundle/vim-commentary"]
+	path = .vim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule ".vim/bundle/vim-matchup"]
+	path = .vim/bundle/vim-matchup
+	url = https://github.com/andymass/vim-matchup/
+[submodule ".vim/bundle/vim-vinegar"]
+	path = .vim/bundle/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar

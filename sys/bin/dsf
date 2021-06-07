@@ -1,0 +1,2 @@
+#!/bin/bash -eu
+diff -u "$@" | diff-so-fancy | less -R
