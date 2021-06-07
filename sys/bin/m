@@ -2,15 +2,30 @@
 import sys
 import operator
 import functools
+import statistics
 
 op = sys.argv[1]
+stdin = [float(x) for x in sys.stdin.read().split()]
+
+myops = {
+    'max': max,
+    'min': min,
+    'sort': sorted,
+    'isort': lambda x: sorted(x, reverse=True),
+    'mean': statistics.mean,
+    'sum': sum
+}
+
 op = {
   '*': 'mul',
   '+': 'add',
   '/': 'div',
   '-': 'sub',
 }.get(op, op)
-op = getattr(operator, op)
 
-stdin = [float(x) for x in sys.stdin.read().split()]
-print(functools.reduce(op, stdin))
+if op in myops:
+    func = myops[op]
+    print(func(stdin))
+else:
+    func = getattr(operator, op)
+    print(functools.reduce(func, stdin))

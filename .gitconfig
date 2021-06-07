@@ -1,6 +1,6 @@
 [core]
 	editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta --light
 [pager]
 	diff = true
 	show = true
@@ -13,22 +13,17 @@
 [help]
 	autocorrect = 30
 [alias]
-	d3   = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # diff between the latest commit and current state
-	rb   = rebase
-	rbi  = rebase -i
-	rbc  = rebase --continue
-	rba  = rebase --abort
-	mc   = merge --continue
-	ma   = merge --abort
 	patch = !"git --no-pager diff --no-color"
 	brl  = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads
 	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 [rerere]
 	enabled = true
 [sequence]
-	editor = interactive-rebase-tool
+  #editor = interactive-rebase-tool
+[credential "https://github.com"]
+	helper = !gh auth git-credential
 [filter "lfs"]
-	process = git-lfs filter-process
+	process = git-lfs filter-process --skip
 	required = true
 	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+	smudge = git-lfs smudge --skip -- %f

@@ -1,9 +1,11 @@
 #!/bin/sh -ue
-DST_DIR="$TMPDIR/.rm/"
-DST_DIR="/Users/j/.Trash/"
+#DST_DIR="$TMPDIR/.rm/"
+#DST_DIR="/Users/j/.Trash/"
+DST_DIR="/home/jo/.local/share/Trash/"
 
 err=
 dir_ok=
+notfound_ok=
 emptyargs=1
 for arg in "$@"; do
   # -r flag:
@@ -13,12 +15,12 @@ for arg in "$@"; do
 
   # -f flag
   elif [[ "$arg" = "-f" ]]; then
-    echo "mvrm: ignoring -f flag"
+    notfound_ok=1
     shift
 
   # -rf flag
   elif [[ "$arg" = "-rf" ]]; then
-    echo "mvrm: ignoring -f flag"
+    notfound_ok=1
     dir_ok=1
     shift
 
@@ -29,7 +31,9 @@ for arg in "$@"; do
     # missing file
     if ! test -e "$arg"; then
       echo "$arg: no such file or directory" >&2
-      err=1
+      if test -z "$notfound_ok"; then
+        err=1
+      fi
 
     # directory but -r missing
     elif test -d "$arg" && ! test -L "$arg" && test -z "$dir_ok"; then
@@ -40,15 +44,23 @@ for arg in "$@"; do
 done
 
 if ! test -z "$emptyargs"; then
-  echo "Usage: mvrm [file...]" >&2
-  exit 1
+  if test -z "$notfound_ok"; then
+    echo "Usage: mvrm [file...]" >&2
+    exit 1
+  else
+    exit 0
+  fi
 fi
 
 if ! test -z "$err"; then
   echo "Aborting." >&2
   exit 1
 else
-  dst="$DST_DIR/$(gdate +'%c %s %N')"
+  dst="$DST_DIR/$(date +'%c %s %N')"
   mkdir -p "$dst"
-  mv "$@" "$dst"
+  for arg in "$@"; do
+    if test -e "$arg"; then
+      mv "$arg" "$dst"
+    fi
+  done
 fi
