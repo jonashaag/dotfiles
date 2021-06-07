@@ -1,7 +1,5 @@
 #!/bin/sh -ue
-#DST_DIR="$TMPDIR/.rm/"
-#DST_DIR="/Users/j/.Trash/"
-DST_DIR="/home/jo/.local/share/Trash/"
+DST_DIR="`cat ~/dev/dotfiles/sys/bin/trashfolder`"
 
 err=
 dir_ok=
@@ -56,11 +54,15 @@ if ! test -z "$err"; then
   echo "Aborting." >&2
   exit 1
 else
-  dst="$DST_DIR/$(date +'%c %s %N')"
+  #dst="$DST_DIR/$(date +'%c %s %N')"
+  #mkdir -p "$dst"
+  #for arg in "$@"; do
+  #  if test -e "$arg"; then
+  #    mv "$arg" "$dst"
+  #  fi
+  #done
+  dst="$DST_DIR/$(date +'%s %c') _$RANDOM"
   mkdir -p "$dst"
-  for arg in "$@"; do
-    if test -e "$arg"; then
-      mv "$arg" "$dst"
-    fi
-  done
+  mv "$@" "$dst"
+  echo "`basename $0` -> $dst" >&2
 fi

@@ -1,6 +1,13 @@
 [core]
 	editor = vim
 	pager = delta --light
+#	pager = diff-so-fancy | less --tabs=4 -RFX
+[delta]
+	light = true
+	#line-numbers = true
+	navigate = true
+[diff]
+	colorMoved = default
 [pager]
 	diff = true
 	show = true

@@ -26,6 +26,15 @@ op = {
 if op in myops:
     func = myops[op]
     print(func(stdin))
+elif getattr(statistics, op, None):
+    stats_op = getattr(statistics, op, None)
+    print(stats_op(stdin))
 else:
-    func = getattr(operator, op)
-    print(functools.reduce(func, stdin))
+    op = {
+      '*': 'mul',
+      '+': 'add',
+      '/': 'div',
+      '-': 'sub',
+    }.get(op, op)
+    op = getattr(operator, op)
+    print(functools.reduce(op, stdin))

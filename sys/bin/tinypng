@@ -1,0 +1,25 @@
+#!/bin/bash -eu
+
+API_KEY=B1lQ91DKGnwyN6ZpM359JcSzkTYW8Xqg
+
+function tinypng() {
+  file="$1"
+  echo "Uploading $file"
+  json=`curl -sS --user api:$API_KEY --data-binary @"$file" https://api.tinypng.com/shrink`
+  url=`jq -n "$json.output.url" | sed -e 's/^"//'  -e 's/"$//'`
+  echo "Old size: $(jq -n "$json.input.size"), new size: $(jq -n "$json.output.size"), ratio: $(jq -n "$json.output.ratio")"
+  echo "Backing up to $file.bak"
+  cp -i "$file" "$file.bak"
+  echo "Downloading to $file"
+  curl -sS $url > "$file"
+}
+
+if [ $# -gt 0 ]; then
+  for f in "$@"; do
+    tinypng "$f"
+  done
+else
+  while IFS= read -r f; do
+      tinypng "$f"
+  done
+fi
