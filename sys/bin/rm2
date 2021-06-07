@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+import sys, os, glob, shutil
+len_files = sum([1 if os.path.isfile(f) else len(glob.glob(f"{f}/**/*", recursive=True))
+                 for f in sys.argv[1:]])
+if input(f"Permanently delete {len_files} files? [y/N] ").lower() == "y":
+    for f in sys.argv[1:]:
+        if os.path.isdir(f):
+            shutil.rmtree(f)
+        else:
+            os.unlink(f)
+    print("Done.")
+else:
+    print("Cancelled.")
