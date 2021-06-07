@@ -7,8 +7,27 @@ import statistics
 op = sys.argv[1]
 stdin = [float(x) for x in sys.stdin.read().split()]
 
-stats_op = getattr(statistics, op, None)
-if stats_op:
+myops = {
+    'max': max,
+    'min': min,
+    'sort': sorted,
+    'isort': lambda x: sorted(x, reverse=True),
+    'mean': statistics.mean,
+    'sum': sum
+}
+
+op = {
+  '*': 'mul',
+  '+': 'add',
+  '/': 'div',
+  '-': 'sub',
+}.get(op, op)
+
+if op in myops:
+    func = myops[op]
+    print(func(stdin))
+elif getattr(statistics, op, None):
+    stats_op = getattr(statistics, op, None)
     print(stats_op(stdin))
 else:
     op = {

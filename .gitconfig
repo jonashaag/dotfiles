@@ -1,7 +1,7 @@
 [core]
 	editor = vim
+	pager = delta --light
 #	pager = diff-so-fancy | less --tabs=4 -RFX
-	pager = delta
 [delta]
 	light = true
 	#line-numbers = true
@@ -26,7 +26,9 @@
 [rerere]
 	enabled = true
 [sequence]
-	editor = interactive-rebase-tool
+  #editor = interactive-rebase-tool
+[credential "https://github.com"]
+	helper = !gh auth git-credential
 [filter "lfs"]
 	process = git-lfs filter-process --skip
 	required = true
