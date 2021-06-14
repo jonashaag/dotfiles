@@ -85,3 +85,6 @@
 [submodule ".vim/bundle/--force"]
 	path = .vim/bundle/--force
 	url = https://github.com/junegunn/fzf.vim
+[submodule ".vim/bundle/vim-markdown-preview"]
+	path = .vim/bundle/vim-markdown-preview
+	url = https://github.com/JamshedVesuna/vim-markdown-preview

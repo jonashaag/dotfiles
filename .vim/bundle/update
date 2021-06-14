@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+import pathlib
+import subprocess
+
+for repo in pathlib.Path(__file__).parent.glob("*"):
+    if repo.is_dir() and repo.joinpath(".git").exists():
+        print(repo)
+        subprocess.run(["git", "pull", "--ff-only"], cwd=repo)

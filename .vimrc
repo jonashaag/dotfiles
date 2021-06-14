@@ -19,7 +19,6 @@ source $HOME/.vim/conf/markdown.vim
 source $HOME/.vim/conf/php.vim
 "source $HOME/.vim/conf/elm.vim
 source $HOME/.vim/conf/javascript.vim
-source $HOME/.vim/conf/markdown.vim
 source $HOME/.vim/conf/mathematica.vim
 source $HOME/.vim/conf/nginx.vim
 source $HOME/.vim/conf/php.vim

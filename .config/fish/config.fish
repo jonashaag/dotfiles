@@ -22,10 +22,9 @@ set --export EDITOR vim
 #end
 #set -g fish_key_bindings custom_key_binds
 
-set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
+set -gx VOLTA_HOME "$HOME/.volta"; set -gx PATH "$VOLTA_HOME/bin" $PATH
 
-if test (hostname) = jh
+if test (hostname | sd .local '') = jh
   #eval (pdm --pep582 fish)
   #cached:
   set -x PYTHONPATH '/opt/homebrew/Cellar/pdm/1.5.1/libexec/lib/python3.9/site-packages/pdm/pep582' $PYTHONPATH

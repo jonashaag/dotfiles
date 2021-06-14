@@ -1,6 +1,7 @@
 [core]
 	editor = vim
 	pager = delta --light
+	excludesfile = ~/.ignore
 #	pager = diff-so-fancy | less --tabs=4 -RFX
 [delta]
 	light = true
@@ -26,7 +27,7 @@
 [rerere]
 	enabled = true
 [sequence]
-  #editor = interactive-rebase-tool
+	editor = interactive-rebase-tool
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 [filter "lfs"]
@@ -34,3 +35,10 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge --skip -- %f
+[interactive-rebase-tool]
+	inputMoveUp = k
+	inputMoveDown = j
+	inputMoveLeft = h
+	inputMoveRight = l
+	inputMoveSelectionUp = Up
+	inputMoveSelectionDown = Down
