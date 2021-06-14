@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/vim-vinegar"]
 	path = .vim/bundle/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
+[submodule ".vim/bundle/--force"]
+	path = .vim/bundle/--force
+	url = https://github.com/junegunn/fzf.vim
