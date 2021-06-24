@@ -4,7 +4,8 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 #PSQL_PAGER="pspg"
 
 set --export FZF_DEFAULT_COMMAND 'rg --files --hidden --follow 2>/dev/null'
-set --export FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set fzf_fd_opts --hidden --exclude=.git --follow
+fzf_configure_bindings --git_log=\cl --directory=\cp --git_status=\cs
 
 set --export HOMEBREW_AUTO_UPDATE_SECS 4320
 

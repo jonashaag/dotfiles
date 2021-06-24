@@ -1,4 +1,4 @@
-#!/bin/sh -ue
+#!/bin/bash -ue
 DST_DIR="`cat ~/dev/dotfiles/sys/bin/trashfolder`"
 
 err=
