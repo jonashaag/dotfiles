@@ -1,5 +1,5 @@
 #!/bin/bash -ue
-DST_DIR="`cat ~/dev/dotfiles/sys/bin/trashfolder`"
+DST_DIR="`cat ~/.trashfolder`"
 
 err=
 dir_ok=
