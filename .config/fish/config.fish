@@ -44,9 +44,8 @@ if test (hostname | sd .local '') = jh
   #eval (pdm --pep582 fish)
   #cached:
   #set -x PYTHONPATH '/opt/homebrew/Cellar/pdm/1.5.1/libexec/lib/python3.9/site-packages/pdm/pep582' $PYTHONPATH
-
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!
-  #eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+  eval /opt/homebrew/Caskroom/mambaforge/base/bin/conda "shell.fish" "hook" $argv | source
   # <<< conda initialize <<<
 end
