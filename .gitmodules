@@ -43,9 +43,6 @@
 [submodule ".vim/bundle/splice.vim"]
 	path = .vim/bundle/splice.vim
 	url = https://github.com/sjl/splice.vim.git
-[submodule ".vim/bundle/vim-anzu"]
-	path = .vim/bundle/vim-anzu
-	url = https://github.com/osyo-manga/vim-anzu
 [submodule ".vim/bundle/vim-system-copy"]
 	path = .vim/bundle/vim-system-copy
 	url = https://github.com/christoomey/vim-system-copy
@@ -58,9 +55,6 @@
 [submodule ".vim/bundle/vim-litecorrect"]
 	path = .vim/bundle/vim-litecorrect
 	url = https://github.com/reedes/vim-litecorrect
-[submodule ".vim/bundle/is.vim"]
-	path = .vim/bundle/is.vim
-	url = https://github.com/haya14busa/is.vim
 [submodule ".vim/bundle/vim-bracketed-paste"]
 	path = .vim/bundle/vim-bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste
@@ -91,6 +85,9 @@
 [submodule ".vim/bundle/vim-rhubarb"]
 	path = .vim/bundle/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb
+[submodule ".vim/bundle/loupe"]
+	path = .vim/bundle/loupe
+	url = https://github.com/wincent/loupe
 [submodule ".vim/bundle/context.vim"]
 	path = .vim/bundle/context.vim
 	url = https://github.com/wellle/context.vim

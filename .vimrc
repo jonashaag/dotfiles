@@ -4,12 +4,13 @@ source $HOME/.vim/conf/basics.vim
 
 source $HOME/.vim/conf/ack.vim
 source $HOME/.vim/conf/ale.vim
-source $HOME/.vim/conf/anzu.vim
 source $HOME/.vim/conf/fzf.vim
 source $HOME/.vim/conf/highlightedyank.vim
 source $HOME/.vim/conf/litecorrect.vim
 source $HOME/.vim/conf/sideways.vim
 "source $HOME/.vim/conf/ctags.vim
+source $HOME/.vim/conf/context.vim
+source $HOME/.vim/conf/loupe.vim
 
 source $HOME/.vim/conf/css.vim
 source $HOME/.vim/conf/c.vim

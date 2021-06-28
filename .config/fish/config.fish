@@ -40,6 +40,13 @@ set --export EDITOR vim
 
 set -gx VOLTA_HOME "$HOME/.volta"; set -gx PATH "$VOLTA_HOME/bin" $PATH
 
+
+if test (hostname | sd .local '') = jhqcgcp1
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  eval /home/jonas/m/bin/conda "shell.fish" "hook" $argv | source
+  # <<< conda initialize <<<
+end
 if test (hostname | sd .local '') = jh
   #eval (pdm --pep582 fish)
   #cached:
