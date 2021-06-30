@@ -56,3 +56,9 @@ if test (hostname | sd .local '') = jh
   eval /opt/homebrew/Caskroom/mambaforge/base/bin/conda "shell.fish" "hook" $argv | source
   # <<< conda initialize <<<
 end
+if test (hostname | sd .local '') = jhqc
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  eval /opt/homebrew/Caskroom/mambaforge/base/bin/conda "shell.fish" "hook" $argv | source
+  # <<< conda initialize <<<
+end

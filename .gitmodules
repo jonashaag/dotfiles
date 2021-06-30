@@ -91,3 +91,6 @@
 [submodule ".vim/bundle/context.vim"]
 	path = .vim/bundle/context.vim
 	url = https://github.com/wellle/context.vim
+[submodule ".vim/bundle/vim-test"]
+	path = .vim/bundle/vim-test
+	url = https://github.com/vim-test/vim-test
