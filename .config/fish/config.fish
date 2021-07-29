@@ -20,7 +20,9 @@ abbr -a -U -- gs 'git status -s'
 
 set --export FZF_DEFAULT_COMMAND 'rg --files --hidden --follow 2>/dev/null'
 set fzf_fd_opts --hidden --exclude=.git --follow
-fzf_configure_bindings --git_log=\cl --directory=\cp --git_status=\cs
+if type -q fzf_configure_bindings
+  fzf_configure_bindings --git_log=\cl --directory=\cp --git_status=\cs
+end
 
 set --export HOMEBREW_AUTO_UPDATE_SECS 4320
 
@@ -41,24 +43,28 @@ set --export EDITOR vim
 set -gx VOLTA_HOME "$HOME/.volta"; set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 
-if test (hostname | sd .local '') = jhqcgcp1
-  # >>> conda initialize >>>
-  # !! Contents within this block are managed by 'conda init' !!
-  eval /home/jonas/m/bin/conda "shell.fish" "hook" $argv | source
-  # <<< conda initialize <<<
+if which -s sd
+  if test (hostname | sd '\.(local|lan)' '') = jhqcgcp1
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    eval /home/jonas/m/bin/conda "shell.fish" "hook" $argv | source
+    # <<< conda initialize <<<
+  end
+  if test (hostname | sd '\.(local|lan)' '') = jh
+    #eval (pdm --pep582 fish)
+    #cached:
+    #set -x PYTHONPATH '/opt/homebrew/Cellar/pdm/1.5.1/libexec/lib/python3.9/site-packages/pdm/pep582' $PYTHONPATH
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    eval /opt/homebrew/Caskroom/mambaforge/base/bin/conda "shell.fish" "hook" $argv | source
+    # <<< conda initialize <<<
+  end
+  if test (hostname | sd '\.(local|lan)' '') = jhqc
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    eval /opt/homebrew/Caskroom/mambaforge/base/bin/conda "shell.fish" "hook" $argv | source
+    # <<< conda initialize <<<
+  end
 end
-if test (hostname | sd .local '') = jh
-  #eval (pdm --pep582 fish)
-  #cached:
-  #set -x PYTHONPATH '/opt/homebrew/Cellar/pdm/1.5.1/libexec/lib/python3.9/site-packages/pdm/pep582' $PYTHONPATH
-  # >>> conda initialize >>>
-  # !! Contents within this block are managed by 'conda init' !!
-  eval /opt/homebrew/Caskroom/mambaforge/base/bin/conda "shell.fish" "hook" $argv | source
-  # <<< conda initialize <<<
-end
-if test (hostname | sd .local '') = jhqc
-  # >>> conda initialize >>>
-  # !! Contents within this block are managed by 'conda init' !!
-  eval /opt/homebrew/Caskroom/mambaforge/base/bin/conda "shell.fish" "hook" $argv | source
-  # <<< conda initialize <<<
-end
+
+direnv hook fish | source

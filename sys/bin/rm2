@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import sys, os, glob, shutil
-len_files = sum([1 if os.path.isfile(f) else len(glob.glob(f"{f}/**/*", recursive=True))
+import sys, os, shutil
+len_files = sum([1 if os.path.isfile(f) else sum(len(fs) for _, _, fs in os.walk(f))
                  for f in sys.argv[1:]])
 if input(f"Permanently delete {len_files} files? [y/N] ").lower() == "y":
     for f in sys.argv[1:]:
