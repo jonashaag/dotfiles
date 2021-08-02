@@ -43,7 +43,7 @@ set --export EDITOR vim
 set -gx VOLTA_HOME "$HOME/.volta"; set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 
-if which -s sd
+if which sd >/dev/null ^/dev/null
   if test (hostname | sd '\.(local|lan)' '') = jhqcgcp1
     # >>> conda initialize >>>
     # !! Contents within this block are managed by 'conda init' !!

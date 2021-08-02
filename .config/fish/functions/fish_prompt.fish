@@ -10,4 +10,8 @@ if test -e ~/.local/share/omf/themes/default/functions/fish_prompt.fish
       __omf_prompt
     end
   end
+else
+  function fish_prompt
+    echo "<missing omf> "
+  end
 end
