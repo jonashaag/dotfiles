@@ -1,11 +1,10 @@
 [core]
 	editor = vim
-	pager = delta --light
+	pager = delta $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null || echo --light)
 	excludesfile = ~/.ignore
 #	pager = diff-so-fancy | less --tabs=4 -RFX
 [delta]
-	light = true
-	#line-numbers = true
+	line-numbers = true
 	navigate = true
 [diff]
 	colorMoved = default
