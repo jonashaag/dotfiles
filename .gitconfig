@@ -23,6 +23,8 @@
 	patch = !"git --no-pager diff --no-color"
 	brl  = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads
 	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+	wip = !git commit --amend --no-edit && git push --force
+	wipa = !git commit -a --amend --no-edit && git push --force
 [rerere]
 	enabled = true
 [sequence]

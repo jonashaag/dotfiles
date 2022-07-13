@@ -2,7 +2,7 @@
 import pathlib
 import subprocess
 
-for repo in pathlib.Path(__file__).parent.glob("*"):
+for repo in pathlib.Path(__file__).parent.glob("pack/*/*"):
     if repo.is_dir() and repo.joinpath(".git").exists():
         print(repo)
         subprocess.run("git fetch -a && git checkout origin/HEAD", shell=True, cwd=repo)

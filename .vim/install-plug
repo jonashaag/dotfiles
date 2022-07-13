@@ -1,0 +1,8 @@
+#!/bin/bash -eu
+url=$1
+ghuser=$(echo "$url" | pcregrep -o1 'github.com/([^/]+)/')
+ghrepo=$(echo "$url" | pcregrep -o1 'github.com/[^/]+/(.+)')
+vimdir="$(cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
+root=$vimdir/pack/$ghuser/start
+mkdir -p $root
+git submodule add --depth 1 --name $ghuser/$ghrepo $url $root/$ghrepo

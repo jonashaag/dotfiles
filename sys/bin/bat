@@ -1,2 +1,2 @@
 #!/bin/bash
-exec bat --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo ansii-light)
+exec /opt/homebrew/bin/bat --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo ansi) "$@"

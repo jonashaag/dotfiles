@@ -38,7 +38,7 @@ set --export RIPGREP_CONFIG_PATH ~/.config/ripgreprc
 set --export HOMEBREW_AUTO_UPDATE_SECS 4320
 
 # Volta
-set -gx VOLTA_HOME "$HOME/.volta"; set -gx PATH "$VOLTA_HOME/bin" $PATH
+# set -gx VOLTA_HOME "$HOME/.volta"; set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 # Conda
 if test -e ~/.conda-root

@@ -1,99 +1,99 @@
-[submodule ".vim/bundle/vim-eunuch"]
-	path = .vim/bundle/vim-eunuch
-	url = https://github.com/tpope/vim-eunuch
-[submodule ".vim/bundle/numbers.vim"]
-	path = .vim/bundle/numbers.vim
-	url = https://github.com/myusuf3/numbers.vim.git
-[submodule ".vim/bundle/vim-lastplace"]
-	path = .vim/bundle/vim-lastplace
-	url = https://github.com/farmergreg/vim-lastplace
-[submodule ".vim/bundle/vim-mundo"]
-	path = .vim/bundle/vim-mundo
-	url = https://github.com/simnalamburt/vim-mundo
-[submodule ".vim/bundle/vim-alias"]
-	path = .vim/bundle/vim-alias
-	url = https://github.com/Konfekt/vim-alias
-[submodule ".vim/bundle/tabular"]
-	path = .vim/bundle/tabular
-	url = https://github.com/godlygeek/tabular
-[submodule ".vim/bundle/ale"]
-	path = .vim/bundle/ale
-	url = https://github.com/dense-analysis/ale
-[submodule ".vim/bundle/fzf-mru.vim"]
-	path = .vim/bundle/fzf-mru.vim
-	url = https://github.com/pbogut/fzf-mru.vim
-[submodule ".vim/bundle/fzf.vim"]
-	path = .vim/bundle/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
-[submodule ".vim/bundle/splitjoin.vim"]
-	path = .vim/bundle/splitjoin.vim
+[submodule "AndrewRadev/splitjoin.vim"]
+	path = /Users/j/dotfiles/.vim/pack/AndrewRadev/start/splitjoin.vim
 	url = https://github.com/AndrewRadev/splitjoin.vim
-[submodule ".vim/bundle/vim-polyglot"]
-	path = .vim/bundle/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule ".vim/bundle/vim-sort-motion"]
-	path = .vim/bundle/vim-sort-motion
-	url = https://github.com/christoomey/vim-sort-motion
-[submodule ".vim/bundle/vim-sneak"]
-	path = .vim/bundle/vim-sneak
-	url = https://github.com/justinmk/vim-sneak
-[submodule ".vim/bundle/splice.vim"]
-	path = .vim/bundle/splice.vim
-	url = https://github.com/sjl/splice.vim.git
-[submodule ".vim/bundle/vim-system-copy"]
-	path = .vim/bundle/vim-system-copy
-	url = https://github.com/christoomey/vim-system-copy
-[submodule ".vim/bundle/vim-highlightedyank"]
-	path = .vim/bundle/vim-highlightedyank
-	url = https://github.com/machakann/vim-highlightedyank
-[submodule ".vim/bundle/vim-over"]
-	path = .vim/bundle/vim-over
-	url = https://github.com/osyo-manga/vim-over
-[submodule ".vim/bundle/vim-litecorrect"]
-	path = .vim/bundle/vim-litecorrect
-	url = https://github.com/reedes/vim-litecorrect
-[submodule ".vim/bundle/vim-bracketed-paste"]
-	path = .vim/bundle/vim-bracketed-paste
-	url = https://github.com/ConradIrwin/vim-bracketed-paste
-[submodule ".vim/bundle/fzf"]
-	path = .vim/bundle/fzf
-	url = https://github.com/junegunn/fzf
-[submodule ".vim/bundle/vim-mma"]
-	path = .vim/bundle/vim-mma
-	url = https://github.com/voldikss/vim-mma
-[submodule ".vim/bundle/vim-argwrap"]
-	path = .vim/bundle/vim-argwrap
-	url = https://github.com/FooSoft/vim-argwrap
-[submodule ".vim/bundle/vim-commentary"]
-	path = .vim/bundle/vim-commentary
-	url = https://github.com/tpope/vim-commentary
-[submodule ".vim/bundle/vim-matchup"]
-	path = .vim/bundle/vim-matchup
-	url = https://github.com/andymass/vim-matchup/
-[submodule ".vim/bundle/vim-vinegar"]
-	path = .vim/bundle/vim-vinegar
-	url = https://github.com/tpope/vim-vinegar
-[submodule ".vim/bundle/--force"]
-	path = .vim/bundle/--force
+[submodule "tpope/vim-eunuch"]
+	path = /Users/j/dotfiles/.vim/pack/tpope/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "myusuf3/numbers.vim.git"]
+	path = /Users/j/dotfiles/.vim/pack/myusuf3/start/numbers.vim.git
+	url = https://github.com/myusuf3/numbers.vim.git
+[submodule "farmergreg/vim-lastplace"]
+	path = /Users/j/dotfiles/.vim/pack/farmergreg/start/vim-lastplace
+	url = https://github.com/farmergreg/vim-lastplace
+[submodule "simnalamburt/vim-mundo"]
+	path = /Users/j/dotfiles/.vim/pack/simnalamburt/start/vim-mundo
+	url = https://github.com/simnalamburt/vim-mundo
+[submodule "Konfekt/vim-alias"]
+	path = /Users/j/dotfiles/.vim/pack/Konfekt/start/vim-alias
+	url = https://github.com/Konfekt/vim-alias
+[submodule "godlygeek/tabular"]
+	path = /Users/j/dotfiles/.vim/pack/godlygeek/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "dense-analysis/ale"]
+	path = /Users/j/dotfiles/.vim/pack/dense-analysis/start/ale
+	url = https://github.com/dense-analysis/ale
+[submodule "pbogut/fzf-mru.vim"]
+	path = /Users/j/dotfiles/.vim/pack/pbogut/start/fzf-mru.vim
+	url = https://github.com/pbogut/fzf-mru.vim
+[submodule "junegunn/fzf.vim"]
+	path = /Users/j/dotfiles/.vim/pack/junegunn/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule ".vim/bundle/vim-markdown-preview"]
-	path = .vim/bundle/vim-markdown-preview
+[submodule "sheerun/vim-polyglot"]
+	path = /Users/j/dotfiles/.vim/pack/sheerun/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "tpope/vim-fugitive"]
+	path = /Users/j/dotfiles/.vim/pack/tpope/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "christoomey/vim-sort-motion"]
+	path = /Users/j/dotfiles/.vim/pack/christoomey/start/vim-sort-motion
+	url = https://github.com/christoomey/vim-sort-motion
+[submodule "justinmk/vim-sneak"]
+	path = /Users/j/dotfiles/.vim/pack/justinmk/start/vim-sneak
+	url = https://github.com/justinmk/vim-sneak
+[submodule "sjl/splice.vim.git"]
+	path = /Users/j/dotfiles/.vim/pack/sjl/start/splice.vim.git
+	url = https://github.com/sjl/splice.vim.git
+[submodule "christoomey/vim-system-copy"]
+	path = /Users/j/dotfiles/.vim/pack/christoomey/start/vim-system-copy
+	url = https://github.com/christoomey/vim-system-copy
+[submodule "machakann/vim-highlightedyank"]
+	path = /Users/j/dotfiles/.vim/pack/machakann/start/vim-highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank
+[submodule "osyo-manga/vim-over"]
+	path = /Users/j/dotfiles/.vim/pack/osyo-manga/start/vim-over
+	url = https://github.com/osyo-manga/vim-over
+[submodule "reedes/vim-litecorrect"]
+	path = /Users/j/dotfiles/.vim/pack/reedes/start/vim-litecorrect
+	url = https://github.com/reedes/vim-litecorrect
+[submodule "ConradIrwin/vim-bracketed-paste"]
+	path = /Users/j/dotfiles/.vim/pack/ConradIrwin/start/vim-bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste
+[submodule "junegunn/fzf"]
+	path = /Users/j/dotfiles/.vim/pack/junegunn/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "voldikss/vim-mma"]
+	path = /Users/j/dotfiles/.vim/pack/voldikss/start/vim-mma
+	url = https://github.com/voldikss/vim-mma
+[submodule "FooSoft/vim-argwrap"]
+	path = /Users/j/dotfiles/.vim/pack/FooSoft/start/vim-argwrap
+	url = https://github.com/FooSoft/vim-argwrap
+[submodule "tpope/vim-commentary"]
+	path = /Users/j/dotfiles/.vim/pack/tpope/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "andymass/vim-matchup"]
+	path = /Users/j/dotfiles/.vim/pack/andymass/start/vim-matchup
+	url = https://github.com/andymass/vim-matchup
+[submodule "tpope/vim-vinegar"]
+	path = /Users/j/dotfiles/.vim/pack/tpope/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule "JamshedVesuna/vim-markdown-preview"]
+	path = /Users/j/dotfiles/.vim/pack/JamshedVesuna/start/vim-markdown-preview
 	url = https://github.com/JamshedVesuna/vim-markdown-preview
-[submodule ".vim/bundle/vim-rhubarb"]
-	path = .vim/bundle/vim-rhubarb
+[submodule "tpope/vim-rhubarb"]
+	path = /Users/j/dotfiles/.vim/pack/tpope/start/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb
-[submodule ".vim/bundle/loupe"]
-	path = .vim/bundle/loupe
+[submodule "wincent/loupe"]
+	path = /Users/j/dotfiles/.vim/pack/wincent/start/loupe
 	url = https://github.com/wincent/loupe
-[submodule ".vim/bundle/context.vim"]
-	path = .vim/bundle/context.vim
+[submodule "wellle/context.vim"]
+	path = /Users/j/dotfiles/.vim/pack/wellle/start/context.vim
 	url = https://github.com/wellle/context.vim
-[submodule ".vim/bundle/vim-test"]
-	path = .vim/bundle/vim-test
+[submodule "vim-test/vim-test"]
+	path = /Users/j/dotfiles/.vim/pack/vim-test/start/vim-test
 	url = https://github.com/vim-test/vim-test
-[submodule ".vim/bundle/textobj-word-column.vim"]
-	path = .vim/bundle/textobj-word-column.vim
+[submodule "coderifous/textobj-word-column.vim"]
+	path = /Users/j/dotfiles/.vim/pack/coderifous/start/textobj-word-column.vim
 	url = https://github.com/coderifous/textobj-word-column.vim
+[submodule "tpope/vim-sensible"]
+	path = /Users/j/dotfiles/.vim/pack/tpope/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible

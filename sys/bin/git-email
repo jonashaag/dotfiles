@@ -1,0 +1,8 @@
+#!/bin/bash -eu
+
+tmp=$(mktemp -d)
+git clone -q $1 $tmp
+cd $tmp
+git log | grep -Eo '<.+>' | sed 's/[<>]//g' | sort | uniq -c
+cd /
+/bin/rm -rf $tmp

@@ -24,6 +24,7 @@ source $HOME/.vim/conf/mathematica.vim
 source $HOME/.vim/conf/nginx.vim
 source $HOME/.vim/conf/php.vim
 source $HOME/.vim/conf/python.vim
+source $HOME/.vim/conf/netrw.vim
 
 "let g:gutentags_ctags_extra_args = ['-n']
 

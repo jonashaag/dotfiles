@@ -8,6 +8,7 @@ if test -e ~/.local/share/omf/themes/default/functions/fish_prompt.fish
     function fish_prompt
       iterm2_prompt_mark
       __omf_prompt
+      test -n "$CONDA_PROMPT_MODIFIER" && echo -ns (omf::dim) $CONDA_PROMPT_MODIFIER (omf::off)
     end
   end
 else

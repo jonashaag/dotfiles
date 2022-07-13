@@ -1,6 +1,3 @@
-syntax on
-filetype plugin indent on
-
 nnoremap , :
 vnoremap , :
 xnoremap , :
@@ -8,26 +5,22 @@ xnoremap , :
 "vnoremap : ,
 "xnoremap : ,
 
-set wildmenu
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*.class,Desktop/,*.hi
 set wildmode=list:full
 
-set tabpagemax=999999999
 set nocompatible
 set noerrorbells
 set nowrap
-set ruler
+set showcmd
 
 "map <F1> <ESC>
 "imap <F1> <ESC>
-set backspace=indent,eol,start
 
 " Tab width and replace-tab
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set smartindent
-set smarttab
 
 set list
 set listchars=tab:.\ 
@@ -80,7 +73,6 @@ inoremap <C-E> <ESC>:w<CR>
 nnoremap <C-E> :w<CR>
 
 " Search
-set incsearch
 set hlsearch
 "nmap <Esc><Esc> :nohlsearch<CR>
 
