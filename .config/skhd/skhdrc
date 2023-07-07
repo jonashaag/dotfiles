@@ -1,0 +1,2 @@
+ctrl - right : yabai -m space --focus next
+ctrl - left : yabai -m space --focus prev

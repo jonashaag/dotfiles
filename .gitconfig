@@ -1,0 +1,30 @@
+[core]
+	pager = delta $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null || echo --light)
+[user]
+	name = Jonas Haag
+	email = jonas@lophus.org
+[push]
+	default = current
+[pager]
+	diff = true
+	show = true
+	log = true
+[interactive]
+	diffFilter = delta $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null || echo --light) --color-only
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+[sequence]
+	editor = interactive-rebase-tool
+[delta]
+	navigate = true
+	#line-numbers = true
+	hyperlinks = true
+[interactive-rebase-tool]
+	inputMoveUp = k
+	inputMoveDown = j
+	inputMoveLeft = h
+	inputMoveRight = l
+	inputMoveSelectionUp = Up
+	inputMoveSelectionDown = Down
