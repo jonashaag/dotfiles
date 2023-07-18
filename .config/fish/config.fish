@@ -13,6 +13,9 @@ abbr -a m  'micromamba'
 abbr -a ms 'micromamba shell'
 abbr -a mr 'micromamba run'
 
+abbr -a p 'pixi'
+abbr -a pr 'pixi run'
+
 abbr -a c 'cat'
 
 set --export EDITOR nvim
