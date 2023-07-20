@@ -1,5 +1,5 @@
 [core]
-	pager = which delta >/dev/null 2>/dev/null && delta $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null || echo --light) || less
+	pager = which d >/dev/null 2>/dev/null && d || less
 [user]
 	name = Jonas Haag
 	email = jonas@lophus.org
@@ -10,7 +10,7 @@
 	show = true
 	log = true
 [interactive]
-	diffFilter = which delta >/dev/null 2>/dev/null && delta $(defaults read -globalDomain AppleInterfaceStyle &> /dev/null || echo --light) --color-only || less
+	diffFilter = which d >/dev/null 2>/dev/null && d --color-only || less
 [merge]
 	conflictstyle = diff3
 [diff]

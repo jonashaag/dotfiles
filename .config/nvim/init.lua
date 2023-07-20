@@ -79,7 +79,6 @@ augroup checktime
 augroup END
 ]])
 
-
 -- Open files in tabs, not buffers
 -- https://vi.stackexchange.com/a/2197
 vim.cmd([[

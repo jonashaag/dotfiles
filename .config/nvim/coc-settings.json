@@ -1,0 +1,19 @@
+{
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cc", "cpp", "c++"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".git/"],
+      "initializationOptions": {
+          "cache": {
+            "directory": "~/.cache/ccls"
+          }
+        }
+    },
+    "dockerfile": {
+      "command": "~/.config/coc/extensions/node_modules/.bin/docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    }
+  }
+}

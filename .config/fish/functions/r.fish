@@ -1,3 +1,3 @@
 function r
-  rg --json $argv | delta
+  rg --ignore-file ~/.ignore --json $argv | d
 end

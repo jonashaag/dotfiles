@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if defaults read -globalDomain AppleInterfaceStyle >/dev/null 2>/dev/null; then
+  theme=""
+else
+  theme="--light"
+fi
+exec delta $theme "$@"
