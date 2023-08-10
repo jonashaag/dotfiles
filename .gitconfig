@@ -28,3 +28,5 @@
 	inputMoveRight = l
 	inputMoveSelectionUp = Up
 	inputMoveSelectionDown = Down
+[branch]
+	autosetupmerge = true

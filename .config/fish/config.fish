@@ -8,6 +8,7 @@ abbr -a gl   'git log'
 abbr -a gca  'git commit --amend'
 abbr -a gcaa 'git commit -a --amend'
 abbr -a gcp  'git cherry-pick'
+abbr -a gr   'git pull --rebase'
 
 abbr -a m  'micromamba'
 abbr -a ms 'micromamba shell'
@@ -17,6 +18,9 @@ abbr -a p 'pixi'
 abbr -a pr 'pixi run'
 
 abbr -a c 'cat'
+
+abbr -a gh --position anywhere --set-cursor 'https://github.com/%'
+abbr -a ghj --position anywhere --set-cursor 'https://github.com/jonashaag/%'
 
 set --export EDITOR nvim
 

@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = { "nvim-telescope/telescope-smart-history.nvim", "kkharji/sqlite.lua", "nvim-lua/plenary.nvim" },
 		config = function()
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>f", builtin.find_files, {})
@@ -17,18 +17,25 @@ return {
 							["<C-u>"] = false,
 							["<C-j>"] = "move_selection_next",
 							["<C-k>"] = "move_selection_previous",
+							["<Up>"] = "cycle_history_prev",
+							["<Down>"] = "cycle_history_next",
 						},
+					},
+					history = {
+						path = "~/.local/share/nvim/telescope_history.sqlite3",
+						limit = 100,
 					},
 				},
 			})
+			require("telescope").load_extension("smart_history")
 		end,
 	},
 	{
 		"nvim-telescope/telescope-frecency.nvim",
 		config = function()
 			local frecency = require("telescope").load_extension("frecency")
-			vim.keymap.set("n", "<leader>p",  function ()
-				frecency.frecency({ workspace = 'CWD' })
+			vim.keymap.set("n", "<leader>p", function()
+				frecency.frecency({ workspace = "CWD" })
 			end)
 		end,
 		dependencies = { "kkharji/sqlite.lua" },
