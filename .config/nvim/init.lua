@@ -3,6 +3,9 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.wrap = false
 vim.opt.confirm = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 
 -- Map , to :
 for _, mode in ipairs({ "n", "v", "x" }) do
@@ -50,12 +53,12 @@ vim.opt.lazyredraw = true
 -- Always keep cursor vertically centered
 vim.opt.scrolloff = 99999
 
--- Flash matching parens upon insertion
-vim.opt.showmatch = true
-
--- Keep an undo file
+-- Undo, backup, swap
 vim.opt.undofile = true
-vim.opt.undodir = vim.fn.expand("~/.local/share/undod")
+vim.opt.undodir = vim.fn.expand("~/.vim/undo//")
+vim.opt.backup = true
+vim.opt.backupdir = vim.fn.expand("~/.vim/backup//")
+vim.opt.directory = vim.fn.expand("~/.vim/swap//")
 
 -- Better Search
 vim.opt.ignorecase = true

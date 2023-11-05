@@ -9,17 +9,19 @@ abbr -a gca  'git commit --amend'
 abbr -a gcaa 'git commit -a --amend'
 abbr -a gcp  'git cherry-pick'
 abbr -a gr   'git pull --rebase'
+abbr -a gpi  'git cherry-pick'
+abbr -a gwip 'git commit -a --amend --no-edit && git push -f'
 
 abbr -a m  'micromamba'
-abbr -a ms 'micromamba shell'
-abbr -a mr 'micromamba run'
+abbr -a me 'micromamba -p ./.env'
+
 
 abbr -a p 'pixi'
 abbr -a pr 'pixi run'
 
 abbr -a c 'cat'
 
-abbr -a gh --position anywhere --set-cursor 'https://github.com/%'
+abbr -a ghu --position anywhere --set-cursor 'https://github.com/%'
 abbr -a ghj --position anywhere --set-cursor 'https://github.com/jonashaag/%'
 
 set --export EDITOR nvim
@@ -39,3 +41,10 @@ set --export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX YES
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish ; or true
 
 zoxide init fish | source
+
+set -U tide_transient_enabled true
+set -U tide_right_prompt_items status cmd_duration context jobs direnv node virtual_env rustc java php pulumi chruby go kubectl distrobox toolbox terraform aws nix_shell crystal elixir
+
+if test -e ~/.config/secrets.fish
+  source ~/.config/secrets.fish
+end

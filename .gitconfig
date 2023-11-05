@@ -30,3 +30,5 @@
 	inputMoveSelectionDown = Down
 [branch]
 	autosetupmerge = true
+[init]
+	defaultBranch = master

@@ -15,5 +15,7 @@
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
     }
-  }
+  },
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "suggest.removeCurrentWord": true
 }

@@ -4,8 +4,8 @@ return {
 		branch = "release",
 		config = function()
 			-- Some servers have issues with backup files, see #649
-			vim.opt.backup = false
-			vim.opt.writebackup = false
+			-- vim.opt.backup = false
+			-- vim.opt.writebackup = false
 
 			-- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 			-- delays and poor user experience
@@ -41,7 +41,7 @@ return {
 			-- Use <c-j> to trigger snippets
 			-- keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
 			-- Use <c-space> to trigger completion
-			keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
+			-- keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 
 			-- Use `[g` and `]g` to navigate diagnostics
 			-- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
@@ -161,7 +161,8 @@ return {
 			-- Add (Neo)Vim's native statusline support
 			-- NOTE: Please see `:h coc-status` for integrations with external plugins that
 			-- provide custom statusline: lightline.vim, vim-airline
-			vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
+			--vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
+			vim.opt.statusline:prepend("%t %h%w%m%r %{coc#status()}  %{get(b:,'coc_current_function','')} %=%-{&ft} %l %c %P")
 
 			-- Mappings for CoCList
 			-- code actions and coc stuff
