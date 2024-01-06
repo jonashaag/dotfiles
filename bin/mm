@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+import functools
+import itertools
+import operator
+import statistics
+import sys
+
+
+def on_groups(groups, func):
+    fmt = lambda n: "%f" % n
+    groups = {k: func(v) for k, v in groups.items()}
+    if groups.keys() == {None}:
+        print(fmt(list(groups.values())[0]))
+    else:
+        for k, v in groups.items():
+            print(k, fmt(v))
+
+
+if sys.argv[1] == "groupby":
+    op = sys.argv[2]
+    key = lambda line: line.split()[0]
+    lines = [l.split(maxsplit=1) for l in sys.stdin.read().splitlines()]
+    lines = [(k, float(v)) for k, v in lines]
+    groups = {
+        k: [vv[1] for vv in v]
+        for k, v in itertools.groupby(sorted(lines), key=lambda x: x[0])
+    }
+else:
+    op = sys.argv[1]
+    groups = {None: [float(x) for x in sys.stdin.read().split()]}
+
+myops = {
+    "max": max,
+    "min": min,
+    "sort": sorted,
+    "isort": lambda x: sorted(x, reverse=True),
+    "mean": statistics.mean,
+    "sum": sum,
+}
+
+op = {
+    "*": "mul",
+    "+": "add",
+    "/": "div",
+    "-": "sub",
+}.get(op, op)
+
+if op in myops:
+    func = myops[op]
+    on_groups(groups, func)
+elif getattr(statistics, op, None):
+    stats_op = getattr(statistics, op)
+    on_groups(groups, stats_op)
+else:
+    op = {
+        "*": "mul",
+        "+": "add",
+        "/": "div",
+        "-": "sub",
+    }.get(op, op)
+    op = getattr(operator, op)
+    on_groups(groups, lambda numbers: functools.reduce(op, numbers))
