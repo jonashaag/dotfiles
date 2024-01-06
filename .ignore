@@ -4,3 +4,4 @@
 .git/
 .cache/
 .pixi/
+.DS_Store

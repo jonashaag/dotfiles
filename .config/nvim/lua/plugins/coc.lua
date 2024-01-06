@@ -162,7 +162,9 @@ return {
 			-- NOTE: Please see `:h coc-status` for integrations with external plugins that
 			-- provide custom statusline: lightline.vim, vim-airline
 			--vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
-			vim.opt.statusline:prepend("%t %h%w%m%r %{coc#status()}  %{get(b:,'coc_current_function','')} %=%-{&ft} %l %c %P")
+			vim.opt.statusline:prepend(
+				"%t %h%w%m%r %{coc#status()}  %{get(b:,'coc_current_function','')} %=%-{&ft} %l %c %P"
+			)
 
 			-- Mappings for CoCList
 			-- code actions and coc stuff

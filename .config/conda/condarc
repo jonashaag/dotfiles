@@ -1,0 +1,5 @@
+channels: [conda-forge]
+local_repodata_ttl: 20000
+repodata_use_zst: true
+conda-build:
+  pkg_format: 2

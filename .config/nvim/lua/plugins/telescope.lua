@@ -26,6 +26,13 @@ return {
 						limit = 100,
 					},
 				},
+				pickers = {
+					live_grep = {
+						mappings = {
+							i = { ["<c-f>"] = "to_fuzzy_refine" },
+						},
+					},
+				},
 			})
 			require("telescope").load_extension("smart_history")
 		end,
