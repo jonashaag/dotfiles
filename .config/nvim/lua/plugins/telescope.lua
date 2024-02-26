@@ -37,14 +37,14 @@ return {
 			require("telescope").load_extension("smart_history")
 		end,
 	},
-	{
-		"nvim-telescope/telescope-frecency.nvim",
-		config = function()
-			local frecency = require("telescope").load_extension("frecency")
-			vim.keymap.set("n", "<leader>p", function()
-				frecency.frecency({ workspace = "CWD" })
-			end)
-		end,
-		dependencies = { "kkharji/sqlite.lua" },
-	},
+	-- {
+	-- 	"nvim-telescope/telescope-frecency.nvim",
+	-- 	config = function()
+	-- 		local frecency = require("telescope").load_extension("frecency")
+	-- 		vim.keymap.set("n", "<leader>p", function()
+	-- 			frecency.frecency({ workspace = "CWD" })
+	-- 		end)
+	-- 	end,
+	-- 	dependencies = { "kkharji/sqlite.lua" },
+	-- },
 }
