@@ -9,13 +9,13 @@
             "directory": "~/.cache/ccls"
           }
         }
-    },
-    "dockerfile": {
-      "command": "~/.config/coc/extensions/node_modules/.bin/docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
     }
   },
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "suggest.removeCurrentWord": true
+  "suggest.removeCurrentWord": true,
+  "python.formatting.provider": "ruff",
+  "python.linting.ruffEnabled": true,
+  "pyright.completion.snippetSupport": false,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.testing.provider": "pytest",
 }

@@ -1,7 +1,9 @@
 .ccls-cache/
 .env/
+.env3/
 .venv/
 .git/
 .cache/
 .pixi/
 .DS_Store
+*.pyc

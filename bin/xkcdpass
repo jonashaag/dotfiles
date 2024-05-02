@@ -1,0 +1,13 @@
+#!/bin/bash
+pwfile=~/.cache/xkcdpass-eff-long
+if ! test -e $pwfile; then
+  > $pwfile curl -L https://raw.githubusercontent.com/redacted/XKCD-password-generator/master/xkcdpass/static/eff-long
+fi
+for i in $(seq 10); do
+  cat $pwfile \
+    | grep -E '^.{3,5}$' \
+    | sort -R \
+    | head -n 5 \
+    | tr '\n' - \
+    | sed s/-$/\\n/
+done

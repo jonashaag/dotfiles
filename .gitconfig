@@ -5,6 +5,7 @@
 	email = jonas@lophus.org
 [push]
 	default = current
+	autoSetupRemote = true
 [pager]
 	diff = true
 	show = true
@@ -15,6 +16,10 @@
 	conflictstyle = diff3
 [diff]
 	colorMoved = default
+	algorithm = histogram
+	submodule = log
+	srcPrefix =
+	dstPrefix =
 [sequence]
 	editor = interactive-rebase-tool
 [delta]
@@ -30,6 +35,7 @@
 	inputMoveSelectionDown = Down
 [branch]
 	autosetupmerge = true
+	sort = -committerdate
 [init]
 	defaultBranch = master
 [filter "lfs"]
@@ -41,3 +47,14 @@
 	insteadOf = https://github.com/ 
  	insteadOf = git://github.com/ 
  	insteadOf = http://github.com/ 
+[rebase]
+	autosquash = true
+	autostash = true
+[commit]
+	verbose = true
+[status]
+	submoduleSummary = true
+[submodule]
+	recurse = true
+[tag]
+	sort = taggerdate

@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+import os
+import shutil
+import datetime
+import subprocess
+import time
+
+ROOT = "/Users/j/Downloads/"
+
+
+def _move(f):
+    shutil.move(ROOT + f, ROOT + "Alt/" + f)
+
+
+for f in os.listdir(ROOT):
+    if f in {"Alt", "Telegram Desktop"}:
+        continue
+    if (time.time() - os.stat(ROOT + f).st_ctime) / 86400 > 180:
+        _move(f)
+        continue
+    kMDItemLastUsedDate = (
+        subprocess.check_output(
+            ["mdls", "-n", "kMDItemLastUsedDate", ROOT + f],
+            text=True,
+        )
+        .split("=")[1]
+        .strip()
+    )
+    if kMDItemLastUsedDate == "(null)":
+        continue
+    last_used = datetime.datetime.fromisoformat(kMDItemLastUsedDate)
+    if datetime.datetime.now(tz=last_used.tzinfo) - last_used > datetime.timedelta(
+        days=30
+    ):
+        _move(f)
