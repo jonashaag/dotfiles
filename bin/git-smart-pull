@@ -2,24 +2,38 @@
 
 set -euo pipefail
 
-echo >&2 "[smart-pull] Attempting fast-forward pull"
+function log {
+  echo >&2 "$@"
+}
+
+set +e
+if [ "$(tput colors 2>/dev/null)" -ge 8 ]; then
+  function log {
+    printf >&2 "\033[90m"
+    echo   >&2 "$@"
+    printf >&2 "\033[0m"
+  }
+fi
+set -e
+
+log "[smart-pull] Attempting fast-forward pull"
 set +e
 git pull --ff-only "$@" 2>/dev/null
 res=$?
 set -e
 
 if [ $res -eq 0 ]; then
-  echo >&2 "[smart-pull] Fast-forward pull succeeded."
+  log "[smart-pull] Fast-forward pull succeeded."
   exit 0
 elif [ $res -ne 128 ]; then
-  echo >&2 "[smart-pull] git pull exited with unexpected status $res"
+  log "[smart-pull] git pull exited with unexpected status $res"
   exit 3
 fi
 
-echo >&2 "[smart-pull] Fast-forward pull failed."
-echo >&2 ["smart-pull] Checking if we can rebase without conflict."
+log "[smart-pull] Fast-forward pull failed."
+log ["smart-pull] Checking if we can rebase without conflict."
 if ! git diff --quiet --ignore-submodules || ! git diff --staged --quiet; then
-  echo >&2 "[smart-pull] Dirty working tree or index. Aborting."
+  log "[smart-pull] Dirty working tree or index. Aborting."
   exit 2
 fi
 upstream_branch="$(git rev-parse --abbrev-ref --symbolic-full-name @{u})"
@@ -27,16 +41,16 @@ git branch -D _git-smart-pull --quiet 2>/dev/null || true
 git checkout -b _git-smart-pull --quiet
 git branch --set-upstream-to "$upstream_branch" --quiet
 if git pull --rebase=true >/dev/null 2>/dev/null; then
-  echo >&2 "[smart-pull] Can rebase without conflict."
-  echo >&2 "[smart-pull] Will pull with rebase."
+  log "[smart-pull] Can rebase without conflict."
+  log "[smart-pull] Will pull with rebase."
   git checkout -
   git pull --rebase=true
 else
-  echo >&2 "[smart-pull] Cannot rebase without conflict. Conflicted files:"
+  log "[smart-pull] Cannot rebase without conflict. Conflicted files:"
   (
     IFS=$'\n'
     for f in $(git diff --name-only --diff-filter=U --relative); do
-      echo >&2 "[smart-pull] $f"
+      log "[smart-pull] $f"
     done
   )
   git rebase --abort
