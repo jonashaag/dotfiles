@@ -40,7 +40,10 @@ upstream_branch="$(git rev-parse --abbrev-ref --symbolic-full-name @{u})"
 git branch -D _git-smart-pull --quiet 2>/dev/null || true
 git checkout -b _git-smart-pull --quiet
 git branch --set-upstream-to "$upstream_branch" --quiet
-if git pull --rebase=true >/dev/null 2>/dev/null; then
+git pull --rebase=true >/dev/null 2>/dev/null
+rebase_ok=$?
+git branch -D _git-smart-pull --quiet 2>/dev/null || true
+if [ $rebase_ok -eq 0 ]; then
   log "[smart-pull] Can rebase without conflict."
   log "[smart-pull] Will pull with rebase."
   git checkout -
