@@ -1,12 +1,13 @@
 #!/bin/bash
-pwfile=~/.cache/xkcdpass-eff-long
+pwfile=~/.cache/xkcdpass-german
 if ! test -e $pwfile; then
-  > $pwfile curl -L https://raw.githubusercontent.com/redacted/XKCD-password-generator/master/xkcdpass/static/eff-long
+  > $pwfile curl -L https://korrektpferdbatteriestapel.de/wordlist-simple.txt
 fi
 for i in $(seq 10); do
   cat $pwfile \
     | sed -e 's/\r$//' \
     | grep -E '^.{3,5}$' \
+    | grep -iv '[äüöß]' \
     | sort -R \
     | head -n 5 \
     | tr '\n' - \

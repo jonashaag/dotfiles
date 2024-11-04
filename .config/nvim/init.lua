@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.wrap = false
 vim.opt.confirm = true
@@ -89,6 +88,10 @@ augroup open-tabs
     au!
     au VimEnter * ++nested if !&diff | tab all | tabfirst | endif
 augroup end
+]])
+
+vim.cmd([[
+command XMLFmt %!xmllint "%" --format
 ]])
 
 -- Plugins

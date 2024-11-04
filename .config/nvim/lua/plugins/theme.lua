@@ -18,9 +18,10 @@ return {
 			require("github-theme").setup({
 				groups = {
 					all = {
-						CocInlayHint = { fg = 'syntax.comment', bg = 'NONE' },
-					}
-				}
+						CocInlayHint = { fg = "syntax.comment", bg = "NONE" },
+						--CocInlayHint = { fg = '#7a7a7a', bg = '#f5f5f5' },
+					},
+				},
 			})
 
 			vim.cmd("colorscheme github_light_high_contrast")

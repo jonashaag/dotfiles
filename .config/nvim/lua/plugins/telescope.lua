@@ -1,11 +1,17 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-telescope/telescope-smart-history.nvim", "kkharji/sqlite.lua", "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-telescope/telescope-smart-history.nvim",
+			"kkharji/sqlite.lua",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-live-grep-args.nvim",
+		},
 		config = function()
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>f", builtin.find_files, {})
-			vim.keymap.set("n", "<leader>g", builtin.live_grep, {})
+			--vim.keymap.set("n", "<leader>g", builtin.live_grep, {})
+			vim.keymap.set("n", "<leader>g", require("telescope").extensions.live_grep_args.live_grep_args, {})
 			--vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 			--vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
@@ -35,6 +41,7 @@ return {
 				},
 			})
 			require("telescope").load_extension("smart_history")
+			require("telescope").load_extension("live_grep_args")
 		end,
 	},
 	-- {

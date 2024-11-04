@@ -16,6 +16,9 @@
   "python.formatting.provider": "ruff",
   "python.linting.ruffEnabled": true,
   "pyright.completion.snippetSupport": false,
-  "pyright.inlayHints.variableTypes": false,
+  "pyright.organizeimports.provider": "ruff",
   "pyright.testing.provider": "pytest",
+  "inlayHint.display": false,
+  "semanticTokens.enable": true,
+  "diagnostic.messageTarget": "echo"
 }
